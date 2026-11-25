@@ -20,7 +20,7 @@ def test_scans_non_square_and_order():
         tile(image[:, :, :-1], 2)
 
 
-@pytest.mark.parametrize("direction, displacement", enumerate([(0, 1), (0, -1), (1, 0), (-1, 0)]))
+@pytest.mark.parametrize("direction, displacement", list(enumerate([(0, 1), (0, -1), (1, 0), (-1, 0)])))
 def test_single_window_impulse_no_wrap(direction, displacement):
     for y, x in [(1, 2), (0, 0), (2, 4)]:
         bank = torch.zeros(2, 3, 5, 4, 1, 1, 1)
