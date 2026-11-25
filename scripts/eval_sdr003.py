@@ -296,7 +296,7 @@ def main():
     parser.add_argument("--config", type=Path, default=Path("configs/sdr003.json"))
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--device", choices=("cuda", "cpu"), default="cpu")
-    parser.add_argument("--phase", choices=("a", "b", "smoke"), required=True)
+    parser.add_argument("--phase", choices=("a", "a-validation", "b", "smoke"), required=True)
     args = parser.parse_args()
     output = args.output
     phase = args.phase
@@ -305,7 +305,10 @@ def main():
     config, datasets, env = setup(args.config, output, args.device, phase == "smoke")
     chosen = read_json(output / "a_selection.json")["selected"]
     formal = phase == "a" or (phase == "b" and read_json(output / "a_gate.json")["status"] == "PASS")
-    modes = {group: "sst" for group in dict.fromkeys(("A0", "A1", chosen))} if phase == "a" else B
+    if phase == "a-validation":
+        modes = dict.fromkeys(A, "sst")
+    else:
+        modes = {group: "sst" for group in dict.fromkeys(("A0", "A1", chosen))} if phase == "a" else B
     seeds = config["seeds"] if formal else [0]
     missing = [str(checkpoint(output, group, seed)) for group in modes for seed in seeds
                if not checkpoint(output, group, seed).is_file()]
@@ -314,10 +317,13 @@ def main():
     write_json(output / f"{phase}_evaluation_started.json", env)
     records = []
     for group, operator in modes.items():
-        protocol = A[group] if phase == "a" else A[chosen]
+        protocol = A[group] if phase in ("a", "a-validation") else A[chosen]
         for seed in seeds:
             for split in ("test", "ood") if formal else ("validation",):
                 records.extend(evaluate(group, seed, operator, protocol, config, datasets[split], split, env, output))
+    if phase == "a-validation":
+        print("Seed-0 validation-only mechanism diagnostics complete", flush=True)
+        return 0
     gate = stage_a_gate(config, records, chosen) if phase == "a" else stage_b_gate(config, records, formal)
     write_json(output / f"{phase}_gate.json", gate)
     print(gate, flush=True)
