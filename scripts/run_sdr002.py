@@ -240,6 +240,7 @@ def main():
         config.update(seeds=[0], steps=2, period=2)
         for spec in config["data"].values():
             spec["maps"] = 4
+            spec["seed"] += 100000
     output.mkdir(exist_ok=True, parents=True)
     if (output / "runs.csv").exists():
         parser.error("Use a new output directory for each attempt")
