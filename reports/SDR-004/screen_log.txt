@@ -1,0 +1,74 @@
+Data audit PASS: 2dce7c7b426802ad062ec9bbfc28efdae306e3f6bb5690a707cdcbeee5d48a98
+START screen L0 d=4 seed=0 steps=256
+screen L0-d4-s0 64/256 loss=0.84330 ID val IoU=0.33333
+screen L0-d4-s0 128/256 loss=0.74838 ID val IoU=0.33321
+screen L0-d4-s0 192/256 loss=0.68491 ID val IoU=0.32822
+screen L0-d4-s0 256/256 loss=0.60554 ID val IoU=0.48972
+PASS screen L0-d4-s0 updates=256
+START screen L0b d=4 seed=0 steps=256
+screen L0b-d4-s0 64/256 loss=0.84342 ID val IoU=0.33333
+screen L0b-d4-s0 128/256 loss=0.74801 ID val IoU=0.29016
+screen L0b-d4-s0 192/256 loss=0.70290 ID val IoU=0.41236
+screen L0b-d4-s0 256/256 loss=0.61437 ID val IoU=0.48410
+PASS screen L0b-d4-s0 updates=256
+START screen L1 d=1 seed=0 steps=256
+screen L1-d1-s0 64/256 loss=0.83490 ID val IoU=0.33333
+screen L1-d1-s0 128/256 loss=0.76223 ID val IoU=0.33333
+screen L1-d1-s0 192/256 loss=0.75586 ID val IoU=0.33333
+screen L1-d1-s0 256/256 loss=0.74799 ID val IoU=0.33333
+PASS screen L1-d1-s0 updates=256
+START screen L2 d=1 seed=0 steps=256
+screen L2-d1-s0 64/256 loss=0.83504 ID val IoU=0.33333
+screen L2-d1-s0 128/256 loss=0.76143 ID val IoU=0.31670
+screen L2-d1-s0 192/256 loss=0.75339 ID val IoU=0.28914
+screen L2-d1-s0 256/256 loss=0.75482 ID val IoU=0.29310
+PASS screen L2-d1-s0 updates=256
+START screen L3 d=1 seed=0 steps=256
+screen L3-d1-s0 64/256 loss=0.83498 ID val IoU=0.33333
+screen L3-d1-s0 128/256 loss=0.76145 ID val IoU=0.33245
+screen L3-d1-s0 192/256 loss=0.74431 ID val IoU=0.32539
+screen L3-d1-s0 256/256 loss=0.62381 ID val IoU=0.45409
+PASS screen L3-d1-s0 updates=256
+START screen L4 d=1 seed=0 steps=256
+screen L4-d1-s0 64/256 loss=0.83529 ID val IoU=0.33333
+screen L4-d1-s0 128/256 loss=0.76187 ID val IoU=0.33196
+screen L4-d1-s0 192/256 loss=0.74943 ID val IoU=0.21360
+screen L4-d1-s0 256/256 loss=0.66978 ID val IoU=0.41123
+PASS screen L4-d1-s0 updates=256
+START screen L5 d=1 seed=0 steps=256
+screen L5-d1-s0 64/256 loss=0.84213 ID val IoU=0.30237
+screen L5-d1-s0 128/256 loss=0.77014 ID val IoU=0.31070
+screen L5-d1-s0 192/256 loss=0.76666 ID val IoU=0.30659
+screen L5-d1-s0 256/256 loss=0.75493 ID val IoU=0.30846
+PASS screen L5-d1-s0 updates=256
+START screen L3 d=4 seed=0 steps=256
+screen L3-d4-s0 64/256 loss=0.83148 ID val IoU=0.33333
+screen L3-d4-s0 128/256 loss=0.75144 ID val IoU=0.20720
+screen L3-d4-s0 192/256 loss=0.69022 ID val IoU=0.45070
+screen L3-d4-s0 256/256 loss=0.56432 ID val IoU=0.51067
+PASS screen L3-d4-s0 updates=256
+START screen L4 d=4 seed=0 steps=256
+screen L4-d4-s0 64/256 loss=0.83320 ID val IoU=0.33333
+screen L4-d4-s0 128/256 loss=0.75471 ID val IoU=0.33385
+screen L4-d4-s0 192/256 loss=0.74358 ID val IoU=0.32829
+screen L4-d4-s0 256/256 loss=0.63252 ID val IoU=0.48445
+PASS screen L4-d4-s0 updates=256
+START screen L5 d=4 seed=0 steps=256
+screen L5-d4-s0 64/256 loss=0.84033 ID val IoU=0.26288
+screen L5-d4-s0 128/256 loss=0.76733 ID val IoU=0.33076
+screen L5-d4-s0 192/256 loss=0.76213 ID val IoU=0.32985
+screen L5-d4-s0 256/256 loss=0.75562 ID val IoU=0.19412
+PASS screen L5-d4-s0 updates=256
+START screen L6 d=4 seed=0 steps=256
+screen L6-d4-s0 64/256 loss=0.84054 ID val IoU=0.33301
+screen L6-d4-s0 128/256 loss=0.74083 ID val IoU=0.26161
+screen L6-d4-s0 192/256 loss=0.81789 ID val IoU=0.24179
+screen L6-d4-s0 256/256 loss=0.62867 ID val IoU=0.45539
+PASS screen L6-d4-s0 updates=256
+START screen L7 d=4 seed=0 steps=256
+screen L7-d4-s0 64/256 loss=0.84884 ID val IoU=0.33333
+screen L7-d4-s0 128/256 loss=0.74103 ID val IoU=0.22717
+screen L7-d4-s0 192/256 loss=0.66521 ID val IoU=0.47974
+screen L7-d4-s0 256/256 loss=0.49868 ID val IoU=0.77443
+PASS screen L7-d4-s0 updates=256
+{'status': 'CONTINUE', 'selected_dstate': 4, 'rule': 'Any positive L3-vs-L4 validation split; select balanced score with lower storage tie-break', 'candidates': {1: {'score': 0.4638156282936171, 'eligible': True, 'splits': {'validation': {'mean_iou': 0.4540906415538552, 'aligned_minus_unaligned': 0.04286195254738839, 'aligned_minus_feature': 0.1456269431984601, 'far_recall': 0.0, 'distractor_coverage': 0.04718196457326892}, 'u_validation': {'mean_iou': 0.28251061571125263, 'aligned_minus_unaligned': 0.07127217859955859, 'aligned_minus_feature': -0.026607885212473925, 'far_recall': 0.0, 'distractor_coverage': 0.1094129063561378}, 'branch_validation': {'mean_iou': 0.3995859213250518, 'aligned_minus_unaligned': 0.02636739400913729, 'aligned_minus_feature': 0.09612733601554574, 'far_recall': 0.0, 'distractor_coverage': 0.044181554804442295}}}, 4: {'score': 0.6524426695512284, 'eligible': True, 'splits': {'validation': {'mean_iou': 0.5106663155122465, 'aligned_minus_unaligned': 0.02621204206356692, 'aligned_minus_feature': 0.3165431935869706, 'far_recall': 0.0, 'distractor_coverage': 0.11143317230273753}, 'u_validation': {'mean_iou': 0.3234480469182251, 'aligned_minus_unaligned': 0.05748180916589363, 'aligned_minus_feature': 0.12779304496687865, 'far_recall': 0.0, 'distractor_coverage': 0.23079411289018276}, 'branch_validation': {'mean_iou': 0.49014778325123154, 'aligned_minus_unaligned': 0.009546360241431573, 'aligned_minus_feature': 0.31066389571753017, 'far_recall': 0.0, 'distractor_coverage': 0.08812168034765813}}}}}

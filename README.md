@@ -58,3 +58,25 @@ python -m scripts.summarize_sdr003 $sdrOut --distance-archive runs/sdr003-pilot/
 ```
 
 Use an available Python 3.9+ / PyTorch 2.5+ source environment. The CPU commands use the explicit recurrence's dense short-window formulation; the same implementation runs on CUDA. For the actual stage decisions, provenance, and official SSD status, see [the SDR-003 report](reports/SDR-003/REPORT.md).
+
+## SDR-004 line-aligned state transport
+
+The validation screen selects the line-state dimension and determines whether to start the formal pilot. Only the formal evaluation reads trained predictions on the three held-out splits.
+
+```powershell
+$env:PYTHONPATH = "src"
+$env:CUBLAS_WORKSPACE_CONFIG = ":4096:8"
+$sdrPython = "$env:USERPROFILE\.conda\envs\pytorch\python.exe"
+$sdrOutput = "runs/sdr004-repro"
+python -m scripts.train_sdr004 --phase audit --output runs/sdr004-audit
+python -m pytest -ra -s
+python -m scripts.train_sdr004 --phase smoke --output runs/sdr004-smoke
+python -m scripts.eval_sdr004 --phase smoke --output runs/sdr004-smoke
+& $sdrPython -m scripts.train_sdr004 --phase screen --device cuda --output $sdrOutput
+& $sdrPython -m scripts.train_sdr004 --phase pilot --device cuda --output $sdrOutput
+& $sdrPython -m scripts.eval_sdr004 --phase screen --device cuda --output $sdrOutput
+& $sdrPython -m scripts.eval_sdr004 --phase pilot --device cuda --output $sdrOutput
+python -m scripts.summarize_sdr004 $sdrOutput --distance-archive runs/sdr004-repro/distances.jsonl.gz
+```
+
+See the [SDR-004 report](reports/SDR-004/REPORT.md) for the actual sharded run, resource budgets, and stage decisions.

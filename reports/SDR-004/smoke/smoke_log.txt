@@ -1,0 +1,38 @@
+Data audit PASS: be77ad5082b8cf6bae8b48d4d99fd6025ea71425a21a7e2190b69cd28f6dda97
+START screen L0 d=4 seed=0 steps=2
+screen L0-d4-s0 2/2 loss=1.37454 ID val IoU=0.00000
+PASS screen L0-d4-s0 updates=2
+START screen L0b d=4 seed=0 steps=2
+screen L0b-d4-s0 2/2 loss=1.37424 ID val IoU=0.00000
+PASS screen L0b-d4-s0 updates=2
+START screen L1 d=1 seed=0 steps=2
+screen L1-d1-s0 2/2 loss=1.36219 ID val IoU=0.00000
+PASS screen L1-d1-s0 updates=2
+START screen L2 d=1 seed=0 steps=2
+screen L2-d1-s0 2/2 loss=1.36218 ID val IoU=0.00000
+PASS screen L2-d1-s0 updates=2
+START screen L3 d=1 seed=0 steps=2
+screen L3-d1-s0 2/2 loss=1.35968 ID val IoU=0.00000
+PASS screen L3-d1-s0 updates=2
+START screen L4 d=1 seed=0 steps=2
+screen L4-d1-s0 2/2 loss=1.35851 ID val IoU=0.00000
+PASS screen L4-d1-s0 updates=2
+START screen L5 d=1 seed=0 steps=2
+screen L5-d1-s0 2/2 loss=1.35862 ID val IoU=0.00000
+PASS screen L5-d1-s0 updates=2
+START screen L3 d=4 seed=0 steps=2
+screen L3-d4-s0 2/2 loss=1.36562 ID val IoU=0.00000
+PASS screen L3-d4-s0 updates=2
+START screen L4 d=4 seed=0 steps=2
+screen L4-d4-s0 2/2 loss=1.36461 ID val IoU=0.00000
+PASS screen L4-d4-s0 updates=2
+START screen L5 d=4 seed=0 steps=2
+screen L5-d4-s0 2/2 loss=1.33130 ID val IoU=0.00000
+PASS screen L5-d4-s0 updates=2
+START screen L6 d=4 seed=0 steps=2
+screen L6-d4-s0 2/2 loss=1.37099 ID val IoU=0.00000
+PASS screen L6-d4-s0 updates=2
+START screen L7 d=4 seed=0 steps=2
+screen L7-d4-s0 2/2 loss=1.37239 ID val IoU=0.00000
+PASS screen L7-d4-s0 updates=2
+{'status': 'STOP', 'selected_dstate': None, 'rule': 'Any positive L3-vs-L4 validation split; select balanced score with lower storage tie-break', 'candidates': {1: {'score': 0.0, 'eligible': False, 'splits': {'validation': {'mean_iou': 0.0, 'aligned_minus_unaligned': 0.0, 'aligned_minus_feature': 0.0, 'far_recall': 0.0, 'distractor_coverage': 0.0}, 'u_validation': {'mean_iou': 0.0, 'aligned_minus_unaligned': 0.0, 'aligned_minus_feature': 0.0, 'far_recall': 0.0, 'distractor_coverage': 0.0}, 'branch_validation': {'mean_iou': 0.0, 'aligned_minus_unaligned': 0.0, 'aligned_minus_feature': 0.0, 'far_recall': 0.0, 'distractor_coverage': 0.0}}}, 4: {'score': 0.0, 'eligible': False, 'splits': {'validation': {'mean_iou': 0.0, 'aligned_minus_unaligned': 0.0, 'aligned_minus_feature': 0.0, 'far_recall': 0.0, 'distractor_coverage': 0.0}, 'u_validation': {'mean_iou': 0.0, 'aligned_minus_unaligned': 0.0, 'aligned_minus_feature': 0.0, 'far_recall': 0.0, 'distractor_coverage': 0.0}, 'branch_validation': {'mean_iou': 0.0, 'aligned_minus_unaligned': 0.0, 'aligned_minus_feature': 0.0, 'far_recall': 0.0, 'distractor_coverage': 0.0}}}}}

@@ -1,0 +1,61 @@
+{
+  "status": "STOP",
+  "selected_dstate": null,
+  "rule": "Any positive L3-vs-L4 validation split; select balanced score with lower storage tie-break",
+  "candidates": {
+    "1": {
+      "score": 0.0,
+      "eligible": false,
+      "splits": {
+        "validation": {
+          "mean_iou": 0.0,
+          "aligned_minus_unaligned": 0.0,
+          "aligned_minus_feature": 0.0,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.0
+        },
+        "u_validation": {
+          "mean_iou": 0.0,
+          "aligned_minus_unaligned": 0.0,
+          "aligned_minus_feature": 0.0,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.0
+        },
+        "branch_validation": {
+          "mean_iou": 0.0,
+          "aligned_minus_unaligned": 0.0,
+          "aligned_minus_feature": 0.0,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.0
+        }
+      }
+    },
+    "4": {
+      "score": 0.0,
+      "eligible": false,
+      "splits": {
+        "validation": {
+          "mean_iou": 0.0,
+          "aligned_minus_unaligned": 0.0,
+          "aligned_minus_feature": 0.0,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.0
+        },
+        "u_validation": {
+          "mean_iou": 0.0,
+          "aligned_minus_unaligned": 0.0,
+          "aligned_minus_feature": 0.0,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.0
+        },
+        "branch_validation": {
+          "mean_iou": 0.0,
+          "aligned_minus_unaligned": 0.0,
+          "aligned_minus_feature": 0.0,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.0
+        }
+      }
+    }
+  }
+}
