@@ -2,7 +2,9 @@
 
 import argparse
 import csv
+import gzip
 import hashlib
+import io
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -27,12 +29,34 @@ def values(rows, key):
     return [float(r[key]) for r in rows if r[key] != ""]
 
 
-def summarize(root):
+def export_distances(path, datasets, manifest):
+    path.parent.mkdir(exist_ok=True, parents=True)
+    samples = 0
+    with path.open("wb") as binary, gzip.GzipFile(
+        fileobj=binary, mode="wb", filename="", mtime=0,
+    ) as compressed, io.TextIOWrapper(compressed, encoding="utf-8", newline="\n") as stream:
+        for split, partition in datasets.items():
+            for index, row in enumerate(manifest[split]["maps"]):
+                for slot, sample in enumerate(row["samples"]):
+                    item = index * 3 + slot
+                    payload = {key: partition[key][item].flatten().tolist()
+                               for key in ("grid", "window", "pixel")}
+                    stream.write(json.dumps({"split": split, "map": index, "seed_slot": slot,
+                                             "sample_sha256": sample["sample_sha256"], **payload},
+                                            separators=(",", ":")) + "\n")
+                    samples += 1
+    print(f"Exact row-major distance archive: {samples} samples; SHA-256="
+          f"{hashlib.sha256(path.read_bytes()).hexdigest()}; {path}")
+
+
+def summarize(root, distance_archive=None):
     torch.set_num_threads(2)
     config = read_json(root / "effective_config.json")
-    _, manifest, _ = build(config)
+    datasets, manifest, _ = build(config)
     if json.loads(json.dumps(manifest)) != read_json(root / "data_manifest.json"):
         raise ValueError("Manifest failed full regeneration")
+    if distance_archive is not None:
+        export_distances(distance_archive, datasets, manifest)
     audit = read_json(root / "data_audit.json")
     for split, entry in audit["splits"].items():
         print(split, manifest[split]["sha256"], entry["grid_target_histogram"],
@@ -88,4 +112,6 @@ def summarize(root):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("report", type=Path)
-    summarize(parser.parse_args().report)
+    parser.add_argument("--distance-archive", type=Path)
+    args = parser.parse_args()
+    summarize(args.report, args.distance_archive)

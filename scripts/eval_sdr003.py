@@ -42,8 +42,9 @@ def auc(score, label):
 
 
 class Diagnostics:
-    def __init__(self, model):
+    def __init__(self, model, compare_boundaries=False):
         self.model = model
+        self.compare_boundaries = compare_boundaries
         self.statistics = defaultdict(list)
         self.retention = defaultdict(list)
         self.edges = defaultdict(list)
@@ -68,12 +69,16 @@ class Diagnostics:
                 init_sq.sum().item(), output_sq.sum().item(), int((output_sq == 0).sum()),
             ]
             self.statistics[t].append((len(image), values))
-            if t > 1 and frame.edge is not None and model.mode != "strong_feature":
+            if t > 1 and (frame.edge is not None or self.compare_boundaries):
                 previous = frames[t - 2]
-                payload = previous.state if previous.sent is None else previous.sent
-                sources = torch.stack([upstream(p, d) for d, p in enumerate(payload.unbind(3))], dim=3)
-                channel_power = sources.square().mean((-1, -2, -3)) * (model.gate * model.mixing * frame.edge).square()
-                self.edges[t].append((frame.edge[legal].cpu(), hard[legal].cpu(), channel_power[legal].cpu()))
+                edge = frame.edge if frame.edge is not None else legal.to(image.dtype)
+                if model.strong is None:
+                    payload = previous.state if previous.sent is None else previous.sent
+                    sources = torch.stack([upstream(p, d) for d, p in enumerate(payload.unbind(3))], dim=3)
+                    channel_power = sources.square().mean((-1, -2, -3)) * (model.gate * model.mixing * edge).square()
+                else:
+                    channel_power = model.strong(frame.f_in, model.k).square().mean((-1, -2))
+                self.edges[t].append((edge[legal].cpu(), hard[legal].cpu(), channel_power[legal].cpu()))
             if t in (4, 8) and frame.initial is not None:
                 previous = frames[t - 2].state
                 for replacement in ("zero", "shuffled"):
@@ -117,13 +122,14 @@ class Diagnostics:
         for t, batches_at_t in self.edges.items():
             prob, label, leakage = (torch.cat(parts) for parts in zip(*batches_at_t))
             false_open, false_close = (prob >= .5) & ~label, (prob < .5) & label
+            explicit_gate = self.model.strong is None
             gate_rows.append({
-                **meta, "round": t, "edge_auroc": auc(prob, label),
+                **meta, "round": t, "edge_auroc": auc(prob, label) if explicit_gate else None,
                 "positive_edges": int(label.sum()), "negative_edges": int((~label).sum()),
-                "gate_mean_positive": prob[label].mean().item() if label.any() else None,
-                "gate_mean_negative": prob[~label].mean().item() if (~label).any() else None,
-                "false_open": ratio(int(false_open.sum()), int((~label).sum())),
-                "false_close": ratio(int(false_close.sum()), int(label.sum())),
+                "gate_mean_positive": prob[label].mean().item() if explicit_gate and label.any() else None,
+                "gate_mean_negative": prob[~label].mean().item() if explicit_gate and (~label).any() else None,
+                "false_open": ratio(int(false_open.sum()), int((~label).sum())) if explicit_gate else None,
+                "false_close": ratio(int(false_close.sum()), int(label.sum())) if explicit_gate else None,
                 "closed_edge_payload_rms": leakage[~label].mean().sqrt().item() if (~label).any() else None,
                 "open_edge_payload_rms": leakage[label].mean().sqrt().item() if label.any() else None,
             })
@@ -177,7 +183,7 @@ def evaluate(group, seed, operator, protocol, config, dataset, split, env, outpu
     model.eval()
     turns = config["test_T"] if split != "validation" else [4, 6, 8]
     traces = defaultdict(list)
-    diagnostics = Diagnostics(model)
+    diagnostics = Diagnostics(model, compare_boundaries=group.startswith("B"))
     latency = []
     for batch in batches(dataset, config["eval_batch_size"]):
         image = batch["image"]
