@@ -1,0 +1,21 @@
+START reset-s0
+reset-s0 validation 0.18s IoU@4=0.486816
+reset-s0 test 0.30s IoU@4=0.462891
+PASS reset-s0 1.47s
+START local-s0
+local-s0 validation 0.16s IoU@4=0.486816
+local-s0 test 0.33s IoU@4=0.462891
+PASS local-s0 1.00s
+START sst-s0
+sst-s0 validation 0.16s IoU@4=0.486816
+sst-s0 test 0.57s IoU@4=0.462891
+PASS sst-s0 1.23s
+START shuffled-s0
+shuffled-s0 validation 0.16s IoU@4=0.486816
+shuffled-s0 test 0.33s IoU@4=0.462891
+PASS shuffled-s0 1.07s
+START feature_neighbor-s0
+feature_neighbor-s0 validation 0.17s IoU@4=0.486816
+feature_neighbor-s0 test 0.36s IoU@4=0.462891
+PASS feature_neighbor-s0 1.05s
+Completed 5 attempted runs, failures=0

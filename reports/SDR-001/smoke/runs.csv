@@ -1,0 +1,6 @@
+run_id,seed,mode,status,total_wall_time_s,peak_cuda_allocated_bytes,error
+reset-s0,0,reset,PASS,1.4732318001333624,,
+local-s0,0,local,PASS,0.9950983999297023,,
+sst-s0,0,sst,PASS,1.2294328000862151,,
+shuffled-s0,0,shuffled,PASS,1.072244199924171,,
+feature_neighbor-s0,0,feature_neighbor,PASS,1.045656500151381,,

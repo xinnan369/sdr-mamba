@@ -1,0 +1,9 @@
+python= 3.9.21 (main, Dec 11 2024, 16:35:24) [MSC v.1929 64 bit (AMD64)]
+torch= 2.5.1
+pytest= 8.4.2
+cuda_build= 12.4
+cuda_available= True
+cuda_device= NVIDIA GeForce RTX 3090
+mamba_ssm= None
+triton= None
+cuda_tensor_check= 14

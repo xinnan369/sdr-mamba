@@ -1,0 +1,17 @@
+started_utc=2026-11-25T07:13:24.215181+00:00
+code_commit=ac937971ab314efaefc6f7f1c3f7badef8283677
+tracked_worktree_status=clean
+platform=Windows-11-10.0.26200-SP0
+processor=Intel64 Family 6 Model 151 Stepping 2, GenuineIntel
+logical_cpus=16
+python=3.13.2
+torch=2.11.0+cpu
+pytest=9.2.0
+cuda_build=None
+cuda_available=False
+mamba_ssm=absent
+mamba_upstream_commit=NOT_RUN / unavailable
+experiment_device=cpu
+torch_threads=2
+name, driver_version, memory.total [MiB]
+NVIDIA GeForce RTX 3090, 610.88, 24576 MiB

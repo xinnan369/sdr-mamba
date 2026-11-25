@@ -1,0 +1,61 @@
+START reset-s0
+reset-s0 validation 0.49s IoU@4=0.737016
+reset-s0 test 1.29s IoU@4=0.775952
+PASS reset-s0 14.18s
+START local-s0
+local-s0 validation 0.55s IoU@4=0.735186
+local-s0 test 1.56s IoU@4=0.773906
+PASS local-s0 11.50s
+START sst-s0
+sst-s0 validation 0.61s IoU@4=0.736328
+sst-s0 test 2.65s IoU@4=0.774573
+PASS sst-s0 12.60s
+START shuffled-s0
+shuffled-s0 validation 0.53s IoU@4=0.734024
+shuffled-s0 test 1.44s IoU@4=0.772443
+PASS shuffled-s0 11.85s
+START feature_neighbor-s0
+feature_neighbor-s0 validation 0.52s IoU@4=0.679989
+feature_neighbor-s0 test 1.31s IoU@4=0.712669
+PASS feature_neighbor-s0 11.16s
+START reset-s1
+reset-s1 validation 0.57s IoU@4=0.737454
+reset-s1 test 1.46s IoU@4=0.774142
+PASS reset-s1 11.20s
+START local-s1
+local-s1 validation 0.57s IoU@4=0.735337
+local-s1 test 1.49s IoU@4=0.773938
+PASS local-s1 11.40s
+START sst-s1
+sst-s1 validation 0.55s IoU@4=0.736262
+sst-s1 test 2.50s IoU@4=0.775579
+PASS sst-s1 12.59s
+START shuffled-s1
+shuffled-s1 validation 0.48s IoU@4=0.736807
+shuffled-s1 test 1.27s IoU@4=0.775667
+PASS shuffled-s1 10.08s
+START feature_neighbor-s1
+feature_neighbor-s1 validation 0.49s IoU@4=0.689388
+feature_neighbor-s1 test 1.23s IoU@4=0.726438
+PASS feature_neighbor-s1 9.60s
+START reset-s2
+reset-s2 validation 0.46s IoU@4=0.733010
+reset-s2 test 1.20s IoU@4=0.770945
+PASS reset-s2 9.54s
+START local-s2
+local-s2 validation 0.46s IoU@4=0.735762
+local-s2 test 1.23s IoU@4=0.775506
+PASS local-s2 9.51s
+START sst-s2
+sst-s2 validation 0.47s IoU@4=0.733141
+sst-s2 test 2.22s IoU@4=0.770578
+PASS sst-s2 10.58s
+START shuffled-s2
+shuffled-s2 validation 0.48s IoU@4=0.733482
+shuffled-s2 test 1.28s IoU@4=0.772435
+PASS shuffled-s2 9.73s
+START feature_neighbor-s2
+feature_neighbor-s2 validation 0.54s IoU@4=0.682920
+feature_neighbor-s2 test 1.39s IoU@4=0.720151
+PASS feature_neighbor-s2 11.06s
+Completed 15 attempted runs, failures=0

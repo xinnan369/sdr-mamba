@@ -1,0 +1,45 @@
+{
+  "size": 16,
+  "model": {
+    "k": 4,
+    "d_model": 32,
+    "d_state": 8,
+    "expand": 2,
+    "headdim": 16,
+    "groups": 1,
+    "gate": 0.5,
+    "mixing": 0.6,
+    "backend": "oracle"
+  },
+  "data": {
+    "train": {
+      "seed": 314159,
+      "count": 8
+    },
+    "validation": {
+      "seed": 271828,
+      "count": 8
+    },
+    "test": {
+      "seed": 161803,
+      "count": 8
+    }
+  },
+  "seeds": [
+    0
+  ],
+  "train_T": 4,
+  "test_T": [
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "steps": 2,
+  "batch_size": 4,
+  "eval_batch_size": 4,
+  "lr": 0.002,
+  "threads": 2,
+  "device": "cpu"
+}
