@@ -33,3 +33,28 @@ python -m scripts.summarize_sdr002 runs/sdr002-pilot
 The pilot defaults to CPU if `--device cuda` is omitted. For the full pilot, test metrics and the five-mode matrix run only after the validation gate passes. The fixed checkpoint rule is the last update. The short smoke exercises evaluation code and bypasses the learning gate.
 
 See [the SDR-002 report](reports/SDR-002/REPORT.md) and [the SDR-001 report](reports/SDR-001/REPORT.md) for the separate experiment records.
+
+## SDR-003 propagation and boundary diagnostics
+
+The staged scripts keep the existing SDR-002 data generator, draw fresh ID maps, and use a fixed nested-U OOD family. The validation screen selects the depth protocol. The held-out Stage A gate determines whether Stage B runs the full comparison or only a seed-0 validation diagnostic.
+
+```powershell
+$env:PYTHONPATH = "src"
+$env:PYTHONUTF8 = "1"
+$env:CUBLAS_WORKSPACE_CONFIG = ":4096:8"
+python -m scripts.train_sdr003 --phase audit --output runs/sdr003-audit
+python -m pytest -ra -s
+python -m scripts.train_sdr003 --phase smoke --output runs/sdr003-smoke
+python -m scripts.eval_sdr003 --phase smoke --output runs/sdr003-smoke
+$sdrPython = "$env:USERPROFILE\.conda\envs\pytorch\python.exe"
+$sdrOut = "runs/sdr003-pilot"
+& $sdrPython -m scripts.train_sdr003 --phase a-screen --device cuda --output $sdrOut
+& $sdrPython -m scripts.train_sdr003 --phase a-complete --device cuda --output $sdrOut
+python -m scripts.eval_sdr003 --phase a-validation --output $sdrOut
+& $sdrPython -m scripts.eval_sdr003 --phase a --device cuda --output $sdrOut
+& $sdrPython -m scripts.train_sdr003 --phase b --device cuda --output $sdrOut
+& $sdrPython -m scripts.eval_sdr003 --phase b --device cuda --output $sdrOut
+python -m scripts.summarize_sdr003 $sdrOut --distance-archive runs/sdr003-pilot/distances.jsonl.gz
+```
+
+Use an available Python 3.9+ / PyTorch 2.5+ source environment. The CPU commands use the explicit recurrence's dense short-window formulation; the same implementation runs on CUDA. For the actual stage decisions, provenance, and official SSD status, see [the SDR-003 report](reports/SDR-003/REPORT.md).

@@ -1,0 +1,35 @@
+Data audit: PASS 53ec51cf4c0739601656b7405f0690c464975d25d3d20155a6ac02be127fa091
+START A0-s0 T=4 steps=2 mode=sst
+A0-s0 2/2 loss=1.2198 val IoU T4/6/8=0.0086/0.0086/0.0069
+PASS A0-s0, updates=2
+START A1-s0 T=8 steps=2 mode=sst
+A1-s0 2/2 loss=1.3872 val IoU T4/6/8=0.0000/0.0000/0.0000
+PASS A1-s0, updates=2
+START A2-s0 T=8 steps=2 mode=sst
+A2-s0 2/2 loss=1.3332 val IoU T4/6/8=0.0000/0.0000/0.0000
+PASS A2-s0, updates=2
+START A3-s0 T=8 steps=2 mode=sst
+A3-s0 2/2 loss=1.3266 val IoU T4/6/8=0.0103/0.0103/0.0103
+PASS A3-s0, updates=2
+VALIDATION SELECTION {'selected': 'A3', 'details': {'A1': {'iou': [0.0, 0.0, 0.0], 'mean': 0.0, 'eligible': True}, 'A2': {'iou': [0.0, 0.0, 0.0], 'mean': 0.0, 'eligible': True}, 'A3': {'iou': [0.010309278350515464, 0.010309278350515464, 0.010309278350515464], 'mean': 0.010309278350515464, 'eligible': True}}, 'fallback': False}
+START B0-s0 T=8 steps=2 mode=sst
+B0-s0 2/2 loss=1.3266 val IoU T4/6/8=0.0103/0.0103/0.0103
+PASS B0-s0, updates=2
+START B1-s0 T=8 steps=2 mode=learned
+B1-s0 2/2 loss=1.3300 val IoU T4/6/8=0.0103/0.0103/0.0103
+PASS B1-s0, updates=2
+START B2-s0 T=8 steps=2 mode=hard
+B2-s0 2/2 loss=1.3313 val IoU T4/6/8=0.0103/0.0103/0.0103
+PASS B2-s0, updates=2
+START B3-s0 T=8 steps=2 mode=gated_feature
+B3-s0 2/2 loss=1.3122 val IoU T4/6/8=0.0077/0.0077/0.0077
+PASS B3-s0, updates=2
+START B4-s0 T=8 steps=2 mode=feature
+B4-s0 2/2 loss=1.3026 val IoU T4/6/8=0.0069/0.0077/0.0077
+PASS B4-s0, updates=2
+START B5-s0 T=8 steps=2 mode=strong_feature
+B5-s0 2/2 loss=1.3519 val IoU T4/6/8=0.0095/0.0086/0.0095
+PASS B5-s0, updates=2
+START B6-s0 T=8 steps=2 mode=local_gate
+B6-s0 2/2 loss=1.3300 val IoU T4/6/8=0.0103/0.0103/0.0103
+PASS B6-s0, updates=2

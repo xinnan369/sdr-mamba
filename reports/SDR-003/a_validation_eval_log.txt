@@ -1,0 +1,6 @@
+Data audit: PASS 36c6b052a27067ed61a9ad35b759a016efd19ec27574bb89abbd519494e0a8f1
+EVAL A0-s0 validation T8=0.30257
+EVAL A1-s0 validation T8=0.56763
+EVAL A2-s0 validation T8=0.53954
+EVAL A3-s0 validation T8=0.54018
+Seed-0 validation-only mechanism diagnostics complete

@@ -1,0 +1,19 @@
+{
+  "data": {"train": {"seed": 503021, "maps": 128}, "validation": {"seed": 503057, "maps": 24},
+           "test": {"seed": 503077, "maps": 36}, "ood": {"seed": 503087, "maps": 36}},
+  "ood_family": "nested-open-u-corridors",
+  "ood_area": [78, 89],
+  "seeds": [0, 1, 2],
+  "steps": 768,
+  "batch_size": 4,
+  "eval_batch_size": 12,
+  "period": 96,
+  "lr": 0.003,
+  "test_T": [1, 2, 4, 6, 8, 10, 12],
+  "threads": 2,
+  "a_screen": {"t8_tolerance": 0.02, "max_shallow_gap": 0.20, "mean_tie_band": 0.01},
+  "a_gate": {"t8_tolerance": 0.02, "extrapolation_gain": 0.05, "far_recall_gain": 0.05,
+             "max_distractor_increase": 0.03, "min_wins": 2},
+  "b_gate": {"id_gain": 0.02, "min_wins": 2, "max_distractor_increase": 0.03},
+  "bootstrap_seed": 3019
+}
