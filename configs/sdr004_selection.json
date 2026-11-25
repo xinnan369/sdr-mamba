@@ -1,0 +1,12 @@
+{
+  "training_family": "id only",
+  "screen": "seed 0, 256 updates, T=8, last checkpoint",
+  "selection_splits": ["validation", "u_validation", "branch_validation"],
+  "eligibility": "At least one validation split has strictly positive unrounded L3 minus L4 IoU at the same state dimension",
+  "stop": "If neither state dimension is eligible, stop before formal training or held-out model evaluation",
+  "ranking": "Equal split averages, weighted by configs/sdr004.json; when scores differ by at most 0.005 prefer dstate1",
+  "formal": "All nine named groups across seeds 0/1/2, with L1/L2 at selected capacity and an additional L3/L4/L5 triplet at the alternate capacity; 768 updates and last checkpoint",
+  "verification": "Capacity confirmation requires positive mean same-capacity L3 minus L4 and L3 minus L5 on fresh ID for the alternate capacity. Far recall and distractor margins apply against raster on each held-out family.",
+  "holdout": "No trained predictions on a test split until the fixed-capacity formal matrix has completed",
+  "bootstrap": "Pair maps across compared models and all seeds, resample map clusters within each split, recompute per-seed micro IoU and average the paired differences."
+}
