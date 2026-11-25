@@ -1,0 +1,5 @@
+Serial pilot process stopped to use independent GPU seed workers. Existing verified checkpoints: L0-d4-s0, L0b-d4-s0, L1-d4-s0, L2-d4-s0
+Started isolated seed 0 with PID 15148
+Started isolated seed 1 with PID 52080
+Started isolated seed 2 with PID 51728
+Joined 36 verified held-out pilot checkpoints.

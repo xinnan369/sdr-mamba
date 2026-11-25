@@ -1,0 +1,61 @@
+{
+  "status": "CONTINUE",
+  "selected_dstate": 4,
+  "rule": "Any positive L3-vs-L4 validation split; select balanced score with lower storage tie-break",
+  "candidates": {
+    "1": {
+      "score": 0.4638156282936171,
+      "eligible": true,
+      "splits": {
+        "validation": {
+          "mean_iou": 0.4540906415538552,
+          "aligned_minus_unaligned": 0.04286195254738839,
+          "aligned_minus_feature": 0.1456269431984601,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.04718196457326892
+        },
+        "u_validation": {
+          "mean_iou": 0.28251061571125263,
+          "aligned_minus_unaligned": 0.07127217859955859,
+          "aligned_minus_feature": -0.026607885212473925,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.1094129063561378
+        },
+        "branch_validation": {
+          "mean_iou": 0.3995859213250518,
+          "aligned_minus_unaligned": 0.02636739400913729,
+          "aligned_minus_feature": 0.09612733601554574,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.044181554804442295
+        }
+      }
+    },
+    "4": {
+      "score": 0.6524426695512284,
+      "eligible": true,
+      "splits": {
+        "validation": {
+          "mean_iou": 0.5106663155122465,
+          "aligned_minus_unaligned": 0.02621204206356692,
+          "aligned_minus_feature": 0.3165431935869706,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.11143317230273753
+        },
+        "u_validation": {
+          "mean_iou": 0.3234480469182251,
+          "aligned_minus_unaligned": 0.05748180916589363,
+          "aligned_minus_feature": 0.12779304496687865,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.23079411289018276
+        },
+        "branch_validation": {
+          "mean_iou": 0.49014778325123154,
+          "aligned_minus_unaligned": 0.009546360241431573,
+          "aligned_minus_feature": 0.31066389571753017,
+          "far_recall": 0.0,
+          "distractor_coverage": 0.08812168034765813
+        }
+      }
+    }
+  }
+}

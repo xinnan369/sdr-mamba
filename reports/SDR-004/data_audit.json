@@ -1,0 +1,848 @@
+{
+  "status": "PASS",
+  "config_sha256": "37e0b4b3a0f9c10463f37bc455b7020feddbe55c205a3c85a8cb20ebaacb67c2",
+  "splits": {
+    "train": {
+      "status": "PASS",
+      "count": 384,
+      "map_count": 128,
+      "component_area_counts_per_map": {
+        "84": 25,
+        "85": 19,
+        "86": 11,
+        "87": 26,
+        "88": 25,
+        "89": 22
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "21": 1,
+        "22": 3,
+        "23": 12,
+        "24": 26,
+        "25": 35,
+        "26": 42,
+        "27": 34,
+        "28": 35,
+        "29": 42,
+        "30": 36,
+        "31": 28,
+        "32": 37,
+        "33": 26,
+        "34": 11,
+        "35": 11,
+        "36": 5
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 2960,
+        "1-1": 6178,
+        "2-3": 10630,
+        "4-6": 10866,
+        "7+": 2609
+      },
+      "pixel_path_histogram": {
+        "0-0": 384,
+        "1-3": 4152,
+        "4-7": 6601,
+        "8-15": 9754,
+        "16-31": 11992,
+        "32+": 360
+      },
+      "random_baseline_seed": 604219,
+      "baselines": {
+        "all_walkable": {
+          "tp": 33243,
+          "fp": 66486,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 384,
+          "fp": 0,
+          "fn": 32859,
+          "iou": 0.011551304033931956,
+          "dice": 0.02283879025782853,
+          "precision": 1.0,
+          "recall": 0.011551304033931956
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 33243,
+          "fp": 66486,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 11015,
+          "fp": 22030,
+          "fn": 22228,
+          "iou": 0.19928355616666366,
+          "dice": 0.3323376780111031,
+          "precision": 0.3333333333333333,
+          "recall": 0.3313479529525013
+        },
+        "bfs_oracle": {
+          "tp": 33243,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "family": "id",
+      "component_area_mean": 86.5703125,
+      "eccentricity_rank_mean": 0.5501647954765917,
+      "eccentricity_range": [
+        21,
+        36
+      ],
+      "mean_absolute_eccentricity_rank_error": 0.014806515225772851,
+      "far_target_pixels": 12279,
+      "grid_t8_unreachable_target_pixels": 182,
+      "rejection_rate": 0.0
+    },
+    "validation": {
+      "status": "PASS",
+      "count": 72,
+      "map_count": 24,
+      "component_area_counts_per_map": {
+        "84": 6,
+        "85": 5,
+        "86": 2,
+        "87": 4,
+        "88": 2,
+        "89": 5
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "21": 1,
+        "22": 1,
+        "23": 3,
+        "24": 6,
+        "25": 8,
+        "26": 5,
+        "27": 8,
+        "28": 6,
+        "29": 3,
+        "30": 13,
+        "31": 4,
+        "32": 5,
+        "33": 2,
+        "34": 3,
+        "35": 3,
+        "36": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 602,
+        "1-1": 1231,
+        "2-3": 2020,
+        "4-6": 1971,
+        "7+": 386
+      },
+      "pixel_path_histogram": {
+        "0-0": 72,
+        "1-3": 825,
+        "4-7": 1310,
+        "8-15": 1828,
+        "16-31": 2112,
+        "32+": 63
+      },
+      "random_baseline_seed": 604220,
+      "baselines": {
+        "all_walkable": {
+          "tp": 6210,
+          "fp": 12420,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 72,
+          "fp": 0,
+          "fn": 6138,
+          "iou": 0.011594202898550725,
+          "dice": 0.022922636103151862,
+          "precision": 1.0,
+          "recall": 0.011594202898550725
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 6210,
+          "fp": 12420,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 2109,
+          "fp": 4218,
+          "fn": 4101,
+          "iou": 0.2022439585730725,
+          "dice": 0.336444125388849,
+          "precision": 0.3333333333333333,
+          "recall": 0.3396135265700483
+        },
+        "bfs_oracle": {
+          "tp": 6210,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "family": "id",
+      "component_area_mean": 86.25,
+      "eccentricity_rank_mean": 0.5525413631506348,
+      "eccentricity_range": [
+        21,
+        36
+      ],
+      "mean_absolute_eccentricity_rank_error": 0.015245593513811492,
+      "far_target_pixels": 2148,
+      "grid_t8_unreachable_target_pixels": 17,
+      "rejection_rate": 0.0
+    },
+    "test": {
+      "status": "PASS",
+      "count": 120,
+      "map_count": 40,
+      "component_area_counts_per_map": {
+        "84": 4,
+        "85": 6,
+        "86": 6,
+        "87": 10,
+        "88": 9,
+        "89": 5
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "21": 1,
+        "22": 2,
+        "23": 3,
+        "24": 7,
+        "25": 9,
+        "26": 18,
+        "27": 11,
+        "28": 6,
+        "29": 11,
+        "30": 16,
+        "31": 10,
+        "32": 11,
+        "33": 5,
+        "34": 5,
+        "35": 4,
+        "36": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 934,
+        "1-1": 1939,
+        "2-3": 3395,
+        "4-6": 3299,
+        "7+": 840
+      },
+      "pixel_path_histogram": {
+        "0-0": 120,
+        "1-3": 1302,
+        "4-7": 2081,
+        "8-15": 3057,
+        "16-31": 3739,
+        "32+": 108
+      },
+      "random_baseline_seed": 604221,
+      "baselines": {
+        "all_walkable": {
+          "tp": 10407,
+          "fp": 20814,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 120,
+          "fp": 0,
+          "fn": 10287,
+          "iou": 0.01153070049005477,
+          "dice": 0.022798518096323737,
+          "precision": 1.0,
+          "recall": 0.01153070049005477
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 10407,
+          "fp": 20814,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 3516,
+          "fp": 7032,
+          "fn": 6891,
+          "iou": 0.20161706519869257,
+          "dice": 0.3355762347888332,
+          "precision": 0.3333333333333333,
+          "recall": 0.33784952435860477
+        },
+        "bfs_oracle": {
+          "tp": 10407,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "family": "id",
+      "component_area_mean": 86.725,
+      "eccentricity_rank_mean": 0.54991451205071,
+      "eccentricity_range": [
+        21,
+        36
+      ],
+      "mean_absolute_eccentricity_rank_error": 0.01444400437631251,
+      "far_target_pixels": 3758,
+      "grid_t8_unreachable_target_pixels": 63,
+      "rejection_rate": 0.0
+    },
+    "u_validation": {
+      "status": "PASS",
+      "count": 72,
+      "map_count": 24,
+      "component_area_counts_per_map": {
+        "84": 4,
+        "85": 6,
+        "86": 7,
+        "87": 4,
+        "88": 2,
+        "89": 1
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "26": 2,
+        "27": 1,
+        "28": 2,
+        "29": 2,
+        "32": 2,
+        "33": 6,
+        "34": 3,
+        "35": 2,
+        "36": 1,
+        "37": 1,
+        "38": 3,
+        "39": 5,
+        "40": 3,
+        "41": 2,
+        "43": 1,
+        "46": 2,
+        "47": 2,
+        "48": 2,
+        "50": 1,
+        "51": 2,
+        "52": 1,
+        "53": 3,
+        "54": 3,
+        "55": 3,
+        "61": 2,
+        "62": 2,
+        "63": 4,
+        "68": 2,
+        "69": 1,
+        "70": 1,
+        "71": 3,
+        "73": 1,
+        "74": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 354,
+        "1-1": 732,
+        "2-3": 1506,
+        "4-6": 1541,
+        "7+": 2050
+      },
+      "pixel_path_histogram": {
+        "0-0": 72,
+        "1-3": 559,
+        "4-7": 826,
+        "8-15": 1361,
+        "16-31": 1937,
+        "32+": 1428
+      },
+      "random_baseline_seed": 604222,
+      "baselines": {
+        "all_walkable": {
+          "tp": 6183,
+          "fp": 12366,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 72,
+          "fp": 0,
+          "fn": 6111,
+          "iou": 0.011644832605531296,
+          "dice": 0.02302158273381295,
+          "precision": 1.0,
+          "recall": 0.011644832605531296
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 6183,
+          "fp": 12366,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 2073,
+          "fp": 4146,
+          "fn": 4110,
+          "iou": 0.200697066511763,
+          "dice": 0.33430091920657956,
+          "precision": 0.3333333333333333,
+          "recall": 0.33527413876758855
+        },
+        "bfs_oracle": {
+          "tp": 6183,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "family": "nested_u",
+      "component_area_mean": 85.875,
+      "eccentricity_rank_mean": 0.5498226095049987,
+      "eccentricity_range": [
+        26,
+        74
+      ],
+      "mean_absolute_eccentricity_rank_error": 0.0103592430107469,
+      "far_target_pixels": 2100,
+      "grid_t8_unreachable_target_pixels": 1002,
+      "rejection_rate": 0.04
+    },
+    "u_test": {
+      "status": "PASS",
+      "count": 120,
+      "map_count": 40,
+      "component_area_counts_per_map": {
+        "84": 8,
+        "85": 6,
+        "86": 10,
+        "87": 2,
+        "88": 6,
+        "89": 8
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "24": 1,
+        "25": 2,
+        "26": 1,
+        "27": 1,
+        "28": 3,
+        "29": 4,
+        "30": 4,
+        "31": 4,
+        "32": 2,
+        "33": 5,
+        "34": 3,
+        "35": 2,
+        "36": 3,
+        "37": 4,
+        "38": 6,
+        "39": 5,
+        "40": 3,
+        "41": 4,
+        "42": 1,
+        "44": 1,
+        "45": 2,
+        "47": 2,
+        "48": 3,
+        "50": 4,
+        "51": 3,
+        "52": 5,
+        "53": 7,
+        "54": 1,
+        "55": 2,
+        "56": 1,
+        "58": 1,
+        "60": 1,
+        "61": 2,
+        "62": 3,
+        "63": 3,
+        "64": 3,
+        "65": 2,
+        "66": 1,
+        "67": 2,
+        "69": 2,
+        "70": 4,
+        "71": 4,
+        "73": 3
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 616,
+        "1-1": 1329,
+        "2-3": 2601,
+        "4-6": 2441,
+        "7+": 3381
+      },
+      "pixel_path_histogram": {
+        "0-0": 120,
+        "1-3": 900,
+        "4-7": 1470,
+        "8-15": 2370,
+        "16-31": 3147,
+        "32+": 2361
+      },
+      "random_baseline_seed": 604223,
+      "baselines": {
+        "all_walkable": {
+          "tp": 10368,
+          "fp": 20736,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 120,
+          "fp": 0,
+          "fn": 10248,
+          "iou": 0.011574074074074073,
+          "dice": 0.02288329519450801,
+          "precision": 1.0,
+          "recall": 0.011574074074074073
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 10368,
+          "fp": 20736,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 3456,
+          "fp": 6912,
+          "fn": 6912,
+          "iou": 0.2,
+          "dice": 0.3333333333333333,
+          "precision": 0.3333333333333333,
+          "recall": 0.3333333333333333
+        },
+        "bfs_oracle": {
+          "tp": 10368,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "family": "nested_u",
+      "component_area_mean": 86.4,
+      "eccentricity_rank_mean": 0.5508319350758024,
+      "eccentricity_range": [
+        24,
+        73
+      ],
+      "mean_absolute_eccentricity_rank_error": 0.00971640915373057,
+      "far_target_pixels": 3497,
+      "grid_t8_unreachable_target_pixels": 1619,
+      "rejection_rate": 0.024390243902439025
+    },
+    "branch_validation": {
+      "status": "PASS",
+      "count": 72,
+      "map_count": 24,
+      "component_area_counts_per_map": {
+        "84": 4,
+        "85": 2,
+        "86": 7,
+        "87": 7,
+        "88": 2,
+        "89": 2
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "21": 3,
+        "23": 6,
+        "24": 4,
+        "25": 3,
+        "26": 6,
+        "27": 10,
+        "28": 6,
+        "29": 6,
+        "30": 10,
+        "31": 2,
+        "32": 5,
+        "33": 2,
+        "34": 1,
+        "35": 2,
+        "36": 1,
+        "37": 3,
+        "39": 1,
+        "43": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 499,
+        "1-1": 1073,
+        "2-3": 1982,
+        "4-6": 2094,
+        "7+": 565
+      },
+      "pixel_path_histogram": {
+        "0-0": 72,
+        "1-3": 727,
+        "4-7": 1190,
+        "8-15": 1844,
+        "16-31": 2263,
+        "32+": 117
+      },
+      "random_baseline_seed": 604224,
+      "baselines": {
+        "all_walkable": {
+          "tp": 6213,
+          "fp": 12426,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 72,
+          "fp": 0,
+          "fn": 6141,
+          "iou": 0.01158860453887011,
+          "dice": 0.022911694510739856,
+          "precision": 1.0,
+          "recall": 0.01158860453887011
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 6213,
+          "fp": 12426,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 2034,
+          "fp": 4068,
+          "fn": 4179,
+          "iou": 0.19784067697694777,
+          "dice": 0.33032886723507915,
+          "precision": 0.3333333333333333,
+          "recall": 0.3273780782230806
+        },
+        "bfs_oracle": {
+          "tp": 6213,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "family": "branch",
+      "component_area_mean": 86.29166666666667,
+      "eccentricity_rank_mean": 0.5479207955722368,
+      "eccentricity_range": [
+        21,
+        43
+      ],
+      "mean_absolute_eccentricity_rank_error": 0.015873236596777633,
+      "far_target_pixels": 2242,
+      "grid_t8_unreachable_target_pixels": 13,
+      "rejection_rate": 0.0
+    },
+    "branch_test": {
+      "status": "PASS",
+      "count": 120,
+      "map_count": 40,
+      "component_area_counts_per_map": {
+        "84": 10,
+        "85": 3,
+        "86": 5,
+        "87": 8,
+        "88": 7,
+        "89": 7
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 3,
+        "23": 6,
+        "24": 15,
+        "25": 9,
+        "26": 9,
+        "27": 13,
+        "28": 9,
+        "29": 15,
+        "30": 3,
+        "31": 7,
+        "32": 12,
+        "33": 2,
+        "34": 3,
+        "35": 4,
+        "36": 3,
+        "37": 2,
+        "38": 1,
+        "39": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 893,
+        "1-1": 1777,
+        "2-3": 3464,
+        "4-6": 3568,
+        "7+": 678
+      },
+      "pixel_path_histogram": {
+        "0-0": 120,
+        "1-3": 1197,
+        "4-7": 1942,
+        "8-15": 3184,
+        "16-31": 3790,
+        "32+": 147
+      },
+      "random_baseline_seed": 604225,
+      "baselines": {
+        "all_walkable": {
+          "tp": 10380,
+          "fp": 20760,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 120,
+          "fp": 0,
+          "fn": 10260,
+          "iou": 0.011560693641618497,
+          "dice": 0.022857142857142857,
+          "precision": 1.0,
+          "recall": 0.011560693641618497
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 10380,
+          "fp": 20760,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 3472,
+          "fp": 6944,
+          "fn": 6908,
+          "iou": 0.20041560840452552,
+          "dice": 0.333910367378342,
+          "precision": 0.3333333333333333,
+          "recall": 0.33448940269749516
+        },
+        "bfs_oracle": {
+          "tp": 10380,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "family": "branch",
+      "component_area_mean": 86.5,
+      "eccentricity_rank_mean": 0.54812516272582,
+      "eccentricity_range": [
+        19,
+        39
+      ],
+      "mean_absolute_eccentricity_rank_error": 0.016316727725837945,
+      "far_target_pixels": 3402,
+      "grid_t8_unreachable_target_pixels": 24,
+      "rejection_rate": 0.0
+    }
+  }
+}

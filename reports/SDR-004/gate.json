@@ -1,0 +1,58 @@
+{
+  "status": "FAIL",
+  "selected_dstate": 4,
+  "checks": {
+    "id_against_L4": true,
+    "id_against_L5": true,
+    "id_raster_noninferior": true,
+    "alternate_capacity_direction": true,
+    "test_far_recall_gain": false,
+    "test_distractor_margin": true,
+    "u_test_far_recall_gain": false,
+    "u_test_distractor_margin": true,
+    "u_test_ood_gain": false,
+    "u_test_above_occupancy_baseline": true,
+    "branch_test_far_recall_gain": false,
+    "branch_test_distractor_margin": true,
+    "branch_test_ood_gain": false,
+    "branch_test_above_occupancy_baseline": true
+  },
+  "far_and_distractor": {
+    "test": {
+      "far_recall_vs_raster": [
+        0.0015965939329430547,
+        -0.08834486428951568,
+        0.03352847259180415
+      ],
+      "distractor_coverage_vs_raster": [
+        -0.028058037859133272,
+        -0.09753050831171328,
+        -0.08835399250504467
+      ]
+    },
+    "u_test": {
+      "far_recall_vs_raster": [
+        0.0005719187875321705,
+        -0.014583929082070346,
+        0.12324849871318275
+      ],
+      "distractor_coverage_vs_raster": [
+        0.006269290123456783,
+        -0.051263503086419776,
+        -0.07344714506172839
+      ]
+    },
+    "branch_test": {
+      "far_recall_vs_raster": [
+        0.0,
+        -0.04908877131099354,
+        0.03174603174603175
+      ],
+      "distractor_coverage_vs_raster": [
+        -0.024373795761078995,
+        -0.08280346820809249,
+        -0.07384393063583815
+      ]
+    }
+  }
+}

@@ -1,0 +1,169 @@
+Data audit PASS: 2dce7c7b426802ad062ec9bbfc28efdae306e3f6bb5690a707cdcbeee5d48a98
+START pilot L0 d=4 seed=2 steps=768
+pilot L0-d4-s2 64/768 loss=0.89058 ID val IoU=0.31377
+pilot L0-d4-s2 128/768 loss=0.74090 ID val IoU=0.33990
+pilot L0-d4-s2 192/768 loss=0.65763 ID val IoU=0.38145
+pilot L0-d4-s2 256/768 loss=0.61106 ID val IoU=0.46048
+pilot L0-d4-s2 320/768 loss=0.55760 ID val IoU=0.45985
+pilot L0-d4-s2 384/768 loss=0.56395 ID val IoU=0.46080
+pilot L0-d4-s2 448/768 loss=0.54824 ID val IoU=0.46148
+pilot L0-d4-s2 512/768 loss=0.53096 ID val IoU=0.51785
+pilot L0-d4-s2 576/768 loss=0.51152 ID val IoU=0.53954
+pilot L0-d4-s2 640/768 loss=0.51542 ID val IoU=0.56284
+pilot L0-d4-s2 704/768 loss=0.50866 ID val IoU=0.57420
+pilot L0-d4-s2 768/768 loss=0.51870 ID val IoU=0.51120
+PASS pilot L0-d4-s2 updates=768
+START pilot L0b d=4 seed=2 steps=768
+pilot L0b-d4-s2 64/768 loss=0.89119 ID val IoU=0.30979
+pilot L0b-d4-s2 128/768 loss=0.73899 ID val IoU=0.34082
+pilot L0b-d4-s2 192/768 loss=0.65517 ID val IoU=0.37513
+pilot L0b-d4-s2 256/768 loss=0.62486 ID val IoU=0.46681
+pilot L0b-d4-s2 320/768 loss=0.55601 ID val IoU=0.45985
+pilot L0b-d4-s2 384/768 loss=0.55960 ID val IoU=0.46137
+pilot L0b-d4-s2 448/768 loss=0.51891 ID val IoU=0.52930
+pilot L0b-d4-s2 512/768 loss=0.51563 ID val IoU=0.52557
+pilot L0b-d4-s2 576/768 loss=0.50484 ID val IoU=0.54489
+pilot L0b-d4-s2 640/768 loss=0.49827 ID val IoU=0.56939
+pilot L0b-d4-s2 704/768 loss=0.52772 ID val IoU=0.50819
+pilot L0b-d4-s2 768/768 loss=0.49822 ID val IoU=0.55661
+PASS pilot L0b-d4-s2 updates=768
+START pilot L1 d=4 seed=2 steps=768
+pilot L1-d4-s2 64/768 loss=0.85590 ID val IoU=0.32891
+pilot L1-d4-s2 128/768 loss=0.76216 ID val IoU=0.32636
+pilot L1-d4-s2 192/768 loss=0.75879 ID val IoU=0.33131
+pilot L1-d4-s2 256/768 loss=0.75138 ID val IoU=0.30846
+pilot L1-d4-s2 320/768 loss=0.74157 ID val IoU=0.30953
+pilot L1-d4-s2 384/768 loss=0.74000 ID val IoU=0.31773
+pilot L1-d4-s2 448/768 loss=0.74082 ID val IoU=0.31483
+pilot L1-d4-s2 512/768 loss=0.74056 ID val IoU=0.30921
+pilot L1-d4-s2 576/768 loss=0.74079 ID val IoU=0.31964
+pilot L1-d4-s2 640/768 loss=0.73863 ID val IoU=0.27388
+pilot L1-d4-s2 704/768 loss=0.74097 ID val IoU=0.32218
+pilot L1-d4-s2 768/768 loss=0.74130 ID val IoU=0.32773
+PASS pilot L1-d4-s2 updates=768
+START pilot L2 d=4 seed=2 steps=768
+pilot L2-d4-s2 64/768 loss=0.85690 ID val IoU=0.23415
+pilot L2-d4-s2 128/768 loss=0.76059 ID val IoU=0.32844
+pilot L2-d4-s2 192/768 loss=0.75578 ID val IoU=0.33131
+pilot L2-d4-s2 256/768 loss=0.74721 ID val IoU=0.30395
+pilot L2-d4-s2 320/768 loss=0.74605 ID val IoU=0.27310
+pilot L2-d4-s2 384/768 loss=0.74035 ID val IoU=0.31174
+pilot L2-d4-s2 448/768 loss=0.74106 ID val IoU=0.31776
+pilot L2-d4-s2 512/768 loss=0.74056 ID val IoU=0.29794
+pilot L2-d4-s2 576/768 loss=0.74083 ID val IoU=0.31772
+pilot L2-d4-s2 640/768 loss=0.73857 ID val IoU=0.27356
+pilot L2-d4-s2 704/768 loss=0.74099 ID val IoU=0.32369
+pilot L2-d4-s2 768/768 loss=0.74121 ID val IoU=0.32671
+PASS pilot L2-d4-s2 updates=768
+START pilot L3 d=1 seed=2 steps=768
+pilot L3-d1-s2 64/768 loss=0.88713 ID val IoU=0.33333
+pilot L3-d1-s2 128/768 loss=0.76198 ID val IoU=0.33333
+pilot L3-d1-s2 192/768 loss=0.75732 ID val IoU=0.27036
+pilot L3-d1-s2 256/768 loss=0.75472 ID val IoU=0.29357
+pilot L3-d1-s2 320/768 loss=0.67537 ID val IoU=0.48260
+pilot L3-d1-s2 384/768 loss=0.55937 ID val IoU=0.50117
+pilot L3-d1-s2 448/768 loss=0.51827 ID val IoU=0.52243
+pilot L3-d1-s2 512/768 loss=0.51047 ID val IoU=0.54907
+pilot L3-d1-s2 576/768 loss=0.46771 ID val IoU=0.58662
+pilot L3-d1-s2 640/768 loss=0.45446 ID val IoU=0.58308
+pilot L3-d1-s2 704/768 loss=0.46331 ID val IoU=0.58709
+pilot L3-d1-s2 768/768 loss=0.44024 ID val IoU=0.62100
+PASS pilot L3-d1-s2 updates=768
+START pilot L4 d=1 seed=2 steps=768
+pilot L4-d1-s2 64/768 loss=0.88764 ID val IoU=0.33326
+pilot L4-d1-s2 128/768 loss=0.76244 ID val IoU=0.33333
+pilot L4-d1-s2 192/768 loss=0.76323 ID val IoU=0.27052
+pilot L4-d1-s2 256/768 loss=0.75591 ID val IoU=0.33228
+pilot L4-d1-s2 320/768 loss=0.74314 ID val IoU=0.32260
+pilot L4-d1-s2 384/768 loss=0.59691 ID val IoU=0.49033
+pilot L4-d1-s2 448/768 loss=0.55330 ID val IoU=0.49709
+pilot L4-d1-s2 512/768 loss=0.53710 ID val IoU=0.49575
+pilot L4-d1-s2 576/768 loss=0.53343 ID val IoU=0.49944
+pilot L4-d1-s2 640/768 loss=0.53903 ID val IoU=0.49616
+pilot L4-d1-s2 704/768 loss=0.54609 ID val IoU=0.50482
+pilot L4-d1-s2 768/768 loss=0.54291 ID val IoU=0.50281
+PASS pilot L4-d1-s2 updates=768
+START pilot L5 d=1 seed=2 steps=768
+pilot L5-d1-s2 64/768 loss=0.90337 ID val IoU=0.29632
+pilot L5-d1-s2 128/768 loss=0.76823 ID val IoU=0.31509
+pilot L5-d1-s2 192/768 loss=0.76554 ID val IoU=0.32448
+pilot L5-d1-s2 256/768 loss=0.76328 ID val IoU=0.30032
+pilot L5-d1-s2 320/768 loss=0.76209 ID val IoU=0.32437
+pilot L5-d1-s2 384/768 loss=0.76230 ID val IoU=0.32133
+pilot L5-d1-s2 448/768 loss=0.76714 ID val IoU=0.31299
+pilot L5-d1-s2 512/768 loss=0.75594 ID val IoU=0.31606
+pilot L5-d1-s2 576/768 loss=0.75168 ID val IoU=0.31790
+pilot L5-d1-s2 640/768 loss=0.72014 ID val IoU=0.38528
+pilot L5-d1-s2 704/768 loss=0.60113 ID val IoU=0.48675
+pilot L5-d1-s2 768/768 loss=0.54326 ID val IoU=0.52873
+PASS pilot L5-d1-s2 updates=768
+START pilot L3 d=4 seed=2 steps=768
+pilot L3-d4-s2 64/768 loss=0.86012 ID val IoU=0.32277
+pilot L3-d4-s2 128/768 loss=0.76176 ID val IoU=0.32386
+pilot L3-d4-s2 192/768 loss=0.75467 ID val IoU=0.33254
+pilot L3-d4-s2 256/768 loss=0.71857 ID val IoU=0.42208
+pilot L3-d4-s2 320/768 loss=0.55563 ID val IoU=0.53588
+pilot L3-d4-s2 384/768 loss=0.51017 ID val IoU=0.54916
+pilot L3-d4-s2 448/768 loss=0.47406 ID val IoU=0.57123
+pilot L3-d4-s2 512/768 loss=0.45754 ID val IoU=0.58773
+pilot L3-d4-s2 576/768 loss=0.44775 ID val IoU=0.59401
+pilot L3-d4-s2 640/768 loss=0.44494 ID val IoU=0.60754
+pilot L3-d4-s2 704/768 loss=0.46679 ID val IoU=0.57882
+pilot L3-d4-s2 768/768 loss=0.44402 ID val IoU=0.61045
+PASS pilot L3-d4-s2 updates=768
+START pilot L4 d=4 seed=2 steps=768
+pilot L4-d4-s2 64/768 loss=0.86215 ID val IoU=0.32241
+pilot L4-d4-s2 128/768 loss=0.75998 ID val IoU=0.21182
+pilot L4-d4-s2 192/768 loss=0.75621 ID val IoU=0.33335
+pilot L4-d4-s2 256/768 loss=0.75509 ID val IoU=0.21076
+pilot L4-d4-s2 320/768 loss=0.71560 ID val IoU=0.34501
+pilot L4-d4-s2 384/768 loss=0.59996 ID val IoU=0.45832
+pilot L4-d4-s2 448/768 loss=0.55384 ID val IoU=0.48633
+pilot L4-d4-s2 512/768 loss=0.53918 ID val IoU=0.50007
+pilot L4-d4-s2 576/768 loss=0.52678 ID val IoU=0.51133
+pilot L4-d4-s2 640/768 loss=0.52607 ID val IoU=0.52516
+pilot L4-d4-s2 704/768 loss=0.52298 ID val IoU=0.53981
+pilot L4-d4-s2 768/768 loss=0.51271 ID val IoU=0.54312
+PASS pilot L4-d4-s2 updates=768
+START pilot L5 d=4 seed=2 steps=768
+pilot L5-d4-s2 64/768 loss=0.87506 ID val IoU=0.31420
+pilot L5-d4-s2 128/768 loss=0.76618 ID val IoU=0.32580
+pilot L5-d4-s2 192/768 loss=0.76504 ID val IoU=0.32966
+pilot L5-d4-s2 256/768 loss=0.76181 ID val IoU=0.31971
+pilot L5-d4-s2 320/768 loss=0.75686 ID val IoU=0.30564
+pilot L5-d4-s2 384/768 loss=0.77494 ID val IoU=0.32855
+pilot L5-d4-s2 448/768 loss=0.76407 ID val IoU=0.32759
+pilot L5-d4-s2 512/768 loss=0.75894 ID val IoU=0.32239
+pilot L5-d4-s2 576/768 loss=0.75338 ID val IoU=0.31710
+pilot L5-d4-s2 640/768 loss=0.74722 ID val IoU=0.33328
+pilot L5-d4-s2 704/768 loss=0.74291 ID val IoU=0.30682
+pilot L5-d4-s2 768/768 loss=0.71888 ID val IoU=0.33244
+PASS pilot L5-d4-s2 updates=768
+START pilot L6 d=4 seed=2 steps=768
+pilot L6-d4-s2 64/768 loss=0.87005 ID val IoU=0.33118
+pilot L6-d4-s2 128/768 loss=0.76104 ID val IoU=0.33328
+pilot L6-d4-s2 192/768 loss=0.74923 ID val IoU=0.30952
+pilot L6-d4-s2 256/768 loss=0.73336 ID val IoU=0.26192
+pilot L6-d4-s2 320/768 loss=0.56126 ID val IoU=0.58853
+pilot L6-d4-s2 384/768 loss=0.45649 ID val IoU=0.70751
+pilot L6-d4-s2 448/768 loss=0.38106 ID val IoU=0.71528
+pilot L6-d4-s2 512/768 loss=0.35030 ID val IoU=0.73381
+pilot L6-d4-s2 576/768 loss=0.33386 ID val IoU=0.76405
+pilot L6-d4-s2 640/768 loss=0.30394 ID val IoU=0.78084
+pilot L6-d4-s2 704/768 loss=0.34819 ID val IoU=0.77449
+pilot L6-d4-s2 768/768 loss=0.27791 ID val IoU=0.80361
+PASS pilot L6-d4-s2 updates=768
+START pilot L7 d=4 seed=2 steps=768
+pilot L7-d4-s2 64/768 loss=0.89641 ID val IoU=0.33299
+pilot L7-d4-s2 128/768 loss=0.75676 ID val IoU=0.33124
+pilot L7-d4-s2 192/768 loss=0.72024 ID val IoU=0.33358
+pilot L7-d4-s2 256/768 loss=0.49131 ID val IoU=0.73445
+pilot L7-d4-s2 320/768 loss=0.18534 ID val IoU=0.88666
+pilot L7-d4-s2 384/768 loss=0.12529 ID val IoU=0.87506
+pilot L7-d4-s2 448/768 loss=0.08574 ID val IoU=0.93390
+pilot L7-d4-s2 512/768 loss=0.04544 ID val IoU=0.93796
+pilot L7-d4-s2 576/768 loss=0.03397 ID val IoU=0.95622
+pilot L7-d4-s2 640/768 loss=0.05155 ID val IoU=0.95286
+pilot L7-d4-s2 704/768 loss=0.04265 ID val IoU=0.94790
+pilot L7-d4-s2 768/768 loss=0.05255 ID val IoU=0.95872
+PASS pilot L7-d4-s2 updates=768

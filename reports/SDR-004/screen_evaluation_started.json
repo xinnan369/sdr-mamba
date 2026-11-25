@@ -1,0 +1,8 @@
+{
+  "code_commit": "58b69232c02494df2f92a790e1bb92e1a4b836dd",
+  "config_sha256": "37e0b4b3a0f9c10463f37bc455b7020feddbe55c205a3c85a8cb20ebaacb67c2",
+  "dataset_sha256": "2dce7c7b426802ad062ec9bbfc28efdae306e3f6bb5690a707cdcbeee5d48a98",
+  "device": "cuda",
+  "torch": "2.5.1",
+  "cuda_build": "12.4"
+}

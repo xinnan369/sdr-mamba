@@ -1,0 +1,8 @@
+{
+  "code_commit": "4599779b1b208fad797bd8484217502f6971cad8",
+  "config_sha256": "354bba5c45b908683f022fab3b0ce64ab6492698d482892ff99ab061cec22783",
+  "dataset_sha256": "be77ad5082b8cf6bae8b48d4d99fd6025ea71425a21a7e2190b69cd28f6dda97",
+  "device": "cpu",
+  "torch": "2.11.0+cpu",
+  "cuda_build": null
+}

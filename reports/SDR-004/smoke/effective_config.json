@@ -1,0 +1,89 @@
+{
+  "area": [
+    84,
+    89
+  ],
+  "data": {
+    "train": {
+      "family": "id",
+      "seed": 904019,
+      "maps": 4
+    },
+    "validation": {
+      "family": "id",
+      "seed": 904057,
+      "maps": 4
+    },
+    "test": {
+      "family": "id",
+      "seed": 904083,
+      "maps": 4
+    },
+    "u_validation": {
+      "family": "nested_u",
+      "seed": 904091,
+      "maps": 4
+    },
+    "u_test": {
+      "family": "nested_u",
+      "seed": 904093,
+      "maps": 4
+    },
+    "branch_validation": {
+      "family": "branch",
+      "seed": 904097,
+      "maps": 4
+    },
+    "branch_test": {
+      "family": "branch",
+      "seed": 904111,
+      "maps": 4
+    }
+  },
+  "root_percentiles": [
+    0.35,
+    0.55,
+    0.75
+  ],
+  "screen_updates": 2,
+  "updates": 768,
+  "period": 2,
+  "batch_size": 4,
+  "eval_batch_size": 12,
+  "lr": 0.003,
+  "train_T": 8,
+  "eval_T": [
+    4,
+    8,
+    12,
+    16
+  ],
+  "train_seeds": [
+    0,
+    1,
+    2
+  ],
+  "order_seed": 604151,
+  "bootstrap_seed": 604153,
+  "bootstrap_draws": 2000,
+  "selection": {
+    "stop_if_all_aligned_minus_unaligned_nonpositive": true,
+    "tie_margin": 0.005,
+    "score_weights": {
+      "mean_iou": 1.0,
+      "aligned_minus_unaligned": 1.0,
+      "aligned_minus_feature": 1.0,
+      "far_recall": 0.5,
+      "distractor_coverage": -0.5
+    }
+  },
+  "gate": {
+    "id_delta": 0.02,
+    "min_wins": 2,
+    "raster_tolerance": 0.02,
+    "ood_delta_each": 0.05,
+    "ood_iou_each": 0.3333333333333333,
+    "far_recall_gain": 0.05,
+    "max_distractor_increase": 0.03
+  }
+}
