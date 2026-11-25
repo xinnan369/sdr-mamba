@@ -1,0 +1,8 @@
+stage,mode,operator,seed,family,split,train_T,profile_depth,median_forward_ms_per_image,batches,device
+B,B0,sst,0,fresh_id,validation,8,8,50.13034166768193,1,cpu
+B,B1,learned,0,fresh_id,validation,8,8,52.379541661745556,1,cpu
+B,B2,hard,0,fresh_id,validation,8,8,50.46059166003639,1,cpu
+B,B3,gated_feature,0,fresh_id,validation,8,8,49.09810000875344,1,cpu
+B,B4,feature,0,fresh_id,validation,8,8,47.41530832446491,1,cpu
+B,B5,strong_feature,0,fresh_id,validation,8,8,48.58268333676582,1,cpu
+B,B6,local_gate,0,fresh_id,validation,8,8,54.40539168193936,1,cpu

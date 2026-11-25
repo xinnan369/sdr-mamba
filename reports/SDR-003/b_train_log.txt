@@ -1,0 +1,37 @@
+Data audit: PASS 36c6b052a27067ed61a9ad35b759a016efd19ec27574bb89abbd519494e0a8f1
+Stage B Scope: validation-only diagnostic
+START B0-s0 T=8 steps=256 mode=sst
+B0-s0 96/256 loss=0.8223 val IoU T4/6/8=0.3333/0.3333/0.3268
+B0-s0 192/256 loss=0.7098 val IoU T4/6/8=0.2800/0.2800/0.2885
+B0-s0 256/256 loss=0.5672 val IoU T4/6/8=0.3425/0.4070/0.4805
+PASS B0-s0, updates=256
+START B1-s0 T=8 steps=256 mode=learned
+B1-s0 96/256 loss=0.8214 val IoU T4/6/8=0.3333/0.3314/0.0985
+B1-s0 192/256 loss=0.7091 val IoU T4/6/8=0.2804/0.3420/0.4602
+B1-s0 256/256 loss=0.5372 val IoU T4/6/8=0.2804/0.4678/0.5324
+PASS B1-s0, updates=256
+START B2-s0 T=8 steps=256 mode=hard
+B2-s0 96/256 loss=0.8211 val IoU T4/6/8=0.3333/0.3227/0.1007
+B2-s0 192/256 loss=0.7831 val IoU T4/6/8=0.2746/0.3400/0.3379
+B2-s0 256/256 loss=0.6314 val IoU T4/6/8=0.2871/0.4178/0.4922
+PASS B2-s0, updates=256
+START B3-s0 T=8 steps=256 mode=gated_feature
+B3-s0 96/256 loss=0.8291 val IoU T4/6/8=0.3333/0.3299/0.3243
+B3-s0 192/256 loss=0.7581 val IoU T4/6/8=0.3333/0.3248/0.2625
+B3-s0 256/256 loss=0.7543 val IoU T4/6/8=0.3333/0.3304/0.2966
+PASS B3-s0, updates=256
+START B4-s0 T=8 steps=256 mode=feature
+B4-s0 96/256 loss=0.8339 val IoU T4/6/8=0.3333/0.3333/0.3222
+B4-s0 192/256 loss=0.7539 val IoU T4/6/8=0.3333/0.3333/0.2143
+B4-s0 256/256 loss=0.7378 val IoU T4/6/8=0.3264/0.3329/0.3327
+PASS B4-s0, updates=256
+START B5-s0 T=8 steps=256 mode=strong_feature
+B5-s0 96/256 loss=0.8175 val IoU T4/6/8=0.3333/0.3333/0.3165
+B5-s0 192/256 loss=0.8188 val IoU T4/6/8=0.0831/0.0913/0.0913
+B5-s0 256/256 loss=0.8119 val IoU T4/6/8=0.2606/0.2396/0.3441
+PASS B5-s0, updates=256
+START B6-s0 T=8 steps=256 mode=local_gate
+B6-s0 96/256 loss=0.8215 val IoU T4/6/8=0.3333/0.3308/0.0973
+B6-s0 192/256 loss=0.7088 val IoU T4/6/8=0.2800/0.2833/0.3250
+B6-s0 256/256 loss=0.5852 val IoU T4/6/8=0.2937/0.4537/0.5237
+PASS B6-s0, updates=256

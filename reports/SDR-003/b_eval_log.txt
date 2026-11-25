@@ -1,0 +1,9 @@
+Data audit: PASS 36c6b052a27067ed61a9ad35b759a016efd19ec27574bb89abbd519494e0a8f1
+EVAL B0-s0 validation T8=0.48051
+EVAL B1-s0 validation T8=0.53244
+EVAL B2-s0 validation T8=0.49222
+EVAL B3-s0 validation T8=0.29662
+EVAL B4-s0 validation T8=0.33266
+EVAL B5-s0 validation T8=0.34410
+EVAL B6-s0 validation T8=0.52369
+{'status': 'NOT_RUN', 'reason': 'Stage A gate failed; seed-0 validation diagnostic only', 'validation_t8': {'B0': 0.48050829205255224, 'B1': 0.5324432576769025, 'B2': 0.492216777169213, 'B3': 0.29661542703522437, 'B4': 0.3326579713815373, 'B5': 0.3441017395117673, 'B6': 0.5236883557494244}}

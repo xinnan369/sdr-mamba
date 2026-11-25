@@ -13,7 +13,7 @@ import traceback
 
 import torch
 
-from scripts.audit_dataset import append_rows, audit, digest_config, scores, write_json
+from scripts.audit_dataset import append_rows, audit, digest_config, measurements, scores, write_json
 from scripts.run_sdr002 import batches, objective
 from sdr_mamba.data_v3 import build
 from sdr_mamba.model_v3 import LoopV3
@@ -169,8 +169,6 @@ def fit(group, seed, mode, protocol, config, data, environment, output, steps=No
                 ])
             optimizer.step()
             updates = step
-            from scripts.audit_dataset import measurements
-
             with torch.no_grad():
                 totals += torch.stack((loss.detach(), (pred & y).sum(), (pred & ~y).sum(), (~pred & y).sum()))
             interval += 1
@@ -248,10 +246,12 @@ def main():
         selection = select(config, result)
         write_json(output / "a_selection.json", selection)
         print(f"VALIDATION SELECTION {selection}", flush=True)
+        failures = sum(value is None for value in result.values())
         if args.phase == "smoke":
             for group, mode in B.items():
-                fit(group, 0, mode, A[selection["selected"]], config, data, provenance, output)
-        return int(any(result[group] is None for group in A))
+                trained = fit(group, 0, mode, A[selection["selected"]], config, data, provenance, output)
+                failures += int(trained is None)
+        return int(failures > 0)
     selection = read_json(output / "a_selection.json")
     chosen = selection["selected"]
     failures = 0

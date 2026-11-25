@@ -10,9 +10,7 @@ from torch.nn import functional as F
 
 from .model_v2 import WindowSSM
 from .scan import inverse, scan, tile, untile
-from .state_transport import upstream
-
-OFFSETS = ((0, 1), (0, -1), (1, 0), (-1, 0))
+from .state_transport import shuffle_sources, upstream
 
 
 def dense_oracle(x, dt, a, b, c, d, initial=None, diagnose=False):
@@ -88,8 +86,6 @@ class EdgeGate(nn.Module):
 def transport(previous, gate, mixing, edge=None, variant="true"):
     if previous is None or gate == 0:
         return None
-    from .state_transport import shuffle_sources
-
     directions = previous.unbind(3)
     perpendicular = ((directions[2] + directions[3]) * .5, (directions[0] + directions[1]) * .5)
     result = []

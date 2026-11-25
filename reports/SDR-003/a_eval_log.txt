@@ -1,0 +1,14 @@
+Data audit: PASS 36c6b052a27067ed61a9ad35b759a016efd19ec27574bb89abbd519494e0a8f1
+EVAL A0-s0 test T8=0.33634
+EVAL A0-s0 ood T8=0.15428
+EVAL A0-s1 test T8=0.45658
+EVAL A0-s1 ood T8=0.23727
+EVAL A0-s2 test T8=0.46735
+EVAL A0-s2 ood T8=0.27574
+EVAL A1-s0 test T8=0.60346
+EVAL A1-s0 ood T8=0.32462
+EVAL A1-s1 test T8=0.56085
+EVAL A1-s1 ood T8=0.33640
+EVAL A1-s2 test T8=0.59993
+EVAL A1-s2 ood T8=0.28837
+{'status': 'FAIL', 'selected': 'A1', 'checks': {'t8_tolerance': True, 'extrapolation_gain': False, 'extrapolation_wins': False, 'far_recall': False, 'distractors': True}, 'id_paired_deltas': {'t8_iou': [0.0, 0.0, 0.0], 'mean_t10_t12': [0.0, 0.0, 0.0], 'far_recall': [0.0, 0.0, 0.0], 'distractor': [0.0, 0.0, 0.0]}, 'depth_only_A1_minus_A0': {'t8_iou': [0.2671190318249142, 0.10426984059938221, 0.13258047100251513], 't8_far_recall': [0.22694094226940942, 0.23888520238885202, 0.0]}}
