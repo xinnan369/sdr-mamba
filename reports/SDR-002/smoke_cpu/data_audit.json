@@ -1,0 +1,280 @@
+{
+  "status": "PASS",
+  "config_sha256": "4eb6d40ac621dabf6257194da8cc6bea288fe1e09816ca0e8e387e8c5397ab70",
+  "splits": {
+    "train": {
+      "status": "PASS",
+      "count": 12,
+      "map_count": 4,
+      "component_area_counts_per_map": {
+        "86": 1,
+        "89": 1,
+        "90": 1,
+        "100": 1
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "21": 1,
+        "22": 1,
+        "24": 2,
+        "25": 2,
+        "26": 1,
+        "27": 2,
+        "28": 1,
+        "29": 1,
+        "35": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 96,
+        "1-1": 218,
+        "2-3": 407,
+        "4-6": 342,
+        "7+": 32
+      },
+      "pixel_path_histogram": {
+        "0-0": 12,
+        "1-3": 117,
+        "4-7": 219,
+        "8-15": 395,
+        "16-31": 346,
+        "32+": 6
+      },
+      "random_baseline_seed": 39313,
+      "baselines": {
+        "all_walkable": {
+          "tp": 1095,
+          "fp": 2190,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 1083,
+          "iou": 0.010958904109589041,
+          "dice": 0.02168021680216802,
+          "precision": 1.0,
+          "recall": 0.010958904109589041
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 1095,
+          "fp": 2190,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 382,
+          "fp": 764,
+          "fn": 713,
+          "iou": 0.20548682087143624,
+          "dice": 0.34091923248549755,
+          "precision": 0.3333333333333333,
+          "recall": 0.34885844748858447
+        },
+        "bfs_oracle": {
+          "tp": 1095,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      }
+    },
+    "validation": {
+      "status": "PASS",
+      "count": 12,
+      "map_count": 4,
+      "component_area_counts_per_map": {
+        "91": 1,
+        "92": 1,
+        "98": 1,
+        "99": 1
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "20": 2,
+        "23": 3,
+        "25": 1,
+        "26": 1,
+        "27": 2,
+        "29": 1,
+        "30": 2
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 83,
+        "1-1": 186,
+        "2-3": 435,
+        "4-6": 384,
+        "7+": 52
+      },
+      "pixel_path_histogram": {
+        "0-0": 12,
+        "1-3": 121,
+        "4-7": 236,
+        "8-15": 449,
+        "16-31": 322
+      },
+      "random_baseline_seed": 39314,
+      "baselines": {
+        "all_walkable": {
+          "tp": 1140,
+          "fp": 2280,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 1128,
+          "iou": 0.010526315789473684,
+          "dice": 0.020833333333333332,
+          "precision": 1.0,
+          "recall": 0.010526315789473684
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 1140,
+          "fp": 2280,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 392,
+          "fp": 784,
+          "fn": 748,
+          "iou": 0.20374220374220375,
+          "dice": 0.3385146804835924,
+          "precision": 0.3333333333333333,
+          "recall": 0.34385964912280703
+        },
+        "bfs_oracle": {
+          "tp": 1140,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      }
+    },
+    "test": {
+      "status": "PASS",
+      "count": 12,
+      "map_count": 4,
+      "component_area_counts_per_map": {
+        "81": 1,
+        "84": 1,
+        "103": 1,
+        "107": 1
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "19": 1,
+        "20": 1,
+        "23": 2,
+        "25": 1,
+        "26": 1,
+        "28": 4,
+        "30": 1,
+        "31": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 100,
+        "1-1": 228,
+        "2-3": 432,
+        "4-6": 316,
+        "7+": 49
+      },
+      "pixel_path_histogram": {
+        "0-0": 12,
+        "1-3": 135,
+        "4-7": 238,
+        "8-15": 386,
+        "16-31": 354
+      },
+      "random_baseline_seed": 39315,
+      "baselines": {
+        "all_walkable": {
+          "tp": 1125,
+          "fp": 2250,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 1113,
+          "iou": 0.010666666666666666,
+          "dice": 0.021108179419525065,
+          "precision": 1.0,
+          "recall": 0.010666666666666666
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 1125,
+          "fp": 2250,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 390,
+          "fp": 780,
+          "fn": 735,
+          "iou": 0.2047244094488189,
+          "dice": 0.33986928104575165,
+          "precision": 0.3333333333333333,
+          "recall": 0.3466666666666667
+        },
+        "bfs_oracle": {
+          "tp": 1125,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      }
+    }
+  }
+}

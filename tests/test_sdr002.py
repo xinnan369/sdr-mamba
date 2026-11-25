@@ -7,6 +7,7 @@ from scripts.audit_dataset import audit
 from scripts.sdr002_diagnostics import gradients
 from sdr_mamba.data_v2 import generate, pixel_bfs, window_graph_distances
 from sdr_mamba.model_v2 import WindowSSM, raw_readout_gradient, zero_neighbor
+from sdr_mamba.scan import tile
 from sdr_mamba.state_transport import initial_states
 
 
@@ -92,3 +93,22 @@ def test_current_final_readout_and_future_transport_are_distinct():
     neighbor_zero = zero_neighbor(trace[0].state, .5, .6)
     d = trace[0].state.unbind(3)
     torch.testing.assert_close(neighbor_zero[:, :, :, 0], .2 * (d[2] + d[3]) / 2)
+
+
+def test_oracle_state_impulse_only_changes_the_correct_next_window():
+    model = small_model()
+    model.mixing = 1
+    features = model.encoder(torch.randn(2, 6, 8, 2))
+    empty = model.step(features)
+    pulse = torch.zeros_like(empty.state)
+    pulse[0, 1, 1, 0] = 4
+    changed = model.step(features, pulse)
+    assert (changed.state[0, 1, 1, 0] - empty.state[0, 1, 1, 0]).abs().max() > 0
+
+    def next_logits(frame):
+        return model.step(features, initial_states(frame.state, "sst", .5, 1)).logits
+
+    effect = tile((next_logits(changed) - next_logits(empty)).unsqueeze(-1), 2).abs().amax((3, 4, 5))
+    expected = torch.zeros_like(effect, dtype=torch.bool)
+    expected[0, 1, 2] = True
+    torch.testing.assert_close(effect > 0, expected)

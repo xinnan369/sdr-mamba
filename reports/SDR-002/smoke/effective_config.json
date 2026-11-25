@@ -1,0 +1,58 @@
+{
+  "size": 32,
+  "area_range": [
+    78,
+    108
+  ],
+  "model": {
+    "k": 4,
+    "d_model": 16,
+    "d_state": 4,
+    "expand": 1,
+    "headdim": 8,
+    "groups": 1,
+    "gate": 0.5,
+    "mixing": 0.6
+  },
+  "data": {
+    "train": {
+      "seed": 8237,
+      "maps": 4
+    },
+    "validation": {
+      "seed": 19427,
+      "maps": 4
+    },
+    "test": {
+      "seed": 31247,
+      "maps": 4
+    }
+  },
+  "seeds": [
+    0
+  ],
+  "train_T": 4,
+  "test_T": [
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "steps": 2,
+  "batch_size": 4,
+  "eval_batch_size": 12,
+  "period": 2,
+  "lr": 0.003,
+  "threads": 2,
+  "validation_gate": {
+    "seed_iou_margin": 0.02,
+    "min_prediction_flip": 0.02,
+    "loss_decrease": 0.02,
+    "all_walkable_max": 0.55
+  },
+  "baselines": {
+    "random_seed": 39313,
+    "random_positive_probability": 0.3333333333333333
+  }
+}

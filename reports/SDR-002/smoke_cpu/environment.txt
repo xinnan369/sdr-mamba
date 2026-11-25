@@ -1,0 +1,15 @@
+{
+  "code_commit": "cfca4092486e9ac3765352f90e0322805c57ace6",
+  "config_sha256": "4eb6d40ac621dabf6257194da8cc6bea288fe1e09816ca0e8e387e8c5397ab70",
+  "dataset_sha256": "b3200db993ce4262499a435b55249257ebed16b817a1068d4291b245faa5f410",
+  "device": "cpu",
+  "torch": "2.11.0+cpu",
+  "cuda_build": null,
+  "tracked_dirty": "M README.md",
+  "python": "3.13.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "pytest": "9.2.0",
+  "gpu": null,
+  "cublas_workspace_config": null,
+  "official_ssd_parity": "NOT_RUN"
+}

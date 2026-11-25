@@ -1,0 +1,12 @@
+============================= test session starts =============================
+platform win32 -- Python 3.9.21, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\xinnan\Documents\ChatGPT\sdr-mamba
+configfile: pyproject.toml
+plugins: anyio-4.8.0
+collected 4 items / 3 deselected / 1 selected
+
+tests\test_ssm.py s
+
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_ssm.py:52: NOT_RUN: official SSD import failed: No module named 'mamba_ssm'
+====================== 1 skipped, 3 deselected in 2.85s =======================

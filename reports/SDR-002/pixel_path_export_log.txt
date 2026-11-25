@@ -1,0 +1,364 @@
+{
+  "status": "PASS",
+  "config_sha256": "a88995a50de0cd44a9a4a0f5b99a8007667e30181c9411aadd623ef38461bb2d",
+  "splits": {
+    "train": {
+      "status": "PASS",
+      "count": 384,
+      "map_count": 128,
+      "component_area_counts_per_map": {
+        "78": 6,
+        "79": 5,
+        "80": 5,
+        "81": 4,
+        "82": 1,
+        "83": 3,
+        "84": 4,
+        "85": 3,
+        "86": 2,
+        "87": 3,
+        "88": 5,
+        "89": 4,
+        "90": 4,
+        "91": 3,
+        "92": 2,
+        "93": 2,
+        "94": 5,
+        "95": 6,
+        "96": 7,
+        "97": 1,
+        "98": 4,
+        "99": 3,
+        "100": 4,
+        "101": 9,
+        "102": 7,
+        "103": 5,
+        "104": 2,
+        "105": 5,
+        "106": 2,
+        "107": 7,
+        "108": 5
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "17": 2,
+        "18": 11,
+        "19": 9,
+        "20": 11,
+        "21": 24,
+        "22": 29,
+        "23": 29,
+        "24": 38,
+        "25": 55,
+        "26": 45,
+        "27": 25,
+        "28": 36,
+        "29": 28,
+        "30": 24,
+        "31": 14,
+        "32": 2,
+        "33": 1,
+        "35": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 3123,
+        "1-1": 7157,
+        "2-3": 13575,
+        "4-6": 10870,
+        "7+": 1308
+      },
+      "pixel_path_histogram": {
+        "0-0": 384,
+        "1-3": 4286,
+        "4-7": 7978,
+        "8-15": 13057,
+        "16-31": 10316,
+        "32+": 12
+      },
+      "random_baseline_seed": 39313,
+      "baselines": {
+        "all_walkable": {
+          "tp": 36033,
+          "fp": 72066,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 384,
+          "fp": 0,
+          "fn": 35649,
+          "iou": 0.010656897843643327,
+          "dice": 0.021089051816459346,
+          "precision": 1.0,
+          "recall": 0.010656897843643327
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 36033,
+          "fp": 72066,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 11983,
+          "fp": 23966,
+          "fn": 24050,
+          "iou": 0.19971999533325555,
+          "dice": 0.3329443471979106,
+          "precision": 0.3333333333333333,
+          "recall": 0.3325562678655677
+        },
+        "bfs_oracle": {
+          "tp": 36033,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      }
+    },
+    "validation": {
+      "status": "PASS",
+      "count": 72,
+      "map_count": 24,
+      "component_area_counts_per_map": {
+        "80": 1,
+        "81": 1,
+        "82": 1,
+        "84": 1,
+        "88": 1,
+        "93": 2,
+        "95": 1,
+        "96": 3,
+        "98": 2,
+        "99": 1,
+        "100": 1,
+        "101": 1,
+        "102": 2,
+        "103": 1,
+        "104": 3,
+        "105": 1,
+        "107": 1
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "20": 4,
+        "21": 4,
+        "22": 6,
+        "23": 7,
+        "24": 5,
+        "25": 6,
+        "26": 9,
+        "27": 9,
+        "28": 7,
+        "29": 6,
+        "30": 5,
+        "31": 2,
+        "32": 2
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 583,
+        "1-1": 1321,
+        "2-3": 2564,
+        "4-6": 2181,
+        "7+": 284
+      },
+      "pixel_path_histogram": {
+        "0-0": 72,
+        "1-3": 801,
+        "4-7": 1497,
+        "8-15": 2491,
+        "16-31": 2070,
+        "32+": 2
+      },
+      "random_baseline_seed": 39314,
+      "baselines": {
+        "all_walkable": {
+          "tp": 6933,
+          "fp": 13866,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 72,
+          "fp": 0,
+          "fn": 6861,
+          "iou": 0.01038511466897447,
+          "dice": 0.020556745182012847,
+          "precision": 1.0,
+          "recall": 0.01038511466897447
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 6933,
+          "fp": 13866,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 2308,
+          "fp": 4616,
+          "fn": 4625,
+          "iou": 0.19984414234998701,
+          "dice": 0.3331168362560439,
+          "precision": 0.3333333333333333,
+          "recall": 0.3329006202221261
+        },
+        "bfs_oracle": {
+          "tp": 6933,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      }
+    },
+    "test": {
+      "status": "PASS",
+      "count": 120,
+      "map_count": 40,
+      "component_area_counts_per_map": {
+        "78": 2,
+        "80": 1,
+        "82": 1,
+        "83": 4,
+        "84": 2,
+        "85": 1,
+        "87": 1,
+        "88": 4,
+        "90": 1,
+        "91": 1,
+        "92": 1,
+        "93": 2,
+        "96": 1,
+        "99": 3,
+        "100": 4,
+        "101": 1,
+        "102": 1,
+        "103": 4,
+        "104": 1,
+        "105": 1,
+        "106": 1,
+        "108": 2
+      },
+      "target_ratio_range": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "max_path_length_histogram": {
+        "17": 1,
+        "18": 2,
+        "19": 4,
+        "20": 6,
+        "21": 13,
+        "22": 11,
+        "23": 6,
+        "24": 16,
+        "25": 10,
+        "26": 14,
+        "27": 15,
+        "28": 11,
+        "29": 4,
+        "30": 4,
+        "31": 2,
+        "32": 1
+      },
+      "paired_gt_disjoint_and_exhaustive": true,
+      "paired_gt_iou": 0.0,
+      "distinct_map_and_sample_hashes": true,
+      "required_distance_coverage": true,
+      "window_graph_target_pixel_histogram": {
+        "0-0": 934,
+        "1-1": 2247,
+        "2-3": 4363,
+        "4-6": 3342,
+        "7+": 334
+      },
+      "pixel_path_histogram": {
+        "0-0": 120,
+        "1-3": 1296,
+        "4-7": 2515,
+        "8-15": 4252,
+        "16-31": 3036,
+        "32+": 1
+      },
+      "random_baseline_seed": 39315,
+      "baselines": {
+        "all_walkable": {
+          "tp": 11220,
+          "fp": 22440,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "seed_only": {
+          "tp": 120,
+          "fp": 0,
+          "fn": 11100,
+          "iou": 0.0106951871657754,
+          "dice": 0.021164021164021163,
+          "precision": 1.0,
+          "recall": 0.0106951871657754
+        },
+        "occupancy_only_micro_iou_ceiling": {
+          "tp": 11220,
+          "fp": 22440,
+          "fn": 0,
+          "iou": 0.3333333333333333,
+          "dice": 0.5,
+          "precision": 0.3333333333333333,
+          "recall": 1.0
+        },
+        "random_walkable": {
+          "tp": 3854,
+          "fp": 7708,
+          "fn": 7366,
+          "iou": 0.2036136939983094,
+          "dice": 0.3383372838205601,
+          "precision": 0.3333333333333333,
+          "recall": 0.34349376114082
+        },
+        "bfs_oracle": {
+          "tp": 11220,
+          "fp": 0,
+          "fn": 0,
+          "iou": 1.0,
+          "dice": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      }
+    }
+  }
+}
+Pixel path export: 54186 rows; SHA-256=92781ec9b2b31e85b54aec21b8b7dda811ba071657d484532959e7bdcb77ebae; file=runs\sdr002-path-audit\pixel_paths.csv

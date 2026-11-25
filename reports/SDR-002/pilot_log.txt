@@ -1,0 +1,234 @@
+DATA AUDIT PASS (b5a3c5afc8a69faf06cead0b9034a5de57b5d90b5617c6f32efb5de23a939e1f)
+START sst-s0
+sst-s0 step 64 train loss=0.82695 validation loss=0.79088 IoU=0.25986
+sst-s0 step 128 train loss=0.77886 validation loss=0.78353 IoU=0.33338
+sst-s0 step 192 train loss=0.76751 validation loss=0.76277 IoU=0.22168
+sst-s0 step 256 train loss=0.75199 validation loss=0.83112 IoU=0.08599
+sst-s0 step 320 train loss=0.70180 validation loss=0.67538 IoU=0.36395
+sst-s0 step 384 train loss=0.63174 validation loss=0.61919 IoU=0.43703
+sst-s0 step 448 train loss=0.55425 validation loss=0.57166 IoU=0.44340
+sst-s0 step 512 train loss=0.53749 validation loss=0.56903 IoU=0.45876
+PASS sst-s0 (45.22s)
+START occupancy-s0
+occupancy-s0 step 64 train loss=0.82967 validation loss=0.79286 IoU=0.29078
+occupancy-s0 step 128 train loss=0.78393 validation loss=0.79013 IoU=0.33332
+occupancy-s0 step 192 train loss=0.78267 validation loss=0.78914 IoU=0.33162
+occupancy-s0 step 256 train loss=0.78269 validation loss=0.78928 IoU=0.33327
+occupancy-s0 step 320 train loss=0.78164 validation loss=0.78891 IoU=0.33333
+occupancy-s0 step 384 train loss=0.78421 validation loss=0.78889 IoU=0.33304
+occupancy-s0 step 448 train loss=0.78127 validation loss=0.78974 IoU=0.33308
+occupancy-s0 step 512 train loss=0.78291 validation loss=0.78894 IoU=0.33333
+PASS occupancy-s0 (30.18s)
+{
+  "status": "PASS",
+  "checks": {
+    "above_all_walkable": true,
+    "above_seed_ablated": true,
+    "above_trained_occupancy_only": true,
+    "seed_flip": true,
+    "matched_above_swapped": true,
+    "validation_loss_decrease": true
+  },
+  "initial": {
+    "loss": 1.2847182552019756,
+    "tp": 0,
+    "fp": 0,
+    "fn": 6933,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "full": {
+    "loss": 0.5690321425596873,
+    "tp": 3426,
+    "fp": 535,
+    "fn": 3507,
+    "iou": 0.45875736475629353,
+    "dice": 0.6289700752707913,
+    "precision": 0.8649330977026004,
+    "recall": 0.49415837299870186
+  },
+  "all_walkable_iou": 0.3333333333333333,
+  "seed_ablated": {
+    "loss": 1.0859329501787822,
+    "tp": 0,
+    "fp": 0,
+    "fn": 6933,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "occupancy_only": {
+    "loss": 0.7889430224895477,
+    "tp": 6933,
+    "fp": 13866,
+    "fn": 0,
+    "iou": 0.3333333333333333,
+    "dice": 0.5,
+    "precision": 0.3333333333333333,
+    "recall": 1.0
+  },
+  "paired_flip_rate": 0.102783203125,
+  "paired_matched_iou": 0.4637399786393714,
+  "paired_swapped_iou": 0.02603168722758225
+}
+START reset-s0
+reset-s0 step 64 train loss=0.82898 validation loss=0.78715 IoU=0.31314
+reset-s0 step 128 train loss=0.77642 validation loss=0.77953 IoU=0.33333
+reset-s0 step 192 train loss=0.76404 validation loss=0.76327 IoU=0.23065
+reset-s0 step 256 train loss=0.75681 validation loss=0.76364 IoU=0.32956
+reset-s0 step 320 train loss=0.75452 validation loss=0.76284 IoU=0.33333
+reset-s0 step 384 train loss=0.75697 validation loss=0.76270 IoU=0.22130
+reset-s0 step 448 train loss=0.75458 validation loss=0.76422 IoU=0.32024
+reset-s0 step 512 train loss=0.75434 validation loss=0.76241 IoU=0.32261
+PASS reset-s0 (27.09s)
+START local-s0
+local-s0 step 64 train loss=0.82792 validation loss=0.79000 IoU=0.28564
+local-s0 step 128 train loss=0.78018 validation loss=0.78515 IoU=0.33267
+local-s0 step 192 train loss=0.77536 validation loss=0.77829 IoU=0.16715
+local-s0 step 256 train loss=0.75917 validation loss=0.76313 IoU=0.28397
+local-s0 step 320 train loss=0.75409 validation loss=0.76283 IoU=0.33124
+local-s0 step 384 train loss=0.75685 validation loss=0.76219 IoU=0.27082
+local-s0 step 448 train loss=0.75438 validation loss=0.76237 IoU=0.24819
+local-s0 step 512 train loss=0.75412 validation loss=0.76201 IoU=0.31853
+PASS local-s0 (28.56s)
+START shuffled-s0
+shuffled-s0 step 64 train loss=0.82689 validation loss=0.79037 IoU=0.27151
+shuffled-s0 step 128 train loss=0.77910 validation loss=0.78409 IoU=0.33316
+shuffled-s0 step 192 train loss=0.77028 validation loss=0.77126 IoU=0.33324
+shuffled-s0 step 256 train loss=0.75670 validation loss=0.76325 IoU=0.25814
+shuffled-s0 step 320 train loss=0.75364 validation loss=0.76208 IoU=0.32206
+shuffled-s0 step 384 train loss=0.75561 validation loss=0.76070 IoU=0.26186
+shuffled-s0 step 448 train loss=0.74863 validation loss=0.75459 IoU=0.31421
+shuffled-s0 step 512 train loss=0.73647 validation loss=0.74646 IoU=0.25839
+PASS shuffled-s0 (31.68s)
+START feature_neighbor-s0
+feature_neighbor-s0 step 64 train loss=0.83345 validation loss=0.79320 IoU=0.30650
+feature_neighbor-s0 step 128 train loss=0.78002 validation loss=0.78368 IoU=0.33317
+feature_neighbor-s0 step 192 train loss=0.77074 validation loss=0.76607 IoU=0.24616
+feature_neighbor-s0 step 256 train loss=0.75850 validation loss=0.76414 IoU=0.30530
+feature_neighbor-s0 step 320 train loss=0.75423 validation loss=0.76360 IoU=0.26993
+feature_neighbor-s0 step 384 train loss=0.75616 validation loss=0.76254 IoU=0.27981
+feature_neighbor-s0 step 448 train loss=0.75346 validation loss=0.76502 IoU=0.27286
+feature_neighbor-s0 step 512 train loss=0.75304 validation loss=0.76971 IoU=0.31762
+PASS feature_neighbor-s0 (29.46s)
+START reset-s1
+reset-s1 step 64 train loss=0.92770 validation loss=0.78592 IoU=0.32800
+reset-s1 step 128 train loss=0.77435 validation loss=0.77391 IoU=0.33136
+reset-s1 step 192 train loss=0.75866 validation loss=0.76392 IoU=0.25533
+reset-s1 step 256 train loss=0.75962 validation loss=0.76728 IoU=0.16112
+reset-s1 step 320 train loss=0.75756 validation loss=0.76235 IoU=0.31838
+reset-s1 step 384 train loss=0.75815 validation loss=0.76234 IoU=0.30450
+reset-s1 step 448 train loss=0.75729 validation loss=0.76291 IoU=0.32879
+reset-s1 step 512 train loss=0.75523 validation loss=0.76223 IoU=0.30458
+PASS reset-s1 (40.59s)
+START local-s1
+local-s1 step 64 train loss=0.92651 validation loss=0.78741 IoU=0.32710
+local-s1 step 128 train loss=0.77561 validation loss=0.77560 IoU=0.32321
+local-s1 step 192 train loss=0.76373 validation loss=0.76345 IoU=0.30539
+local-s1 step 256 train loss=0.76014 validation loss=0.76284 IoU=0.25501
+local-s1 step 320 train loss=0.75682 validation loss=0.76293 IoU=0.32146
+local-s1 step 384 train loss=0.75790 validation loss=0.76296 IoU=0.33172
+local-s1 step 448 train loss=0.75726 validation loss=0.76227 IoU=0.32917
+local-s1 step 512 train loss=0.75499 validation loss=0.76249 IoU=0.24721
+PASS local-s1 (59.82s)
+START sst-s1
+sst-s1 step 64 train loss=0.92643 validation loss=0.78597 IoU=0.32688
+sst-s1 step 128 train loss=0.77369 validation loss=0.77075 IoU=0.31448
+sst-s1 step 192 train loss=0.75628 validation loss=0.74973 IoU=0.32904
+sst-s1 step 256 train loss=0.70495 validation loss=0.69305 IoU=0.28825
+sst-s1 step 320 train loss=0.62459 validation loss=0.63834 IoU=0.37142
+sst-s1 step 384 train loss=0.62362 validation loss=0.63452 IoU=0.36743
+sst-s1 step 448 train loss=0.60994 validation loss=0.61969 IoU=0.38173
+sst-s1 step 512 train loss=0.56581 validation loss=0.56614 IoU=0.49421
+PASS sst-s1 (32.58s)
+START shuffled-s1
+shuffled-s1 step 64 train loss=0.92724 validation loss=0.78623 IoU=0.32687
+shuffled-s1 step 128 train loss=0.77472 validation loss=0.77392 IoU=0.31671
+shuffled-s1 step 192 train loss=0.76153 validation loss=0.76654 IoU=0.32947
+shuffled-s1 step 256 train loss=0.75711 validation loss=0.75953 IoU=0.27770
+shuffled-s1 step 320 train loss=0.75163 validation loss=0.75573 IoU=0.31350
+shuffled-s1 step 384 train loss=0.75285 validation loss=0.75127 IoU=0.27147
+shuffled-s1 step 448 train loss=0.74385 validation loss=0.74790 IoU=0.33830
+shuffled-s1 step 512 train loss=0.72810 validation loss=0.73440 IoU=0.32828
+PASS shuffled-s1 (32.23s)
+START feature_neighbor-s1
+feature_neighbor-s1 step 64 train loss=0.94365 validation loss=0.79750 IoU=0.30154
+feature_neighbor-s1 step 128 train loss=0.78430 validation loss=0.78670 IoU=0.31456
+feature_neighbor-s1 step 192 train loss=0.76883 validation loss=0.76854 IoU=0.26999
+feature_neighbor-s1 step 256 train loss=0.76177 validation loss=0.76652 IoU=0.24639
+feature_neighbor-s1 step 320 train loss=0.76091 validation loss=0.76345 IoU=0.27738
+feature_neighbor-s1 step 384 train loss=0.75664 validation loss=0.76194 IoU=0.24325
+feature_neighbor-s1 step 448 train loss=0.75575 validation loss=0.76137 IoU=0.21748
+feature_neighbor-s1 step 512 train loss=0.75044 validation loss=0.75999 IoU=0.28060
+PASS feature_neighbor-s1 (29.76s)
+START reset-s2
+reset-s2 step 64 train loss=0.86418 validation loss=0.78627 IoU=0.33113
+reset-s2 step 128 train loss=0.77820 validation loss=0.78461 IoU=0.32951
+reset-s2 step 192 train loss=0.77666 validation loss=0.76808 IoU=0.29711
+reset-s2 step 256 train loss=0.75917 validation loss=0.76394 IoU=0.09996
+reset-s2 step 320 train loss=0.75497 validation loss=0.76316 IoU=0.32953
+reset-s2 step 384 train loss=0.75449 validation loss=0.76252 IoU=0.25279
+reset-s2 step 448 train loss=0.75420 validation loss=0.76343 IoU=0.31600
+reset-s2 step 512 train loss=0.75722 validation loss=0.76244 IoU=0.25717
+PASS reset-s2 (26.46s)
+START local-s2
+local-s2 step 64 train loss=0.86409 validation loss=0.78720 IoU=0.30473
+local-s2 step 128 train loss=0.77828 validation loss=0.78417 IoU=0.33140
+local-s2 step 192 train loss=0.77501 validation loss=0.76749 IoU=0.14644
+local-s2 step 256 train loss=0.75867 validation loss=0.76284 IoU=0.32844
+local-s2 step 320 train loss=0.75488 validation loss=0.76217 IoU=0.25850
+local-s2 step 384 train loss=0.75432 validation loss=0.76198 IoU=0.29485
+local-s2 step 448 train loss=0.75401 validation loss=0.76228 IoU=0.27615
+local-s2 step 512 train loss=0.75727 validation loss=0.76226 IoU=0.24816
+PASS local-s2 (27.75s)
+START sst-s2
+sst-s2 step 64 train loss=0.86387 validation loss=0.78598 IoU=0.32205
+sst-s2 step 128 train loss=0.77831 validation loss=0.78421 IoU=0.33054
+sst-s2 step 192 train loss=0.77303 validation loss=0.75550 IoU=0.31286
+sst-s2 step 256 train loss=0.69234 validation loss=0.69911 IoU=0.27465
+sst-s2 step 320 train loss=0.66250 validation loss=0.67190 IoU=0.28744
+sst-s2 step 384 train loss=0.60630 validation loss=0.61380 IoU=0.43945
+sst-s2 step 448 train loss=0.60681 validation loss=0.63035 IoU=0.44394
+sst-s2 step 512 train loss=0.56766 validation loss=0.57800 IoU=0.44408
+PASS sst-s2 (31.99s)
+START shuffled-s2
+shuffled-s2 step 64 train loss=0.86398 validation loss=0.78602 IoU=0.32423
+shuffled-s2 step 128 train loss=0.77840 validation loss=0.78421 IoU=0.33153
+shuffled-s2 step 192 train loss=0.77510 validation loss=0.76405 IoU=0.26014
+shuffled-s2 step 256 train loss=0.75446 validation loss=0.75522 IoU=0.29140
+shuffled-s2 step 320 train loss=0.74302 validation loss=0.75219 IoU=0.27805
+shuffled-s2 step 384 train loss=0.73976 validation loss=0.75075 IoU=0.19523
+shuffled-s2 step 448 train loss=0.73668 validation loss=0.74601 IoU=0.27149
+shuffled-s2 step 512 train loss=0.72648 validation loss=0.73457 IoU=0.28631
+PASS shuffled-s2 (70.34s)
+START feature_neighbor-s2
+feature_neighbor-s2 step 64 train loss=0.86578 validation loss=0.78876 IoU=0.33073
+feature_neighbor-s2 step 128 train loss=0.78010 validation loss=0.78526 IoU=0.32767
+feature_neighbor-s2 step 192 train loss=0.78105 validation loss=0.76964 IoU=0.24543
+feature_neighbor-s2 step 256 train loss=0.75802 validation loss=0.76332 IoU=0.31001
+feature_neighbor-s2 step 320 train loss=0.75368 validation loss=0.76188 IoU=0.29162
+feature_neighbor-s2 step 384 train loss=0.75247 validation loss=0.76069 IoU=0.30021
+feature_neighbor-s2 step 448 train loss=0.75004 validation loss=0.75270 IoU=0.31603
+feature_neighbor-s2 step 512 train loss=0.74859 validation loss=0.72733 IoU=0.23334
+PASS feature_neighbor-s2 (42.02s)
+EVAL reset-s0 depth=[1, 2, 4, 6, 8] 1.45s
+EVAL local-s0 depth=[1, 2, 4, 6, 8] 1.79s
+EVAL sst-s0 depth=[1, 2, 4, 6, 8] 2.46s
+EVAL sst-s0-ablated depth=[4] 0.14s
+EVAL shuffled-s0 depth=[1, 2, 4, 6, 8] 1.95s
+EVAL feature_neighbor-s0 depth=[1, 2, 4, 6, 8] 1.82s
+EVAL reset-s1 depth=[1, 2, 4, 6, 8] 1.47s
+EVAL local-s1 depth=[1, 2, 4, 6, 8] 1.89s
+EVAL sst-s1 depth=[1, 2, 4, 6, 8] 2.48s
+EVAL shuffled-s1 depth=[1, 2, 4, 6, 8] 1.96s
+EVAL feature_neighbor-s1 depth=[1, 2, 4, 6, 8] 1.82s
+EVAL reset-s2 depth=[1, 2, 4, 6, 8] 1.49s
+EVAL local-s2 depth=[1, 2, 4, 6, 8] 1.82s
+EVAL sst-s2 depth=[1, 2, 4, 6, 8] 2.45s
+EVAL shuffled-s2 depth=[1, 2, 4, 6, 8] 1.96s
+EVAL feature_neighbor-s2 depth=[1, 2, 4, 6, 8] 2.02s
+EVAL occupancy-s0 depth=[4] 0.16s
+FINISHED failures=0

@@ -1,0 +1,55 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "above_all_walkable": false,
+    "above_seed_ablated": false,
+    "above_trained_occupancy_only": false,
+    "seed_flip": false,
+    "matched_above_swapped": false,
+    "validation_loss_decrease": true
+  },
+  "initial": {
+    "loss": 1.2873313426971436,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1215,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "full": {
+    "loss": 1.094884991645813,
+    "tp": 7,
+    "fp": 0,
+    "fn": 1208,
+    "iou": 0.005761316872427984,
+    "dice": 0.011456628477905073,
+    "precision": 1.0,
+    "recall": 0.005761316872427984
+  },
+  "all_walkable_iou": 0.3333333333333333,
+  "seed_ablated": {
+    "loss": 1.100477933883667,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1215,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "occupancy_only": {
+    "loss": 1.1004011631011963,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1215,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "paired_flip_rate": 0.0011393229166666667,
+  "paired_matched_iou": 0.0058298315049891405,
+  "paired_swapped_iou": 0.0
+}

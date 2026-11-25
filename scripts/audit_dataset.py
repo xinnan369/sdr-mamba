@@ -49,6 +49,22 @@ def digest_config(config):
     return hashlib.sha256(json.dumps(config, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
+def export_pixel_paths(path, splits):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    total = 0
+    with path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.writer(stream, lineterminator="\n")
+        writer.writerow(("split", "map_id", "seed_slot", "y", "x", "pixel_distance", "window_graph_distance"))
+        for split, data in splits.items():
+            for sample, (pixel, window) in enumerate(zip(data["pixel"], data["window"])):
+                map_id, seed_slot = divmod(sample, 3)
+                for y, x in (pixel >= 0).nonzero().tolist():
+                    writer.writerow((split, map_id, seed_slot, y, x, pixel[y, x].item(), window[y, x].item()))
+                    total += 1
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    print(f"Pixel path export: {total} rows; SHA-256={digest}; file={path}")
+
+
 def audit(splits, manifest, config):
     output, occupancy_hashes, sample_hashes = {}, set(), set()
     passed = True
@@ -110,6 +126,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, default=Path("configs/sdr002.json"))
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--pixel-paths", type=Path, help="Optional exact per-target-pixel distance CSV")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(2)
@@ -119,6 +136,8 @@ def main():
     write_json(args.output / "data_manifest.json", manifest)
     write_json(args.output / "data_audit.json", result)
     print(json.dumps(result, indent=2))
+    if args.pixel_paths:
+        export_pixel_paths(args.pixel_paths, splits)
     return int(result["status"] != "PASS")
 
 

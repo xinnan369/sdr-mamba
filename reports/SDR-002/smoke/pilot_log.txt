@@ -1,0 +1,82 @@
+DATA AUDIT PASS (832cb9fdc854f41827b78ba58fa4a4991f1ba8ffb272051896f5c2e2f87f8ff5)
+START sst-s0
+sst-s0 step 2 train loss=1.22065 validation loss=1.09488 IoU=0.00576
+PASS sst-s0 (0.82s)
+START occupancy-s0
+occupancy-s0 step 2 train loss=1.22297 validation loss=1.10040 IoU=0.00000
+PASS occupancy-s0 (0.28s)
+{
+  "status": "FAIL",
+  "checks": {
+    "above_all_walkable": false,
+    "above_seed_ablated": false,
+    "above_trained_occupancy_only": false,
+    "seed_flip": false,
+    "matched_above_swapped": false,
+    "validation_loss_decrease": true
+  },
+  "initial": {
+    "loss": 1.2873313426971436,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1215,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "full": {
+    "loss": 1.094884991645813,
+    "tp": 7,
+    "fp": 0,
+    "fn": 1208,
+    "iou": 0.005761316872427984,
+    "dice": 0.011456628477905073,
+    "precision": 1.0,
+    "recall": 0.005761316872427984
+  },
+  "all_walkable_iou": 0.3333333333333333,
+  "seed_ablated": {
+    "loss": 1.100477933883667,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1215,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "occupancy_only": {
+    "loss": 1.1004011631011963,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1215,
+    "iou": 0.0,
+    "dice": 0.0,
+    "precision": null,
+    "recall": 0.0
+  },
+  "paired_flip_rate": 0.0011393229166666667,
+  "paired_matched_iou": 0.0058298315049891405,
+  "paired_swapped_iou": 0.0
+}
+START reset-s0
+reset-s0 step 2 train loss=1.23188 validation loss=1.11727 IoU=0.00000
+PASS reset-s0 (0.25s)
+START local-s0
+local-s0 step 2 train loss=1.21874 validation loss=1.09154 IoU=0.00576
+PASS local-s0 (0.26s)
+START shuffled-s0
+shuffled-s0 step 2 train loss=1.22068 validation loss=1.09492 IoU=0.00658
+PASS shuffled-s0 (0.43s)
+START feature_neighbor-s0
+feature_neighbor-s0 step 2 train loss=1.20344 validation loss=1.11114 IoU=0.00165
+PASS feature_neighbor-s0 (0.27s)
+EVAL reset-s0 depth=[1, 2, 4, 6, 8] 0.20s
+EVAL local-s0 depth=[1, 2, 4, 6, 8] 0.23s
+EVAL sst-s0 depth=[1, 2, 4, 6, 8] 0.27s
+EVAL sst-s0-ablated depth=[4] 0.02s
+EVAL shuffled-s0 depth=[1, 2, 4, 6, 8] 0.21s
+EVAL feature_neighbor-s0 depth=[1, 2, 4, 6, 8] 0.21s
+EVAL occupancy-s0 depth=[4] 0.02s
+FINISHED failures=0
