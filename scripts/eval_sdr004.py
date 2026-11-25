@@ -89,10 +89,14 @@ def distance_tables(pred, data, meta):
                **scores(pred[mask], data["target"][mask])}
     for label, mask in (("straight", data["target"] & ~data["bend"].bool()),
                         ("requires_turn", data["bend"].bool())):
-        values = scores(pred[mask], data["target"][mask])
-        for metric in ("iou", "dice", "precision"):
-            values[metric] = None
-        yield {**meta, "axis": "target_paths", "bucket": label, "pixels": int(mask.sum()), **values}
+        slices = [("target_paths", label, mask)]
+        slices.extend(("path_by_grid", f"{label}/{bucket}", mask & grid_mask)
+                      for bucket, grid_mask in mask_bins(data["grid"], GRID_BINS))
+        for axis, bucket, active in slices:
+            values = scores(pred[active], data["target"][active])
+            for metric in ("iou", "dice", "precision"):
+                values[metric] = None
+            yield {**meta, "axis": axis, "bucket": bucket, "pixels": int(active.sum()), **values}
 
 
 class LaneDiagnostics:
@@ -140,8 +144,11 @@ class LaneDiagnostics:
             flip = (baseline >= 0) != (changed.logits >= 0)
             directional = (raw - changed.diagnostic[2].unflatten(0, frame.state.shape[:5])).abs()
             masks = list(mask_bins(batch["grid"], GRID_BINS))
-            masks.extend([("straight", batch["target"] & ~batch["bend"].bool()),
-                          ("requires_turn", batch["bend"].bool())])
+            for label, mask in (("straight", batch["target"] & ~batch["bend"].bool()),
+                                ("requires_turn", batch["bend"].bool())):
+                masks.append((label, mask))
+                masks.extend((f"{label}/{bucket}", mask & grid_mask)
+                             for bucket, grid_mask in mask_bins(batch["grid"], GRID_BINS))
             for label, mask in masks:
                 values = self.interventions[variant, "fused_map", label, None, None]
                 values[0] += logit_change[mask].sum().item()
