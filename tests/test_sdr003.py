@@ -1,9 +1,14 @@
 from itertools import product
+import json
+from pathlib import Path
 
 import pytest
 import torch
 
-from sdr_mamba.model_v3 import EdgeGate, LoopV3, dense_oracle, hard_gate, transport
+from scripts.audit_dataset import audit
+from scripts.eval_sdr003 import auc
+from sdr_mamba.data_v3 import build
+from sdr_mamba.model_v3 import EdgeGate, LoopV3, align_message, dense_oracle, hard_gate, transport
 from sdr_mamba.ssm import oracle
 from sdr_mamba.state_transport import initial_states
 
@@ -84,3 +89,28 @@ def test_actual_seed_swap_cannot_cross_more_than_one_window_per_round(mode):
         for y, x in product(range(4), range(5)):
             if y + x >= turn:
                 assert delta[y * 4:(y + 1) * 4, x * 4:(x + 1) * 4].max() < 2e-6
+
+
+def test_fresh_and_ood_splits_are_deterministic_and_independent():
+    config = json.loads((Path(__file__).parents[1] / "configs/sdr003.json").read_text())
+    for entry in config["data"].values():
+        entry["maps"] = 3
+    datasets, manifest, base = build(config)
+    assert build(config)[1] == manifest
+    result = audit(datasets, manifest, base)
+    assert result["status"] == "PASS"
+    assert all(split["baselines"]["all_walkable"]["iou"] == 1 / 3 for split in result["splits"].values())
+    assert all(m["closed_walking_window_edges"] > 0 for m in manifest["ood"]["maps"])
+    for data in datasets.values():
+        assert torch.equal(data["grid"][data["image"][..., 1].bool()], torch.zeros_like(data["grid"][:, 0, 0]))
+        assert torch.all(data["window"][data["target"]] >= data["grid"][data["target"]])
+
+
+def test_aligned_strong_packet_enters_physical_edges_and_auc_handles_ties():
+    payload = torch.tensor([1., 2., 3., 4.]).reshape(1, 1, 1, 1, 4, 1).expand(1, 1, 1, 4, 4, 1)
+    aligned = align_message(payload, 4).reshape(4, 16)
+    assert (aligned[:, 1::4] == 0).all() and (aligned[:, 2::4] == 0).all() and (aligned[:, 3::4] == 0).all()
+    torch.testing.assert_close(aligned[:, ::4], torch.tensor([
+        [1., 2., 3., 4.], [4., 3., 2., 1.], [1., 2., 3., 4.], [4., 3., 2., 1.],
+    ]))
+    assert auc(torch.tensor([.1, .4, .4, .9]), torch.tensor([False, False, True, True])) == .875
