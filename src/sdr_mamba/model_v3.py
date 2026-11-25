@@ -20,9 +20,10 @@ def dense_oracle(x, dt, a, b, c, d, initial=None, diagnose=False):
     n, length, heads, width = x.shape
     state_size = b.shape[-1]
     groups = b.shape[-2]
-    decay_log = (dt * a).transpose(1, 2).cumsum(-1)
-    delta = decay_log.unsqueeze(-1) - decay_log.unsqueeze(-2)
     causal = torch.ones((length, length), device=x.device, dtype=torch.bool).tril()
+    # A fixed triangular matrix implements a deterministic inclusive prefix sum on CUDA.
+    decay_log = (dt * a).transpose(1, 2) @ causal.to(x.dtype).T
+    delta = decay_log.unsqueeze(-1) - decay_log.unsqueeze(-2)
     kernel = delta.masked_fill(~causal, -torch.inf).exp()
     b = b.repeat_interleave(heads // groups, dim=2)
     c = c.repeat_interleave(heads // groups, dim=2)
