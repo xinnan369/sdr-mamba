@@ -224,11 +224,31 @@ def select(config, output):
             "candidates": candidates}
 
 
+def completed_at(root, provenance):
+    if root is None:
+        return set()
+    with (root / "runs.csv").open(encoding="utf-8", newline="") as stream:
+        complete = set()
+        for row in csv.DictReader(stream):
+            if row["stage"] != "pilot" or row["status"] != "PASS":
+                continue
+            if any(row[key] != provenance[key] for key in ("config_sha256", "dataset_sha256", "device")):
+                raise ValueError("Previously completed run uses a different config, dataset or device")
+            key = row["mode"], int(row["dstate"]), int(row["seed"])
+            stored = hashlib.sha256(checkpoint(root, "pilot", *key).read_bytes()).hexdigest()
+            if stored != row["checkpoint_sha256"]:
+                raise ValueError(f"Previously completed checkpoint failed SHA-256: {key}")
+            complete.add(key)
+        return complete
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--phase", choices=("audit", "screen", "pilot", "smoke"), required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    parser.add_argument("--pilot-seed", type=int)
+    parser.add_argument("--skip-complete-from", type=Path)
     args = parser.parse_args()
     config, data, provenance = setup(args.output, args.device, args.phase == "smoke")
     if args.phase == "audit":
@@ -246,8 +266,17 @@ def main():
     if decision["status"] == "STOP":
         print("Pilot NOT_RUN because no lane alignment signal was observed; held-out models not evaluated.", flush=True)
         return 0
-    results = [fit("pilot", name, ds, seed, config, data, provenance, args.output)
-               for seed in config["train_seeds"] for name, ds in formal_matrix(decision["selected_dstate"])]
+    if args.pilot_seed is not None and args.pilot_seed not in config["train_seeds"]:
+        parser.error("pilot seed must be pre-registered")
+    seeds = config["train_seeds"] if args.pilot_seed is None else [args.pilot_seed]
+    completed = completed_at(args.skip_complete_from, provenance)
+    results = []
+    for seed in seeds:
+        for name, ds in formal_matrix(decision["selected_dstate"]):
+            if (name, ds, seed) in completed:
+                print(f"REUSE checksum-verified {name}-d{ds}-s{seed}", flush=True)
+                continue
+            results.append(fit("pilot", name, ds, seed, config, data, provenance, args.output))
     return int(not all(results))
 
 
