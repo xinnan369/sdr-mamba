@@ -84,3 +84,7 @@ See the [SDR-004 report](reports/SDR-004/REPORT.md) for the actual sharded run, 
 ## SDR-005 ShanghaiTech Part B
 
 The real-data screen compares seven crowd-counting models at a common budget. It reads an existing, authorized Part B directory from `SDR005_DATA_ROOT` and uses a validated PyTorch CUDA SSD oracle. The [SDR-005 report](reports/SDR-005/REPORT.md) contains the reproduction commands, validation decision, and official SSD installation record.
+
+## SDR-006 final feasibility audit
+
+The five-arm ShanghaiTech Part B audit uses a common multiscale recipe and a preregistered development checkpoint rule. The [SDR-006 report](reports/SDR-006/REPORT.md) records the annotation protocol, development gate, and reproduction commands. The [project review](reports/PROJECT_REVIEW.md) traces the evidence across all six rounds.
