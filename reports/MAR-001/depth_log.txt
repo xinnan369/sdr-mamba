@@ -1,0 +1,15 @@
+F1 complete development trajectories 1/60
+F1 complete development trajectories 15/60
+F1 complete development trajectories 30/60
+F1 complete development trajectories 45/60
+F1 complete development trajectories 60/60
+F3 complete development trajectories 1/60
+F3 complete development trajectories 15/60
+F3 complete development trajectories 30/60
+F3 complete development trajectories 45/60
+F3 complete development trajectories 60/60
+F4 complete development trajectories 1/60
+F4 complete development trajectories 15/60
+F4 complete development trajectories 30/60
+F4 complete development trajectories 45/60
+F4 complete development trajectories 60/60

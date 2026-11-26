@@ -1,0 +1,12 @@
+{
+  "phase": "perturbation",
+  "code_commit": "9572d898bc463dcfe58da6bcaa45bca601bbacc3",
+  "config_sha256": "526132f019848b9a8ab7b88127370e3f400ccf90692ace3af56b3239748fafa5",
+  "dataset_sha256": "7bba014acfc39391bfeb0b88c4a455ec89c2111e9cc1809613e4b4ae9d17b361",
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "python": "3.9.21",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cublas_workspace_config": ":4096:8"
+}

@@ -1,0 +1,92 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "cross_backbone_count_drift": false,
+    "shape_preserved": true,
+    "spatial_gain_T8": false
+  },
+  "comparison": [
+    {
+      "mode": "F1",
+      "t": 6,
+      "count_worsened_fraction": 0.9333333333333333,
+      "deviance_worsened_fraction": 0.95,
+      "count_dominance_fraction": 0.8947368421052632,
+      "mean_tv_delta": 0.009364611056687257,
+      "mean_sw1_delta": 0.004312034145580971,
+      "relative_fixed_mass_game1_improvement": -0.02615983373715295,
+      "count_drift": true,
+      "shape_preserved": true,
+      "spatial_gain": false
+    },
+    {
+      "mode": "F1",
+      "t": 8,
+      "count_worsened_fraction": 1.0,
+      "deviance_worsened_fraction": 1.0,
+      "count_dominance_fraction": 1.0,
+      "mean_tv_delta": 0.02305958257663175,
+      "mean_sw1_delta": 0.012146774476561685,
+      "relative_fixed_mass_game1_improvement": -0.05408861838744787,
+      "count_drift": true,
+      "shape_preserved": true,
+      "spatial_gain": false
+    },
+    {
+      "mode": "F3",
+      "t": 6,
+      "count_worsened_fraction": 0.8,
+      "deviance_worsened_fraction": 0.9833333333333333,
+      "count_dominance_fraction": 0.13559322033898305,
+      "mean_tv_delta": -0.011700005902197906,
+      "mean_sw1_delta": 0.0066549581561908665,
+      "relative_fixed_mass_game1_improvement": -0.01849256694782095,
+      "count_drift": false,
+      "shape_preserved": true,
+      "spatial_gain": false
+    },
+    {
+      "mode": "F3",
+      "t": 8,
+      "count_worsened_fraction": 0.9666666666666667,
+      "deviance_worsened_fraction": 1.0,
+      "count_dominance_fraction": 0.45,
+      "mean_tv_delta": -0.012117257546329703,
+      "mean_sw1_delta": 0.013151098926794667,
+      "relative_fixed_mass_game1_improvement": -0.048514855673940344,
+      "count_drift": false,
+      "shape_preserved": true,
+      "spatial_gain": false
+    },
+    {
+      "mode": "F4",
+      "t": 6,
+      "count_worsened_fraction": 0.8666666666666667,
+      "deviance_worsened_fraction": 0.8833333333333333,
+      "count_dominance_fraction": 0.8490566037735849,
+      "mean_tv_delta": 0.00384227093564997,
+      "mean_sw1_delta": 0.002345607617965451,
+      "relative_fixed_mass_game1_improvement": -0.007757868641352266,
+      "count_drift": true,
+      "shape_preserved": true,
+      "spatial_gain": false
+    },
+    {
+      "mode": "F4",
+      "t": 8,
+      "count_worsened_fraction": 0.9,
+      "deviance_worsened_fraction": 0.9333333333333333,
+      "count_dominance_fraction": 0.875,
+      "mean_tv_delta": 0.007580622560206468,
+      "mean_sw1_delta": 0.005299636202915939,
+      "relative_fixed_mass_game1_improvement": -0.01888345322961226,
+      "count_drift": true,
+      "shape_preserved": true,
+      "spatial_gain": false
+    }
+  ],
+  "scope": "SDR-006/development",
+  "training": "NOT_RUN",
+  "confirmation": "NOT_RUN",
+  "official_test": "NOT_RUN"
+}
