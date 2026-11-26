@@ -1,0 +1,87 @@
+{
+  "part": "B",
+  "coordinate_base": 0,
+  "validation_fraction": 0.15,
+  "split_seed": 705017,
+  "augmentation_seed": 705037,
+  "crop": 256,
+  "stride": 8,
+  "encoder": "scratch_cnn",
+  "weight_sha256": null,
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "model": {
+    "width": 64,
+    "state": 8,
+    "heads": 4,
+    "rounds": 4,
+    "gain": 0.5,
+    "chunk": 16,
+    "backend": "chunked"
+  },
+  "train_modes": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6"
+  ],
+  "train_updates": 1000,
+  "overfit_updates": 160,
+  "overfit_images": 6,
+  "batch_size": 2,
+  "log_period": 100,
+  "lr": 0.001,
+  "count_loss_weight": 0.25,
+  "foreground_density_weight": 0.5,
+  "density_head_initial_bias": -5.0,
+  "overfit_gate_relative_zero_baseline": 0.8,
+  "train_seeds": [
+    0,
+    1,
+    2
+  ],
+  "evaluation_rounds": [
+    1,
+    2,
+    4,
+    6,
+    8
+  ],
+  "count_bins": [
+    0,
+    25,
+    50,
+    100,
+    200
+  ],
+  "bootstrap_seed": 705061,
+  "bootstrap_draws": 2000,
+  "resource_seconds": {
+    "single_run": 7200,
+    "whole_round": 86400
+  },
+  "gate": {
+    "c1_near_c0": 0.05,
+    "screen_rel_mae_gain": 0.02,
+    "screen_max_game1_regression": 0.02,
+    "min_loss_reduction": 0.05,
+    "intervention_mean_abs_count": 0.1,
+    "intervention_density_l1": 0.25,
+    "test_rel_mae_gain": 0.03,
+    "test_max_rmse_or_game1_regression": 0.02,
+    "min_seed_wins": 2
+  }
+}

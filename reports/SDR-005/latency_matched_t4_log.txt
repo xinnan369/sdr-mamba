@@ -1,0 +1,8 @@
+Part B dataset audit PASS 775089284dd645d2dc296407830f1e72b377e270ecdcdef6f45283b6b6b63846
+{'mode': 'C0', 'seed': 0, 't': 1, 'images': 5, 'timed_passes': 10, 'median_ms': 0.6840319931507111, 'peak_cuda_bytes': 106002944}
+{'mode': 'C1', 'seed': 0, 't': 4, 'images': 5, 'timed_passes': 10, 'median_ms': 77.27065658569336, 'peak_cuda_bytes': 225140224}
+{'mode': 'C2', 'seed': 0, 't': 4, 'images': 5, 'timed_passes': 10, 'median_ms': 72.70553588867188, 'peak_cuda_bytes': 224878080}
+{'mode': 'C3', 'seed': 0, 't': 4, 'images': 5, 'timed_passes': 10, 'median_ms': 73.50681686401367, 'peak_cuda_bytes': 224878080}
+{'mode': 'C4', 'seed': 0, 't': 4, 'images': 5, 'timed_passes': 10, 'median_ms': 78.08768081665039, 'peak_cuda_bytes': 224878080}
+{'mode': 'C5', 'seed': 0, 't': 4, 'images': 5, 'timed_passes': 10, 'median_ms': 75.60391998291016, 'peak_cuda_bytes': 234905088}
+{'mode': 'C6', 'seed': 0, 't': 4, 'images': 5, 'timed_passes': 10, 'median_ms': 73.05814361572266, 'peak_cuda_bytes': 225263104}

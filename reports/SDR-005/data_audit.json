@@ -1,0 +1,41 @@
+{
+  "part": "B",
+  "coordinate_base": 0,
+  "status": "PASS",
+  "out_of_bounds_policy": "Drop finite coordinates outside the half-open rectangle",
+  "splits": {
+    "train": {
+      "images": 340,
+      "head_count": 41690,
+      "empty_after_filtering": 0,
+      "out_of_bounds_dropped": 119,
+      "affected_images": 84,
+      "dimensions": {
+        "1024x768": 340
+      },
+      "on_valid_edge": 0
+    },
+    "validation": {
+      "images": 60,
+      "head_count": 7461,
+      "empty_after_filtering": 0,
+      "out_of_bounds_dropped": 10,
+      "affected_images": 9,
+      "dimensions": {
+        "1024x768": 60
+      },
+      "on_valid_edge": 0
+    },
+    "test": {
+      "images": 316,
+      "head_count": 39121,
+      "empty_after_filtering": 0,
+      "out_of_bounds_dropped": 87,
+      "affected_images": 65,
+      "dimensions": {
+        "1024x768": 316
+      },
+      "on_valid_edge": 0
+    }
+  }
+}

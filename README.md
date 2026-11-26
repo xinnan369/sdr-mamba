@@ -80,3 +80,7 @@ python -m scripts.summarize_sdr004 $sdrOutput --distance-archive runs/sdr004-rep
 ```
 
 See the [SDR-004 report](reports/SDR-004/REPORT.md) for the actual sharded run, resource budgets, and stage decisions.
+
+## SDR-005 ShanghaiTech Part B
+
+The real-data screen compares seven crowd-counting models at a common budget. It reads an existing, authorized Part B directory from `SDR005_DATA_ROOT` and uses a validated PyTorch CUDA SSD oracle. The [SDR-005 report](reports/SDR-005/REPORT.md) contains the reproduction commands, validation decision, and official SSD installation record.

@@ -1,0 +1,174 @@
+{
+  "status": "FAIL",
+  "official_test": "NOT_RUN",
+  "checks": {
+    "C1_within_C0_margin": false,
+    "loss_reduction_all_modes": true,
+    "C3_mae_gain_each_core": false,
+    "C3_game1_margin_each_core": false,
+    "intervention_current_effect": true
+  },
+  "paired_relative_improvement": {
+    "C1": {
+      "mae": 0.5137065668556677,
+      "game1": 0.4061795141915704
+    },
+    "C2": {
+      "mae": -0.020203301335974592,
+      "game1": -0.08477232318198596
+    },
+    "C4": {
+      "mae": -0.09022034118231867,
+      "game1": -0.07466618668257545
+    },
+    "C5": {
+      "mae": 0.03172537792969993,
+      "game1": -0.054470394030165285
+    },
+    "C6": {
+      "mae": 0.4599749514935847,
+      "game1": 0.34726829350103927
+    }
+  },
+  "initial_vs_final_train_loss_reduction": {
+    "C0": 0.42429007766985677,
+    "C1": 0.43916775890182785,
+    "C2": 0.41576408845917956,
+    "C3": 0.4279510236415126,
+    "C4": 0.4279997346028089,
+    "C5": 0.44148319820194637,
+    "C6": 0.4243887369065872
+  },
+  "interventions": {
+    "full_trajectory_reset": {
+      "abs_count_delta": 18.95529962380727,
+      "density_l1": 24.475620301564536
+    },
+    "same_direction": {
+      "abs_count_delta": 0.22308411893124383,
+      "density_l1": 1.5258668512105942
+    },
+    "wrong_line": {
+      "abs_count_delta": 0.1597861072824647,
+      "density_l1": 2.164821042617162
+    },
+    "zero_current": {
+      "abs_count_delta": 4.605365006128947,
+      "density_l1": 6.584109727541605
+    }
+  },
+  "primary": {
+    "C0": {
+      "split": "validation",
+      "mode": "C0",
+      "seed": 0,
+      "t": 1,
+      "train_depth": 0,
+      "extrapolation": false,
+      "images": 60,
+      "mae": 62.00255107879639,
+      "rmse": 98.78467360037129,
+      "bias": -49.82994810740153,
+      "game1": 79.24978187878926,
+      "game2": 91.5915631612142,
+      "game3": 109.09563652674358,
+      "density_cell_mae": 0.015739387840343018
+    },
+    "C1": {
+      "split": "validation",
+      "mode": "C1",
+      "seed": 0,
+      "t": 4,
+      "train_depth": 4,
+      "extrapolation": false,
+      "images": 60,
+      "mae": 105.81661926905313,
+      "rmse": 135.5817042461748,
+      "bias": 92.46439218521118,
+      "game1": 110.96228133042653,
+      "game2": 124.78856258392334,
+      "game3": 148.33098567326863,
+      "density_cell_mae": 0.02506984823461001
+    },
+    "C2": {
+      "split": "validation",
+      "mode": "C2",
+      "seed": 0,
+      "t": 4,
+      "train_depth": 4,
+      "extrapolation": false,
+      "images": 60,
+      "mae": 50.43889487584432,
+      "rmse": 74.99292570124337,
+      "bias": -12.151334158579509,
+      "game1": 60.74240132967631,
+      "game2": 77.66494545936584,
+      "game3": 103.09971122741699,
+      "density_cell_mae": 0.01841598024669414
+    },
+    "C3": {
+      "split": "validation",
+      "mode": "C3",
+      "seed": 0,
+      "t": 4,
+      "train_depth": 4,
+      "extrapolation": false,
+      "images": 60,
+      "mae": 51.45792706807455,
+      "rmse": 77.82788151124542,
+      "bias": 0.7444040934244792,
+      "game1": 65.89167580604553,
+      "game2": 86.01142293612162,
+      "game3": 108.55521583557129,
+      "density_cell_mae": 0.019495262550966192
+    },
+    "C4": {
+      "split": "validation",
+      "mode": "C4",
+      "seed": 0,
+      "t": 4,
+      "train_depth": 4,
+      "extrapolation": false,
+      "images": 60,
+      "mae": 47.19956610997518,
+      "rmse": 76.55962314668051,
+      "bias": -18.813107204437255,
+      "game1": 61.31362149715424,
+      "game2": 77.72103862762451,
+      "game3": 100.02383693059285,
+      "density_cell_mae": 0.017882099681689093
+    },
+    "C5": {
+      "split": "validation",
+      "mode": "C5",
+      "seed": 0,
+      "t": 4,
+      "train_depth": 4,
+      "extrapolation": false,
+      "images": 60,
+      "mae": 53.143938604990645,
+      "rmse": 82.03640093542607,
+      "bias": 20.651903502146403,
+      "game1": 62.48793344895045,
+      "game2": 79.11666536331177,
+      "game3": 102.55473949114482,
+      "density_cell_mae": 0.019975019122163453
+    },
+    "C6": {
+      "split": "validation",
+      "mode": "C6",
+      "seed": 0,
+      "t": 4,
+      "train_depth": 4,
+      "extrapolation": false,
+      "images": 60,
+      "mae": 95.28803749084473,
+      "rmse": 128.33239660378925,
+      "bias": 77.8765764872233,
+      "game1": 100.94756413698197,
+      "game2": 114.22121232350668,
+      "game3": 135.91857080459596,
+      "density_cell_mae": 0.024186969397123902
+    }
+  }
+}
