@@ -15,6 +15,7 @@ import time
 import traceback
 
 import torch
+from torch.nn import functional as F
 
 from scripts.audit_dataset import append_rows, digest_config, write_json
 from scripts.train_sdr003 import git, read_json
@@ -55,14 +56,19 @@ def setup(output, device):
     return cfg, partitions, run_info
 
 
+def smooth_mass(target):
+    line = target.new_tensor([1., 2., 1.])
+    kernel = (line[:, None] * line[None, :] / 16).view(1, 1, 3, 3)
+    unit = torch.ones_like(target[:1, None])
+    normalization = F.conv2d(unit, kernel, padding=1)
+    return F.conv2d(target[:, None] / normalization, kernel, padding=1).squeeze(1)
+
+
 def objective(pred, target, cfg):
-    error = pred - target
-    occupied = target > 0
-    foreground = (error.abs() * occupied).sum() / occupied.sum().clamp_min(1)
-    background = (error.abs() * ~occupied).sum() / (~occupied).sum().clamp_min(1)
-    weight = cfg["foreground_density_weight"]
-    density = weight * foreground + (1 - weight) * background
-    count = error.sum((-2, -1)).abs().mean() / math.sqrt(target.shape[-2] * target.shape[-1])
+    target_density = smooth_mass(target)
+    weights = 1 + cfg["density_objective"]["mass_weight"] * target_density
+    density = cfg["density_objective"]["scale"] * (weights * (pred - target_density).square()).mean()
+    count = F.smooth_l1_loss(pred.sum((-2, -1)).log1p(), target.sum((-2, -1)).log1p(), beta=.2)
     return density + cfg["count_loss_weight"] * count
 
 
@@ -128,8 +134,10 @@ def ready_crops(batch, model, device):
 
 
 def overfit(cfg, data, output, device):
-    pool = [item for sample in sorted(data["train"], key=lambda x: x.identifier)
-            for item in [training_crop(sample, cfg, random.Random(0), fixed=True)] if item[2]["crop_points"] > 0]
+    pool = [item for sample in sorted(data["train"], key=lambda x: x.identifier) if len(sample.points)
+            for item in [training_crop(sample, cfg, random.Random(0), fixed=True,
+                                       center=sample.points[len(sample.points) // 2])]
+            if item[2]["crop_points"] > 0]
     count = cfg["overfit_images"]
     if len(pool) < count:
         raise ValueError("Not enough nonempty fixed crops for the training sanity check")
@@ -160,6 +168,7 @@ def overfit(cfg, data, output, device):
             raise FloatingPointError("Nonfinite overfit objective")
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), cfg["gradient_clip_l2"], error_if_nonfinite=True)
         optimizer.step()
         if step % 40 == 0 or step == cfg["overfit_updates"]:
             last = measure(step)
@@ -207,6 +216,9 @@ def train(stage, mode, seed, cfg, data, output, prov, deadline):
                 raise FloatingPointError(f"Nonfinite objective at step {step}")
             optimizer.zero_grad(set_to_none=True)
             loss.backward()
+            grad = torch.nn.utils.clip_grad_norm_(
+                model.parameters(), cfg["gradient_clip_l2"], error_if_nonfinite=True
+            )
             optimizer.step()
             updates = step
             tokens += 0 if mode == "C0" else cfg["model"]["rounds"] * 4 * sum(t.numel() for _, t, _ in batch)
@@ -216,7 +228,7 @@ def train(stage, mode, seed, cfg, data, output, prov, deadline):
             append_rows(output / "crop_ledger.csv",
                         [{**run, "step": step, "batch_slot": i, **ledger} for i, (_, _, ledger) in enumerate(batch)])
             if step % cfg["log_period"] == 0 or step == cfg["train_updates"]:
-                grad = torch.stack([p.grad.norm() for p in model.parameters() if p.grad is not None]).norm().item()
+                grad = grad.item()
                 if not math.isfinite(grad):
                     raise FloatingPointError(f"Nonfinite gradient at step {step}")
                 current, records = validation(model, data["validation"], cfg, device)

@@ -163,11 +163,15 @@ def tensor_image(array, config):
     return (values - mean) / std
 
 
-def training_crop(sample, config, rng, fixed=False):
+def training_crop(sample, config, rng, fixed=False, center=None):
     crop = config["crop"]
     h, w = min(crop, sample.height), min(crop, sample.width)
-    top = (sample.height - h) // 2 if fixed else rng.randrange(sample.height - h + 1)
-    left = (sample.width - w) // 2 if fixed else rng.randrange(sample.width - w + 1)
+    if center is not None:
+        left = min(sample.width - w, max(0, int(center[0]) - w // 2))
+        top = min(sample.height - h, max(0, int(center[1]) - h // 2))
+    else:
+        top = (sample.height - h) // 2 if fixed else rng.randrange(sample.height - h + 1)
+        left = (sample.width - w) // 2 if fixed else rng.randrange(sample.width - w + 1)
     flip = not fixed and rng.random() < .5
     tile = decode(sample.file)[top:top + h, left:left + w]
     if flip:

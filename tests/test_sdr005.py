@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 import torch
 
-from scripts.train_sdr005 import image_stats
+from scripts.train_sdr005 import image_stats, smooth_mass
 from sdr_mamba.crowd_data import mass_map, transform_points
 from sdr_mamba.crowd_ssm import CrowdModel, axes, chunked_ssd, communicate, restore
 from sdr_mamba.model_v3 import dense_oracle
@@ -115,6 +115,11 @@ def test_cropped_flipped_resized_count_mass_and_game():
     assert mass_map(x[:0], 13, 23, 8).sum() == 0
     assert image_stats(m, m)["game3"] == 0
     assert image_stats(torch.zeros_like(m), m)["game1"] == 3
+    torch.testing.assert_close(smooth_mass(m[None]).sum(), m.sum())
+    corner = torch.zeros(1, 4, 8)
+    corner[0, 0, 0] = 2
+    corner[0, 3, 7] = 3
+    torch.testing.assert_close(smooth_mass(corner).sum(), corner.sum())
 
 
 @pytest.mark.parametrize("dtype,atol,rtol", [(torch.float32, 8e-4, 5e-3), (torch.bfloat16, .025, .09)])

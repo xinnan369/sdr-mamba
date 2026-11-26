@@ -88,6 +88,8 @@ class AxialBlock(nn.Module):
         self.skip = nn.Parameter(torch.ones(heads))
         self.output = nn.Linear(width, width)
         nn.init.constant_(self.project.bias[-heads:], -2.252168)
+        nn.init.normal_(self.output.weight, std=.01)
+        nn.init.zeros_(self.output.bias)
 
     def forward(self, f, initial, packets, diagnose=False, send=False):
         sequences = axes(self.project(self.norm(f)))
