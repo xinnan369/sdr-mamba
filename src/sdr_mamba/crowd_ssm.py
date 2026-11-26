@@ -128,7 +128,7 @@ class AxialBlock(nn.Module):
 
 class CrowdModel(nn.Module):
     def __init__(self, mode, width=64, state=8, heads=4, rounds=4, gain=.5,
-                 chunk=16, backend="chunked", weight_file=None):
+                 chunk=16, backend="chunked", weight_file=None, head_bias=-3.):
         super().__init__()
         if mode not in {f"C{i}" for i in range(7)} or width % heads or state < 1:
             raise ValueError("Unsupported crowd mode or state dimensions")
@@ -150,7 +150,7 @@ class CrowdModel(nn.Module):
             self.frozen_backbone = False
             self.adapter = nn.Identity()
         self.head = nn.Linear(width, 1)
-        nn.init.constant_(self.head.bias, -3)
+        nn.init.constant_(self.head.bias, head_bias)
         self.blocks = nn.ModuleList([
             AxialBlock(width, state, heads, chunk, backend)
             for _ in range(rounds if mode == "C6" else (0 if mode == "C0" else 1))

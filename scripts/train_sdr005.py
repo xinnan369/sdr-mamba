@@ -57,8 +57,12 @@ def setup(output, device):
 
 def objective(pred, target, cfg):
     error = pred - target
-    density = error.abs().mean()
-    count = error.sum((-2, -1)).abs().mean() / (target.shape[-2] * target.shape[-1])
+    occupied = target > 0
+    foreground = (error.abs() * occupied).sum() / occupied.sum().clamp_min(1)
+    background = (error.abs() * ~occupied).sum() / (~occupied).sum().clamp_min(1)
+    weight = cfg["foreground_density_weight"]
+    density = weight * foreground + (1 - weight) * background
+    count = error.sum((-2, -1)).abs().mean() / math.sqrt(target.shape[-2] * target.shape[-1])
     return density + cfg["count_loss_weight"] * count
 
 
@@ -110,7 +114,7 @@ def checkpoint(output, stage, mode, seed):
 
 def make_model(mode, cfg, device, seed):
     torch.manual_seed(seed)
-    return CrowdModel(mode, **cfg["model"]).to(device)
+    return CrowdModel(mode, **cfg["model"], head_bias=cfg["density_head_initial_bias"]).to(device)
 
 
 def ready_crops(batch, model, device):
@@ -124,11 +128,14 @@ def ready_crops(batch, model, device):
 
 
 def overfit(cfg, data, output, device):
-    fixed = [item for sample in sorted(data["train"], key=lambda x: x.identifier)
-             for item in [training_crop(sample, cfg, random.Random(0), fixed=True)] if item[2]["crop_points"] > 0]
-    fixed = fixed[:cfg["overfit_images"]]
-    if len(fixed) != cfg["overfit_images"]:
+    pool = [item for sample in sorted(data["train"], key=lambda x: x.identifier)
+            for item in [training_crop(sample, cfg, random.Random(0), fixed=True)] if item[2]["crop_points"] > 0]
+    count = cfg["overfit_images"]
+    if len(pool) < count:
         raise ValueError("Not enough nonempty fixed crops for the training sanity check")
+    pool.sort(key=lambda item: (item[2]["crop_points"], item[2]["id"]))
+    fixed = [pool[min(len(pool) - 1, (2 * i + 1) * len(pool) // (2 * count))] for i in range(count)]
+    zero_mae = mean(row["crop_points"] for _, _, row in fixed)
     write_json(output / "sanity_crops.json", [row for _, _, row in fixed])
     model = make_model("C1", cfg, device, 0)
     optimizer = torch.optim.AdamW(model.parameters(), lr=cfg["lr"])
@@ -158,7 +165,8 @@ def overfit(cfg, data, output, device):
             last = measure(step)
             print(f"Overfit step {step}: {last}", flush=True)
     result = {"status": "PASS" if last["loss"] < first["loss"] * .8
-              and last["crop_mae"] < first["crop_mae"] * .8 else "FAIL", "initial": first, "final": last}
+              and last["crop_mae"] < min(first["crop_mae"], zero_mae) * cfg["overfit_gate_relative_zero_baseline"]
+              else "FAIL", "initial": first, "final": last, "zero_prediction_mae": zero_mae}
     write_json(output / "sanity_gate.json", result)
     print(result, flush=True)
     return result["status"] == "PASS"
@@ -262,7 +270,11 @@ def main():
     modes = cfg["train_modes"] if args.modes is None else args.modes
     if any(m not in cfg["train_modes"] for m in modes):
         parser.error("Modes must be in the pre-registered training matrix")
-    deadline = time.perf_counter() + cfg["resource_seconds"]["whole_round"]
+    spent = 0.
+    if (output / "runs.csv").exists():
+        with (output / "runs.csv").open(encoding="utf-8", newline="") as stream:
+            spent = sum(float(row["wall_time_s"]) for row in csv.DictReader(stream))
+    deadline = time.perf_counter() + cfg["resource_seconds"]["whole_round"] - spent
     results = [train(args.phase, mode, seed, cfg, data, output, prov, deadline)
                for seed in seeds for mode in modes]
     return int(not all(results))
