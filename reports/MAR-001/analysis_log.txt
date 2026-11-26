@@ -1,0 +1,5 @@
+Verified 2880 observations, 2880 decompositions, 14400 counterfactuals
+Maximum finite FP64 identity error 1.4551915228366852e-11 relative 5.431414655572917e-16
+Perturbation rows 2400 JVP {'PASS': 36}
+Tracked GPU-stage seconds 103.0397174
+Gate FAIL {'cross_backbone_count_drift': False, 'shape_preserved': True, 'spatial_gain_T8': False}

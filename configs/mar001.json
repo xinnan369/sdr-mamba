@@ -1,0 +1,19 @@
+{
+  "base_commit": "1cbe2ed960f266331867760c17a87ddc91a62c3b",
+  "split": "SDR-006/development",
+  "models": ["F1", "F3", "F4"],
+  "primary_models": ["F1", "F3"],
+  "seed": 0,
+  "depths": {"reference": 4, "maximum": 16, "gate": [6, 8]},
+  "epsilon": 0.00000001,
+  "projection_grids": [[6, 8], [12, 16]],
+  "background_radius_cells": 1,
+  "count_bins": [0, 25, 50, 100, 200],
+  "bootstrap": {"seed": 126001, "replicates": 2000},
+  "perturbation": {"images": 8, "seed": 126013, "draws": 3, "relative_rms": [0.001, 0.01],
+                   "horizons": [0, 1, 2, 3, 4], "local_fraction": 0.125, "jvp_images": 3},
+  "gate": {"worsening_image_fraction": 0.6, "count_dominance_fraction": 0.6,
+           "max_tv_increase": 0.03, "max_sw1_increase": 0.015, "min_tv_gain": 0.01,
+           "min_sw1_gain": 0.005, "fixed_mass_game1_gain": 0.02},
+  "gpu_seconds_cap": 3600
+}
