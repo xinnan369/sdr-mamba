@@ -1,0 +1,9 @@
+Part B dataset audit PASS 775089284dd645d2dc296407830f1e72b377e270ecdcdef6f45283b6b6b63846
+validation C0 seed=0 T1 MAE 62.0026 GAME1 79.2498
+validation C1 seed=0 T4 MAE 105.8166 GAME1 110.9623
+validation C2 seed=0 T4 MAE 50.4389 GAME1 60.7424
+validation C3 seed=0 T4 MAE 51.4579 GAME1 65.8917
+validation C4 seed=0 T4 MAE 47.1996 GAME1 61.3136
+validation C5 seed=0 T4 MAE 53.1439 GAME1 62.4879
+validation C6 seed=0 T4 MAE 95.2880 GAME1 100.9476
+{'status': 'FAIL', 'official_test': 'NOT_RUN', 'checks': {'C1_within_C0_margin': False, 'loss_reduction_all_modes': True, 'C3_mae_gain_each_core': False, 'C3_game1_margin_each_core': False, 'intervention_current_effect': True}, 'paired_relative_improvement': {'C1': {'mae': 0.5137065668556677, 'game1': 0.4061795141915704}, 'C2': {'mae': -0.020203301335974592, 'game1': -0.08477232318198596}, 'C4': {'mae': -0.09022034118231867, 'game1': -0.07466618668257545}, 'C5': {'mae': 0.03172537792969993, 'game1': -0.054470394030165285}, 'C6': {'mae': 0.4599749514935847, 'game1': 0.34726829350103927}}, 'initial_vs_final_train_loss_reduction': {'C0': 0.42429007766985677, 'C1': 0.43916775890182785, 'C2': 0.41576408845917956, 'C3': 0.4279510236415126, 'C4': 0.4279997346028089, 'C5': 0.44148319820194637, 'C6': 0.4243887369065872}, 'interventions': {'full_trajectory_reset': {'abs_count_delta': 18.95529962380727, 'density_l1': 24.475620301564536}, 'same_direction': {'abs_count_delta': 0.22308411893124383, 'density_l1': 1.5258668512105942}, 'wrong_line': {'abs_count_delta': 0.1597861072824647, 'density_l1': 2.164821042617162}, 'zero_current': {'abs_count_delta': 4.605365006128947, 'density_l1': 6.584109727541605}}}

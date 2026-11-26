@@ -1,0 +1,17 @@
+{
+  "code_commit": "3ec4f1d3d1a70c1c2c412c05c74891c4ed2354a7",
+  "config_sha256": "8d75b0f57dad7da8f0bc65ac1aaa9c21edbe8077c3c11d9d87db13cf18ee9a25",
+  "dataset_sha256": "775089284dd645d2dc296407830f1e72b377e270ecdcdef6f45283b6b6b63846",
+  "device": "cuda",
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "backend": "chunked",
+  "python": "3.9.21",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "scipy": "1.13.1",
+  "numpy": "1.26.4",
+  "pillow": "10.4.0",
+  "tracked_dirty": "",
+  "cublas_workspace_config": ":4096:8"
+}

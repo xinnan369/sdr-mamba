@@ -1,0 +1,8 @@
+split,mode,seed,profile_T,median_ms_per_image,image_count,with_retention_instrumentation,peak_cuda_bytes
+validation,C0,0,1,0.9082000000000257,60,False,71449088
+validation,C1,0,8,165.40079999999955,60,False,418536960
+validation,C2,0,8,169.5062499999995,60,False,416833024
+validation,C3,0,8,228.59805000000222,60,True,800154112
+validation,C4,0,8,179.59804999999562,60,False,416833024
+validation,C5,0,8,176.58420000000064,60,False,437280256
+validation,C6,0,4,81.98510000000425,60,False,266288640

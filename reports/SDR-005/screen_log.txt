@@ -1,0 +1,4 @@
+Screen shard 0: C0,C1,C2
+Screen shard 1: C3,C5
+Screen shard 2: C4,C6
+Joined and verified 7 screen checkpoints

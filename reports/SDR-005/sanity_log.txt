@@ -1,0 +1,6 @@
+Part B dataset audit PASS 775089284dd645d2dc296407830f1e72b377e270ecdcdef6f45283b6b6b63846
+Overfit step 40: {'step': 40, 'loss': 1.7103549242019653, 'crop_mae': 14.140493392944336}
+Overfit step 80: {'step': 80, 'loss': 0.9793139696121216, 'crop_mae': 6.214049180348714}
+Overfit step 120: {'step': 120, 'loss': 0.7803278565406799, 'crop_mae': 7.337815761566162}
+Overfit step 160: {'step': 160, 'loss': 1.1093147993087769, 'crop_mae': 12.486929257710775}
+{'status': 'PASS', 'initial': {'step': 0, 'loss': 2.2822749614715576, 'crop_mae': 23.51112159093221}, 'final': {'step': 160, 'loss': 1.1093147993087769, 'crop_mae': 12.486929257710775}, 'zero_prediction_mae': 33.166666666666664}
