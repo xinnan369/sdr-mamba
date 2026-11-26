@@ -1,0 +1,8 @@
+Verified 19 depth aggregates, 1140 per-image rows, 20000 matched crop rows and 50 checkpoint candidates
+development F0 {'mae': (73.26826734542847, None), 'rmse': (113.88986635464542, None), 'game1': (92.63319991429647, None), 'game2': (102.32762031555175, None), 'game3': (117.08856306076049, None), 'bias': (-62.94136044184367, None), 'density_cell_mae': (0.014854087044174473, None)}
+development F1 {'mae': (38.310641050338745, None), 'rmse': (62.645601382356205, None), 'game1': (47.457202808062235, None), 'game2': (63.0833811044693, None), 'game3': (86.80681020418803, None), 'bias': (-10.090740156173705, None), 'density_cell_mae': (0.018007578087660174, None)}
+development F2 {'mae': (44.62463426589966, None), 'rmse': (73.64315295083428, None), 'game1': (52.52173169453939, None), 'game2': (65.23966474533081, None), 'game3': (87.21252252260844, None), 'bias': (-22.869931507110596, None), 'density_cell_mae': (0.016981649887748064, None)}
+development F3 {'mae': (42.96568670272827, None), 'rmse': (72.70494129982312, None), 'game1': (52.76084846655528, None), 'game2': (69.03142228126526, None), 'game3': (90.35343025525411, None), 'bias': (-21.782323805491128, None), 'density_cell_mae': (0.01699360494191448, None)}
+development F4 {'mae': (41.094634008407596, None), 'rmse': (69.39582086949827, None), 'game1': (47.850603560606636, None), 'game2': (62.81856212615967, None), 'game3': (86.88606117566427, None), 'bias': (-15.367326625188191, None), 'density_cell_mae': (0.017707330549213415, None)}
+Training seconds 830.3169076999999 Tracked total experiment seconds 889.3289063999999
+Development gate FAIL

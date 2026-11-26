@@ -1,0 +1,10 @@
+{
+  "code_commit": "8531096f69fc9b3a664cd1723bd9626a5c64ca1c",
+  "config_sha256": "27a09758c694d2d8b9da800426f93af4311d198ebf91fa6f1a9ecceda82cadf5",
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "python": "3.9.21",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cublas_workspace_config": ":4096:8"
+}

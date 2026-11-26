@@ -1,0 +1,56 @@
+START {'mode': 'F0', 'seed': 0}
+F0 s0 step 200 loss 0.69364 dev MAE 84.2223 GAME1 115.6960 bias -75.2985
+F0 s0 step 400 loss 0.70774 dev MAE 81.7639 GAME1 112.0377 bias -70.4487
+F0 s0 step 600 loss 0.70502 dev MAE 80.5684 GAME1 109.1377 bias -68.9637
+F0 s0 step 800 loss 0.70526 dev MAE 80.1106 GAME1 106.8390 bias -69.0957
+F0 s0 step 1000 loss 0.63979 dev MAE 81.8948 GAME1 102.3413 bias -75.3464
+F0 s0 step 1200 loss 1.14081 dev MAE 74.5170 GAME1 95.2369 bias -64.7438
+F0 s0 step 1400 loss 0.87904 dev MAE 73.2683 GAME1 92.6332 bias -62.9414
+F0 s0 step 1600 loss 0.75107 dev MAE 83.5394 GAME1 97.0460 bias -80.7019
+F0 s0 step 1800 loss 0.70992 dev MAE 84.3931 GAME1 97.1082 bias -81.9600
+F0 s0 step 2000 loss 0.70332 dev MAE 73.7459 GAME1 91.9066 bias -66.0126
+START {'mode': 'F1', 'seed': 0}
+F1 s0 step 200 loss 0.66647 dev MAE 72.6408 GAME1 105.3896 bias -58.9682
+F1 s0 step 400 loss 0.64384 dev MAE 71.5129 GAME1 75.7238 bias -69.6867
+F1 s0 step 600 loss 0.56240 dev MAE 44.1882 GAME1 57.1991 bias -15.5039
+F1 s0 step 800 loss 0.55087 dev MAE 66.3802 GAME1 69.8082 bias -64.5364
+F1 s0 step 1000 loss 0.49778 dev MAE 62.7677 GAME1 75.2610 bias +38.6228
+F1 s0 step 1200 loss 0.86078 dev MAE 41.7598 GAME1 48.0148 bias -23.6207
+F1 s0 step 1400 loss 0.65478 dev MAE 75.6794 GAME1 86.8975 bias +52.1414
+F1 s0 step 1600 loss 0.54470 dev MAE 39.6243 GAME1 50.5515 bias -6.7685
+F1 s0 step 1800 loss 0.53397 dev MAE 52.7435 GAME1 62.8189 bias +30.7032
+F1 s0 step 2000 loss 0.51393 dev MAE 38.3106 GAME1 47.4572 bias -10.0907
+START {'mode': 'F2', 'seed': 0}
+F2 s0 step 200 loss 0.65189 dev MAE 60.2835 GAME1 97.4662 bias -12.4105
+F2 s0 step 400 loss 0.61376 dev MAE 113.5871 GAME1 119.8812 bias +95.1525
+F2 s0 step 600 loss 0.53890 dev MAE 254.6355 GAME1 260.7802 bias +249.0835
+F2 s0 step 800 loss 0.52266 dev MAE 59.8705 GAME1 68.5065 bias +35.1255
+F2 s0 step 1000 loss 0.48421 dev MAE 96.3265 GAME1 104.3573 bias +86.2596
+F2 s0 step 1200 loss 0.85767 dev MAE 45.3952 GAME1 56.5634 bias +12.7939
+F2 s0 step 1400 loss 0.63143 dev MAE 92.6678 GAME1 104.4706 bias +65.0084
+F2 s0 step 1600 loss 0.53762 dev MAE 44.6246 GAME1 52.5217 bias -22.8699
+F2 s0 step 1800 loss 0.53569 dev MAE 87.7335 GAME1 96.4849 bias +72.6704
+F2 s0 step 2000 loss 0.52482 dev MAE 46.9879 GAME1 57.3704 bias +18.6635
+START {'mode': 'F3', 'seed': 0}
+F3 s0 step 200 loss 0.67882 dev MAE 85.8270 GAME1 112.2611 bias -80.3984
+F3 s0 step 400 loss 0.67334 dev MAE 63.2448 GAME1 80.5017 bias -52.8105
+F3 s0 step 600 loss 0.55997 dev MAE 52.7664 GAME1 66.1656 bias +10.8887
+F3 s0 step 800 loss 0.56124 dev MAE 58.5709 GAME1 65.9426 bias -53.5839
+F3 s0 step 1000 loss 0.47417 dev MAE 56.2017 GAME1 64.6216 bias -49.1522
+F3 s0 step 1200 loss 0.85743 dev MAE 53.9781 GAME1 61.5237 bias -46.9087
+F3 s0 step 1400 loss 0.67144 dev MAE 42.9657 GAME1 52.7608 bias -21.7823
+F3 s0 step 1600 loss 0.56718 dev MAE 57.2477 GAME1 63.7258 bias -53.9931
+F3 s0 step 1800 loss 0.53347 dev MAE 51.2260 GAME1 59.0357 bias -44.4372
+F3 s0 step 2000 loss 0.52870 dev MAE 47.3142 GAME1 56.3085 bias -37.5240
+START {'mode': 'F4', 'seed': 0}
+F4 s0 step 200 loss 0.65366 dev MAE 84.8669 GAME1 99.3216 bias -82.5612
+F4 s0 step 400 loss 0.62233 dev MAE 60.2302 GAME1 75.4906 bias -51.7802
+F4 s0 step 600 loss 0.56784 dev MAE 58.4973 GAME1 68.4075 bias -52.5102
+F4 s0 step 800 loss 0.56290 dev MAE 48.7845 GAME1 56.7435 bias -39.9542
+F4 s0 step 1000 loss 0.47315 dev MAE 42.0049 GAME1 50.1603 bias -8.8332
+F4 s0 step 1200 loss 0.82028 dev MAE 69.7898 GAME1 71.7220 bias -67.5795
+F4 s0 step 1400 loss 0.65564 dev MAE 51.7655 GAME1 60.6474 bias +6.9873
+F4 s0 step 1600 loss 0.56601 dev MAE 61.3644 GAME1 64.7783 bias -58.5147
+F4 s0 step 1800 loss 0.56240 dev MAE 41.0946 GAME1 47.8506 bias -15.3673
+F4 s0 step 2000 loss 0.52736 dev MAE 44.7298 GAME1 49.9510 bias -22.4181
+Development gate {'status': 'FAIL', 'confirmation': 'NOT_RUN', 'official_test': 'NOT_RUN', 'checks': {'F1_MAE_gain_vs_F0': True, 'F1_MAE_noninferiority_vs_F2': True, 'F1_GAME1_noninferiority': True, 'all_modes_tail_stability': False}, 'relative_F1_minus_control': {'F0': {'mae': -0.477118233604181, 'game1': -0.4876868892365882}, 'F2': {'mae': -0.14149120366877296, 'game1': -0.09642730205340332}, 'F3': {'mae': -0.1083433318451753, 'game1': -0.10052237241512499}, 'F4': {'mae': -0.06774589980529502, 'game1': -0.008221437626092384}}, 'last_three_relative_sd': {'F0': 0.07343809071679189, 'F1': 0.18321322848954866, 'F2': 0.4053981575322114, 'F3': 0.09636100524347273, 'F4': 0.22027422277888506}}
