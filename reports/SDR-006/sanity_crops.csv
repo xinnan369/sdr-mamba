@@ -1,0 +1,7 @@
+id,top,left,height,width,flipped,image_points,crop_points,excluded_by_crop
+cc5bfca4067e9c9e,0,421,256,256,False,28,8,20
+41ecd4abf8f4f250,10,513,256,256,False,53,8,45
+fd8ced099245c288,21,308,256,256,False,85,15,70
+b24b66f7c84a7d94,109,303,256,256,False,117,26,91
+83e71ce342898139,46,428,256,256,False,165,43,122
+fe756a2bcaf0f555,0,730,256,256,False,281,89,192

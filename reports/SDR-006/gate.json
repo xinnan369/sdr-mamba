@@ -1,0 +1,36 @@
+{
+  "status": "FAIL",
+  "confirmation": "NOT_RUN",
+  "official_test": "NOT_RUN",
+  "checks": {
+    "F1_MAE_gain_vs_F0": true,
+    "F1_MAE_noninferiority_vs_F2": true,
+    "F1_GAME1_noninferiority": true,
+    "all_modes_tail_stability": false
+  },
+  "relative_F1_minus_control": {
+    "F0": {
+      "mae": -0.477118233604181,
+      "game1": -0.4876868892365882
+    },
+    "F2": {
+      "mae": -0.14149120366877296,
+      "game1": -0.09642730205340332
+    },
+    "F3": {
+      "mae": -0.1083433318451753,
+      "game1": -0.10052237241512499
+    },
+    "F4": {
+      "mae": -0.06774589980529502,
+      "game1": -0.008221437626092384
+    }
+  },
+  "last_three_relative_sd": {
+    "F0": 0.07343809071679189,
+    "F1": 0.18321322848954866,
+    "F2": 0.4053981575322114,
+    "F3": 0.09636100524347273,
+    "F4": 0.22027422277888506
+  }
+}

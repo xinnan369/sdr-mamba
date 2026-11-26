@@ -1,0 +1,14 @@
+============================= test session starts =============================
+platform win32 -- Python 3.9.21, pytest-8.4.2, pluggy-1.6.0
+rootdir: <repo>
+configfile: pyproject.toml
+plugins: anyio-4.8.0
+collected 15 items / 12 deselected / 3 selected
+
+tests\test_ssm.py s
+tests\test_sdr005.py ss
+
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_ssm.py:52: NOT_RUN: official SSD import failed: No module named 'mamba_ssm'
+SKIPPED [2] tests\test_sdr005.py:128: NOT_RUN: official Mamba SSD dependencies unavailable in this CUDA environment
+====================== 3 skipped, 12 deselected in 2.54s ======================
