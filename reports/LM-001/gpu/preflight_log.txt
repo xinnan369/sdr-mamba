@@ -1,0 +1,5 @@
+preflight/cnn_only elapsed 5.0s, projected 1241.6s/run, GPU reserved with margin 0.905 GiB
+preflight/shared_2_transformer elapsed 8.3s, projected 2046.2s/run, GPU reserved with margin 1.280 GiB
+preflight/unshared_2_transformer elapsed 11.6s, projected 2327.4s/run, GPU reserved with margin 1.201 GiB
+preflight/shared_2_mamba elapsed 15.6s, projected 2493.4s/run, GPU reserved with margin 1.405 GiB
+preflight/unshared_2_mamba elapsed 19.5s, projected 2612.0s/run, GPU reserved with margin 1.417 GiB

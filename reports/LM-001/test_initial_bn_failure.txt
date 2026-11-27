@@ -1,0 +1,127 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.11, pytest-8.3.5, pluggy-1.7.0
+rootdir: <repo>
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.9.0
+collected 82 items
+
+tests/test_data.py ..
+tests/test_lm001.py .....FFF
+tests/test_mar001.py ......
+tests/test_mar001b.py F1 torch.float64 relative RMS maxima {'norm': 1.58462828931129e-16, 'step': 4.842057970337605e-16, 'jvp': 0.0, 'anchor_centered': 1.6953158132107346e-16, 'anchor_head': 4.576018448718995e-17}
+.F3 torch.float64 relative RMS maxima {'norm': 1.5886606695036575e-16, 'step': 6.414996873956947e-16, 'jvp': 0.0, 'anchor_centered': 1.6963180831066717e-16, 'anchor_head': 4.613684703073171e-17}
+.F1 torch.float32 relative RMS maxima {'norm': 1.0709571584322553e-07, 'step': 3.4017198121687383e-07, 'jvp': 1.5709600329836058e-11, 'anchor_centered': 9.905868083174471e-08, 'anchor_head': 2.783215328307451e-08}
+.F3 torch.float32 relative RMS maxima {'norm': 1.0964366234154386e-07, 'step': 2.770356217258295e-07, 'jvp': 7.163811592992699e-11, 'anchor_centered': 1.0180922888462942e-07, 'anchor_head': 2.726184210322415e-08}
+...
+tests/test_scan_transport.py ........
+tests/test_sdr002.py .....
+tests/test_sdr003.py ..........
+tests/test_sdr004.py ................
+tests/test_sdr005.py .........ss
+tests/test_sdr006.py ......
+tests/test_ssm.py ...s
+
+=================================== FAILURES ===================================
+____ test_exact_shared_gradient_routing_and_stage_supervision[transformer] _____
+
+upstream = ({'analysis': {'count_match_delta': 0.5, 'epochs': [36, 37, 38, 39, 40], 'nap_deltas': [0.05, 0.1, 0.15, 0.2, 0.25, 0...., -5.0823e-03,
+        -2.5093e-02,  6.7847e-03, -1.7868e-02, -7.8250e-04, -6.3448e-03],
+       requires_grad=True))]))
+family = 'transformer'
+
+    @pytest.mark.parametrize("family", ["transformer", "mamba"])
+    def test_exact_shared_gradient_routing_and_stage_supervision(upstream, family):
+        cfg, weights = upstream
+        from loopcrowd.targets import point_targets, point_loss
+        from loopcrowd.training import supervised_point_loss
+
+        x = torch.rand(1,3,80,96)
+        target = {k:v[None] for k,v in point_targets([[18.,22.],[20.,19.]],96,80).items()}
+        for sharing in ("shared", "unshared"):
+            arm = f"{sharing}_2_{family}"
+>           model = build_model(cfg, arm, 42, weights).eval()
+
+tests/test_lm001.py:100:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/sdr_mamba/lm001.py:95: in build_model
+    initialize_backbone(model, weights)
+src/sdr_mamba/lm001.py:84: in initialize_backbone
+    model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <odict_iterator object at 0x7fde4d5b0630>
+
+>   model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+                              for key in model.p2.state_dict()})
+E   KeyError: 'bn1.num_batches_tracked'
+
+src/sdr_mamba/lm001.py:84: KeyError
+_______ test_exact_shared_gradient_routing_and_stage_supervision[mamba] ________
+
+upstream = ({'analysis': {'count_match_delta': 0.5, 'epochs': [36, 37, 38, 39, 40], 'nap_deltas': [0.05, 0.1, 0.15, 0.2, 0.25, 0...., -5.0823e-03,
+        -2.5093e-02,  6.7847e-03, -1.7868e-02, -7.8250e-04, -6.3448e-03],
+       requires_grad=True))]))
+family = 'mamba'
+
+    @pytest.mark.parametrize("family", ["transformer", "mamba"])
+    def test_exact_shared_gradient_routing_and_stage_supervision(upstream, family):
+        cfg, weights = upstream
+        from loopcrowd.targets import point_targets, point_loss
+        from loopcrowd.training import supervised_point_loss
+
+        x = torch.rand(1,3,80,96)
+        target = {k:v[None] for k,v in point_targets([[18.,22.],[20.,19.]],96,80).items()}
+        for sharing in ("shared", "unshared"):
+            arm = f"{sharing}_2_{family}"
+>           model = build_model(cfg, arm, 42, weights).eval()
+
+tests/test_lm001.py:100:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/sdr_mamba/lm001.py:95: in build_model
+    initialize_backbone(model, weights)
+src/sdr_mamba/lm001.py:84: in initialize_backbone
+    model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <odict_iterator object at 0x7fde4d2b38d0>
+
+>   model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+                              for key in model.p2.state_dict()})
+E   KeyError: 'bn1.num_batches_tracked'
+
+src/sdr_mamba/lm001.py:84: KeyError
+________ test_reference_ema_handles_shared_objects_and_restores_buffers ________
+
+upstream = ({'analysis': {'count_match_delta': 0.5, 'epochs': [36, 37, 38, 39, 40], 'nap_deltas': [0.05, 0.1, 0.15, 0.2, 0.25, 0...., -5.0823e-03,
+        -2.5093e-02,  6.7847e-03, -1.7868e-02, -7.8250e-04, -6.3448e-03],
+       requires_grad=True))]))
+
+    def test_reference_ema_handles_shared_objects_and_restores_buffers(upstream):
+        cfg, weights = upstream
+        from loopcrowd.ema import ParameterEMA
+
+>       model = build_model(cfg, "shared_2_mamba", 42, weights)
+
+tests/test_lm001.py:124:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/sdr_mamba/lm001.py:95: in build_model
+    initialize_backbone(model, weights)
+src/sdr_mamba/lm001.py:84: in initialize_backbone
+    model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <odict_iterator object at 0x7fde4d330680>
+
+>   model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+                              for key in model.p2.state_dict()})
+E   KeyError: 'bn1.num_batches_tracked'
+
+src/sdr_mamba/lm001.py:84: KeyError
+=========================== short test summary info ============================
+SKIPPED [2] tests/test_sdr005.py:128: NOT_RUN: official Mamba SSD dependencies unavailable in this CUDA environment
+SKIPPED [1] tests/test_ssm.py:48: NOT_RUN: CUDA unavailable to this interpreter
+FAILED tests/test_lm001.py::test_exact_shared_gradient_routing_and_stage_supervision[transformer]
+FAILED tests/test_lm001.py::test_exact_shared_gradient_routing_and_stage_supervision[mamba]
+FAILED tests/test_lm001.py::test_reference_ema_handles_shared_objects_and_restores_buffers
+=================== 3 failed, 76 passed, 3 skipped in 14.96s ===================

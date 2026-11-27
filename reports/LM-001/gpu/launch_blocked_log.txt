@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<repo>/scripts/run_lm001_gpu.py", line 341, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "<repo>/scripts/run_lm001_gpu.py", line 325, in main
+    return train(args, config, audit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/scripts/run_lm001_gpu.py", line 243, in train
+    raise ValueError("Formal runs require the committed LM-001 launch code")
+ValueError: Formal runs require the committed LM-001 launch code

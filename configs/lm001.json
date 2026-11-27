@@ -1,0 +1,41 @@
+{
+  "status": "CPU_ONLY_GPU_NOT_AUTHORIZED",
+  "reference": {
+    "repository": "https://github.com/xinnan369/looped-transform",
+    "lc007b": "0aeaea0562f075fd28ecaa48c6400193a7cf22f4",
+    "lc007g": "4a0f7b023e314af8ac6fe3c8ea0390d3428dee63",
+    "manifest_sha256": "de60892266c08bce96a3ea07e884c86eec8d05e0a9d31c0949bcff9e925fe482",
+    "weight_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "weight_bytes": 46830571,
+    "split_images_heads": {"train": [360, 44856], "val": [40, 4295]},
+    "train_density_boundaries": [82.65177408854167, 180.98619249131943]
+  },
+  "arms": {
+    "cnn_only": {"base": "cnn_only", "mixer": "none"},
+    "shared_2_transformer": {"base": "shared_2", "mixer": "attention"},
+    "unshared_2_transformer": {"base": "unshared_2", "mixer": "attention"},
+    "shared_2_mamba": {"base": "shared_2", "mixer": "reference_ssd"},
+    "unshared_2_mamba": {"base": "unshared_2", "mixer": "reference_ssd"}
+  },
+  "geometry": {"width": 192, "window": 8, "shifts": [0, 0], "inner": 224, "head_width": 16, "state": 32},
+  "recipe": {
+    "pretrained": true, "slots": 2, "density_weight": 0, "loop_embedding": false,
+    "gradient_checkpointing": false, "backbone_bn": "train", "tile_size": 512, "tile_overlap": 128,
+    "crop_mode": "random", "batch_size": 2, "workers": 4, "precision": "bf16",
+    "epochs": 40, "patience": 0, "lr": 0.0002, "weight_decay": 0.01, "min_lr": 0.00002,
+    "lr_schedule": "warmup_cosine", "warmup_fraction": 0.05, "fixed_training_horizon": true,
+    "count_threshold": 0.30, "localization_min_score": 0.05, "stage": "pilot",
+    "label_policy": "shanghaitech_lc001_drop_only_logged_out_of_bounds",
+    "audit_training": true, "ema_decay": 0.99
+  },
+  "order": {
+    "42": ["cnn_only", "shared_2_transformer", "unshared_2_transformer", "shared_2_mamba", "unshared_2_mamba"],
+    "123": ["unshared_2_mamba", "shared_2_mamba", "unshared_2_transformer", "shared_2_transformer", "cnn_only"]
+  },
+  "analysis": {"primary_policy": "ema", "epochs": [36, 37, 38, 39, 40], "count_match_delta": 0.50,
+               "nap_deltas": [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]},
+  "budget_proposal": {"device": "one RTX 3090", "gpu_seconds": 21600, "per_run_seconds": 3600,
+                      "gpu_preflight_seconds": 600, "min_device_free_bytes": 8589934592,
+                      "peak_reserved_bytes": 6442450944, "runs": 10, "successful_updates": 72000,
+                      "updates_per_epoch": 180, "warmup_updates": 360, "external_download_bytes": 0}
+}

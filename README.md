@@ -92,3 +92,7 @@ The five-arm ShanghaiTech Part B audit uses a common multiscale recipe and a pre
 ## MAR-001B readout diagnostics
 
 The frozen-weight diagnostic tests whether channel-mean drift explains overcounting beyond the training depth. The [MAR-001B report](reports/MAR-001B/REPORT.md) contains the preregistered decision, matched-image results, and CUDA reproduction commands. It uses the same development data and checkpoints as [MAR-001](reports/MAR-001/REPORT.md).
+
+## LM-001 CPU comparison platform
+
+The point-counting platform reuses pinned LoopCrowd components and the verified ShanghaiTech Part B development split. See the [CPU audit report](reports/LM-001/REPORT.md), [frozen protocol and GPU budget](reports/LM-001/PROTOCOL.md), and [GPU results for A4–A6](reports/LM-001/GPU.md).

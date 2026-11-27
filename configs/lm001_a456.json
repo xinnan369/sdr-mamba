@@ -1,0 +1,13 @@
+{
+  "status": "GPU_AUTHORIZED_FOCUS",
+  "parent": "configs/lm001.json",
+  "arm_ids": {"single_mamba": "A4", "shared_2_mamba": "A5", "unshared_2_mamba": "A6"},
+  "single_mamba": {"base": "shared_1", "mixer": "reference_ssd"},
+  "order": {
+    "42": ["single_mamba", "shared_2_mamba", "unshared_2_mamba"],
+    "123": ["single_mamba", "shared_2_mamba", "unshared_2_mamba"]
+  },
+  "additional_runs": 6,
+  "additional_updates": 43200,
+  "prior_time_and_updates_charge_against_original_budget": true
+}

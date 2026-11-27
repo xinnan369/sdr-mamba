@@ -1,0 +1,2 @@
+A4 seed 42: common/first-block/LR checksum, final-only backward and EMA evaluation PASS
+A4 seed 123: common/first-block/LR checksum, final-only backward and EMA evaluation PASS
