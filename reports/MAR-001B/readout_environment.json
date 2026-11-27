@@ -1,0 +1,14 @@
+{
+  "phase": "readout",
+  "code_commit": "d8d8ee79bacf76e5c38ccf33dc905dad56fe2c56",
+  "config_sha256": "526132f019848b9a8ab7b88127370e3f400ccf90692ace3af56b3239748fafa5",
+  "dataset_sha256": "7bba014acfc39391bfeb0b88c4a455ec89c2111e9cc1809613e4b4ae9d17b361",
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "python": "3.9.21",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cublas_workspace_config": ":4096:8",
+  "readout_config_sha256": "e135f91ba5e32f455d51c5eb698df6fabee054b5bc5fb102838e39422baa131b",
+  "base_commit": "454ba1d55a7f1324aeed044bd4468b885f8d89dc"
+}

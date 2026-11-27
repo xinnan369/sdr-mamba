@@ -88,3 +88,7 @@ The real-data screen compares seven crowd-counting models at a common budget. It
 ## SDR-006 final feasibility audit
 
 The five-arm ShanghaiTech Part B audit uses a common multiscale recipe and a preregistered development checkpoint rule. The [SDR-006 report](reports/SDR-006/REPORT.md) records the annotation protocol, development gate, and reproduction commands. The [project review](reports/PROJECT_REVIEW.md) traces the evidence across all six rounds.
+
+## MAR-001B readout diagnostics
+
+The frozen-weight diagnostic tests whether channel-mean drift explains overcounting beyond the training depth. The [MAR-001B report](reports/MAR-001B/REPORT.md) contains the preregistered decision, matched-image results, and CUDA reproduction commands. It uses the same development data and checkpoints as [MAR-001](reports/MAR-001/REPORT.md).
