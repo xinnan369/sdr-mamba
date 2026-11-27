@@ -218,6 +218,92 @@ def digest_by_key(audit):
     return {(int(seed), arm): row["initial_sha256"] for seed, group in audit["cases"].items() for arm,row in group.items()}
 
 
+def historical_epoch_pairs(args, config, seed, audit_rows):
+    b = config["reference"]["lc007b"]
+    data = historical(args.reference, b, f"reports/LC-007B/epochs/{seed}/cnn_only/training.csv")
+    rows = list(csv.DictReader(io.StringIO(data.decode())))
+    if len(rows) != 40 or any(int(row["optimizer_updates"]) != 180 or int(row["amp_skipped_updates"]) for row in rows):
+        raise ValueError("The reference optimizer and crop ledger is incomplete")
+    paths = [(r["crop_order_sha256"],r["learning_rates_sha256"]) for r in rows]
+    if any([h for h, _ in paths] != r["crop_epoch_sha256"] for r in audit_rows.values()):
+        raise ValueError("Historical crop hashes differ from the LM-001 CPU freeze")
+    return paths
+
+
+def train(args, config, audit):
+    from loopcrowd import training
+
+    approved = read_json(args.output / "preflight.json")
+    if approved["status"] != "PASS" or approved["config_sha256"] != digest_config(config):
+        raise ValueError("A passed preflight for this exact configuration is required")
+    queue = args.output / "queue.json"
+    if queue.exists():
+        raise FileExistsError("This authorized queue was already started")
+    if git_read(Path.cwd(), "status", "--porcelain", "--untracked-files=no").strip():
+        raise ValueError("Formal runs require the committed LM-001 launch code")
+    launch_sha = git_read(Path.cwd(), "rev-parse", "HEAD").decode().strip()
+    device, environment = paths(args, config)
+    guard = Budget(config["budget_proposal"], device, args.output, spent=approved["elapsed_seconds"])
+    state = {"status": "RUNNING", "config_sha256": digest_config(config), "code_commit": launch_sha,
+             "environment": environment, "preflight_seconds": approved["elapsed_seconds"],
+             "planned_runs": 10, "completed": [], "current": None, "official_test": "NOT_RUN",
+             "external_download_bytes": 0}
+    write_json(queue, state)
+    try:
+        weights, verified = assets(args, config)
+        if verified != audit["assets"]:
+            raise ValueError("Runtime assets differ from the frozen CPU audit")
+        base_weight_provenance = {"requested": "IMAGENET1K_V1", "loaded": True, "sha256": verified["weights_sha256"]}
+        starts = digest_by_key(audit)
+        counts = config["budget_proposal"]
+        for seed_text, arms in config["order"].items():
+            seed = int(seed_text)
+            trajectory = historical_epoch_pairs(args, config, seed, audit["cases"][seed_text])
+            for arm in arms:
+                guard.case = f"{seed}/{arm}"
+                guard.run_start = perf_counter()
+                guard.check("initialization")
+                torch.cuda.empty_cache()
+                torch.cuda.reset_peak_memory_stats(device)
+                state["current"] = {"seed": seed, "arm": arm, **guard.totals()}
+                write_json(queue, state)
+                print(f"START {guard.case} {guard.totals()}", flush=True)
+                run = recipe(config, arm, seed)
+                output = args.output / "runs" / seed_text / arm
+                before = guard.updates
+                expected = {"initial_sha256": starts[seed,arm], "trajectory": trajectory}
+
+                def make_frozen_model(run_config, initialize):
+                    if not initialize or run_config["seed"] != seed or run_config["variant"] != run["variant"]:
+                        raise ValueError("Unexpected model initialization outside the frozen case")
+                    return build_model(config, arm, seed, weights)
+
+                with patch.object(training, "make_model", make_frozen_model), patch.object(
+                        training, "weight_provenance", lambda *unused: base_weight_provenance):
+                    result = training.fit(run, args.manifest, output, device, guard=guard, expected=expected)
+                consumed = guard.updates - before
+                if (result["execution"], result["completed_epochs"], result["global_step"], consumed) != (
+                        "completed", run["epochs"], run["epochs"]*counts["updates_per_epoch"],
+                        run["epochs"]*counts["updates_per_epoch"]):
+                    raise RuntimeError("Upstream runner did not complete the registered successful updates")
+                state["completed"].append({"seed": seed, "arm": arm, "seconds": perf_counter()-guard.run_start,
+                                           "updates": consumed, "checkpoint_sha256": result["checkpoints"]["last.pt"]["sha256"]})
+                state["current"] = None
+                write_json(queue, state)
+                print(f"COMPLETE {guard.case} {guard.totals()}", flush=True)
+        if guard.updates != counts["successful_updates"]:
+            raise RuntimeError("Final successful-update sum differs from the freeze")
+        guard.check()
+        state["status"] = "PASS"
+    except Exception as failure:
+        state.update(status="BLOCKED", error_type=type(failure).__name__, reason=str(failure))
+        raise
+    finally:
+        state.update(guard.totals())
+        write_json(queue, state)
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--reference", type=Path, required=True)
