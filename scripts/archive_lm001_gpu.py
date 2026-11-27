@@ -2,6 +2,7 @@
 
 import argparse
 import hashlib
+import json
 import math
 from pathlib import Path
 from statistics import mean, stdev
@@ -16,6 +17,11 @@ def close(left, right):
         raise ValueError("An aggregate disagrees with its per-image evidence")
 
 
+def json_digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+                          .encode("utf-8")).hexdigest()
+
+
 def extract(case, local, config, audit):
     seed, arm = case["seed"], case["arm"]
     root = local / "runs" / str(seed) / arm
@@ -23,12 +29,17 @@ def extract(case, local, config, audit):
     checkpoints = read_json(root / "checkpoint_index.json")
     provenance = read_json(root / "run_manifest.json")
     expected = audit["cases"][str(seed)][arm]
+    if (provenance["tracked_changes"] or provenance["data"]["sha256"] != config["reference"]["manifest_sha256"]
+            or provenance["weight_initialization"]["sha256"] != config["reference"]["weight_sha256"]):
+        raise ValueError("A completed case has unfrozen code or input provenance")
     if len(history) != len(checkpoints) or provenance["initial_state_sha256"] != expected["initial_sha256"]:
         raise ValueError("Checkpoint ledger or initialization mismatch")
     if sha_file(root / "last.pt") != checkpoints[-1]["sha256"]:
         raise ValueError("Last checkpoint hash differs")
     if "checkpoint_sha256" in case and (len(history) != 40 or case["checkpoint_sha256"] != checkpoints[-1]["sha256"]):
         raise ValueError("The completed case does not match its checkpoint")
+    if len(history) == 40 and json_digest([rate for row in history for rate in row["learning_rates"]]) != expected["lr_sha256"]:
+        raise ValueError("The learning-rate trajectory differs from the frozen audit")
     metrics, training, images = [], [], []
     for epoch, (row, ckpt) in enumerate(zip(history, checkpoints), 1):
         if (row["epoch"],row["global_step"],row["optimizer_updates"],row["amp_skipped_updates"],
@@ -46,6 +57,7 @@ def extract(case, local, config, audit):
                         "early_loss","train_seconds","epoch_seconds","peak_train_allocated_bytes",
                         "peak_train_reserved_bytes","gradient_l2_last_step")
         training.append({**meta, **{field: row.get(field) for field in train_fields},
+                         "learning_rates_sha256": json_digest(row["learning_rates"]),
                          "checkpoint_sha256": ckpt["sha256"], "image_metrics_sha256": row["image_metrics_sha256"]})
         readouts = {"live": {"final": row["validation"]}, "ema": row["ema_validation"]}
         if "early_validation" in row:
@@ -109,9 +121,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--local", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--focus-cpu", type=Path)
     args = parser.parse_args()
     config = read_json(Path("configs/lm001.json"))
     audit = read_json(Path("reports/LM-001/cpu_audit.json"))
+    if args.focus_cpu:
+        from scripts.run_lm001_a456 import focused_plan
+        config, audit = focused_plan(), read_json(args.focus_cpu)
     output = args.output
     output.mkdir(parents=True, exist_ok=False)
     preflight = read_json(args.local / "preflight.json")
@@ -138,8 +154,10 @@ def main():
     for name, records in (("training", training),("metrics", metrics),("per_image", images)):
         append_rows(output / f"gpu_{name}.csv", records)
     summarize(output, metrics, config)
-    if queue["status"] == "PASS" and (len(cases) != 10 or len(training) != 400 or queue["updates"] != 72000):
-        raise ValueError("A complete queue requires ten 40-epoch runs, 72,000 updates")
+    planned = sum(map(len, config["order"].values()))
+    if queue["status"] == "PASS" and (len(cases) != planned or len(training) != planned*40
+                                    or queue["updates"]-queue.get("prior_updates",0) != planned*7200):
+        raise ValueError("A complete queue must match the frozen size, epochs and updates")
     public = {k: v for k,v in queue.items() if k != "reason"}
     write_json(output / "gpu_decision.json", public | {"verified_epochs": len(training), "image_rows": len(images),
                                                        "metric_rows": len(metrics)})

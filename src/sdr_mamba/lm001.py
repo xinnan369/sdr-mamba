@@ -75,7 +75,7 @@ class WindowSSDMixer(nn.Module):
 def recipe(config, arm, seed):
     base = config["arms"][arm]["base"]
     return config["recipe"] | {"variant": base, "seed": seed,
-                               "early_loss_weight": None if base == "cnn_only" else .25}
+                               "early_loss_weight": None if base in ("cnn_only", "shared_1") else .25}
 
 
 def initialize_backbone(model, weights):

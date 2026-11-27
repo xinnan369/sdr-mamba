@@ -149,7 +149,7 @@ def flops(model, config, arm, size):
         started = time.perf_counter()
         with torch.inference_mode():
             example = torch.zeros(1, 3, size, size)
-            if model.loops:
+            if model.loops == 2:
                 model.eval().forward_stages(example)
             else:
                 model.eval()(example)
@@ -173,11 +173,11 @@ def flops(model, config, arm, size):
         scans = 4*tokens*model.loops
     else:
         per_call = 0
-    decoder_read = counts["decoder"]//(2 if model.loops else 1)
+    decoder_read = counts["decoder"]//(2 if model.loops == 2 else 1)
     final = counts["backbone"]+decoder_read+counts["ffn"]+model.loops*per_call
     return {"tile": size, "backbone_flops": counts["backbone"], "one_point_readout_flops": decoder_read,
             "ffn_flops": counts["ffn"], "mixer_flops": model.loops*per_call, "final_only_flops": final,
-            "supervised_or_staged_flops": final + (decoder_read if model.loops else 0),
+            "supervised_or_staged_flops": final + (decoder_read if model.loops == 2 else 0),
             "scan_token_visits": scans, "cpu_fp32_single_forward_seconds": duration}
 
 
@@ -214,7 +214,8 @@ def cpu_probe(model, config, boundaries):
         record = Record("synthetic", "cpu_fixture", "val", "synthetic.png", 640, 544, [[24., 40.], [498., 118.]])
         snapshot, rng = state_sha(model), torch.get_rng_state().clone()
         with preserve_training_context(model, device), ema.use_shadow():
-            score, rows = grouped_validation(model, [record], path, config_cpu, device, staged=bool(model.loops),
+            score, rows = grouped_validation(model, [record], path, config_cpu, device,
+                                             staged=config["early_loss_weight"] is not None,
                                              boundaries=boundaries, check=lambda: None)
         if state_sha(model) != snapshot or not model.training or not torch.equal(torch.get_rng_state(), rng):
             raise ValueError("EMA probe did not restore weights, BN state, mode and RNG")

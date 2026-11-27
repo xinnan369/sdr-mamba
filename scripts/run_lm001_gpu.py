@@ -120,7 +120,8 @@ def preflight(args, config, weights, audit, device, guard, environment):
     caps = config["budget_proposal"]
     guard.phase_limit = guard.run_limit = caps["gpu_preflight_seconds"]
     history = phase_history(args, config)
-    history_names = {"cnn_only": "cnn_only", "shared_2": "shared_2_aux_025", "unshared_2": "unshared_2_aux_025"}
+    history_names = {"cnn_only": "cnn_only", "shared_1": "shared_1",
+                     "shared_2": "shared_2_aux_025", "unshared_2": "unshared_2_aux_025"}
     starts = digest_by_key(audit)
     results = {}
     with tempfile.TemporaryDirectory(prefix="lm001-gpu-preflight-") as directory:
@@ -174,7 +175,8 @@ def preflight(args, config, weights, audit, device, guard, environment):
                     guard.check("validation_image")
                     start = perf_counter()
                     with swap:
-                        grouped_validation(model, fixtures, root, run, device, staged=bool(model.loops),
+                        grouped_validation(model, fixtures, root, run, device,
+                                           staged=run["early_loss_weight"] is not None,
                                            boundaries=audit["assets"]["density_boundaries"],
                                            check=lambda: guard.check("validation_image"))
                         torch.cuda.synchronize(device)
@@ -230,7 +232,7 @@ def historical_epoch_pairs(args, config, seed, audit_rows):
     return paths
 
 
-def train(args, config, audit):
+def train(args, config, audit, prior_updates=0):
     from loopcrowd import training
 
     approved = read_json(args.output / "preflight.json")
@@ -244,9 +246,15 @@ def train(args, config, audit):
     launch_sha = git_read(Path.cwd(), "rev-parse", "HEAD").decode().strip()
     device, environment = paths(args, config)
     guard = Budget(config["budget_proposal"], device, args.output, spent=approved["elapsed_seconds"])
+    guard.updates = prior_updates
+    planned_runs = sum(map(len, config["order"].values()))
+    planned_updates = planned_runs * config["recipe"]["epochs"] * config["budget_proposal"]["updates_per_epoch"]
+    if prior_updates + planned_updates > config["budget_proposal"]["successful_updates"]:
+        raise ValueError("The focused queue would exceed the originally authorized aggregate update limit")
     state = {"status": "RUNNING", "config_sha256": digest_config(config), "code_commit": launch_sha,
              "environment": environment, "preflight_seconds": approved["elapsed_seconds"],
-             "planned_runs": 10, "completed": [], "current": None, "official_test": "NOT_RUN",
+             "planned_runs": planned_runs, "planned_updates": planned_updates, "prior_updates": prior_updates,
+             "completed": [], "current": None, "official_test": "NOT_RUN",
              "external_download_bytes": 0}
     write_json(queue, state)
     try:
@@ -291,7 +299,7 @@ def train(args, config, audit):
                 state["current"] = None
                 write_json(queue, state)
                 print(f"COMPLETE {guard.case} {guard.totals()}", flush=True)
-        if guard.updates != counts["successful_updates"]:
+        if guard.updates != prior_updates + planned_updates:
             raise RuntimeError("Final successful-update sum differs from the freeze")
         guard.check()
         state["status"] = "PASS"
