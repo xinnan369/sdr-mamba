@@ -95,4 +95,4 @@ The frozen-weight diagnostic tests whether channel-mean drift explains overcount
 
 ## LM-001 CPU comparison platform
 
-The five-arm point-counting platform reuses pinned LoopCrowd components and the verified ShanghaiTech Part B development split. See the [CPU audit report](reports/LM-001/REPORT.md) and [frozen protocol and GPU budget proposal](reports/LM-001/PROTOCOL.md). GPU training is pending authorization.
+The point-counting platform reuses pinned LoopCrowd components and the verified ShanghaiTech Part B development split. See the [CPU audit report](reports/LM-001/REPORT.md), [frozen protocol and GPU budget](reports/LM-001/PROTOCOL.md), and [GPU results for A4–A6](reports/LM-001/GPU.md).

@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "code_commit": "1b0be7dad1e12e470b97281842c95be5a7560e45",
+  "config_sha256": "fd9ecd1d4c9808a8b8eea93e9bd854265ba259699b6407a13cfdda31fbf85bfb",
+  "environment": {
+    "free_bytes": 24436015104,
+    "total_bytes": 25769279488,
+    "device": "NVIDIA GeForce RTX 3090",
+    "torch": "2.2.2+cu121",
+    "cuda_runtime": "12.1"
+  },
+  "checks": {
+    "duration": true,
+    "training_run_projection": true,
+    "all_runs_projection": true,
+    "reserved_with_margin": true,
+    "zero_optimizer_updates": true,
+    "total_preflight_budget": true,
+    "all_updates_projection": true
+  },
+  "elapsed_seconds": 1650.1970773589856,
+  "projected_total_seconds": 3821.8653709498176,
+  "arms": {
+    "single_mamba": {
+      "samples_s": [
+        0.0564485130016692,
+        0.05236600700300187,
+        0.06011185099487193,
+        0.07451849299832247,
+        0.05040321798878722,
+        0.07631774799665436,
+        0.05971270799636841,
+        0.05531470899586566,
+        0.05645783699583262,
+        0.05153120699105784,
+        0.059743969002738595,
+        0.05787288400460966
+      ],
+      "synthetic_loss_mean": 1.1817333698272705,
+      "optimizer_updates": 0,
+      "validation_four_images_seconds": {
+        "live": 0.6883786440012045,
+        "ema": 0.9427505700150505
+      },
+      "historical_epoch_p95_seconds": {
+        "training": 7.544128171646298,
+        "validation_live": 4.45317343200004,
+        "validation_ema": 4.322534809644639,
+        "checkpoint": 0.04852031449991045
+      },
+      "observed_reserved_bytes": 769654784,
+      "projected_reserved_with_margin_bytes": 1325643496,
+      "estimated_seconds_per_run": 1907.918079427909
+    },
+    "shared_2_mamba": {
+      "samples_s": [
+        0.09719459398183972,
+        0.11740310498862527,
+        0.12063706401386298,
+        0.17524369998136535,
+        0.11382308800239116,
+        0.10509752199868672,
+        0.05133219898561947,
+        0.09875185202690773,
+        0.09676928099361248,
+        0.11837442801333964,
+        0.0985362189821899,
+        0.1156541739765089
+      ],
+      "synthetic_loss_mean": 1.4666011333465576,
+      "optimizer_updates": 0,
+      "validation_four_images_seconds": {
+        "live": 0.8236500339990016,
+        "ema": 0.9312672179949004
+      },
+      "historical_epoch_p95_seconds": {
+        "training": 10.878398631152232,
+        "validation_live": 6.810627214953273,
+        "validation_ema": 6.706510150551185,
+        "checkpoint": 0.051604135046363804
+      },
+      "observed_reserved_bytes": 952107008,
+      "projected_reserved_with_margin_bytes": 1508095720,
+      "estimated_seconds_per_run": 2493.386995665496
+    },
+    "unshared_2_mamba": {
+      "samples_s": [
+        0.1074965889856685,
+        0.09824675298295915,
+        0.1154334099846892,
+        0.10256863801623695,
+        0.09883802200783975,
+        0.1005466990172863,
+        0.1293823139858432,
+        0.17099320702254772,
+        0.09533480097888969,
+        0.11772508997819386,
+        0.09949565198621713,
+        0.09610711899586022
+      ],
+      "synthetic_loss_mean": 1.4819774627685547,
+      "optimizer_updates": 0,
+      "validation_four_images_seconds": {
+        "live": 0.8545105090015568,
+        "ema": 0.9575378709996585
+      },
+      "historical_epoch_p95_seconds": {
+        "training": 11.215425833001063,
+        "validation_live": 6.598792282548675,
+        "validation_ema": 6.304208875055702,
+        "checkpoint": 0.0677785147971008
+      },
+      "observed_reserved_bytes": 960495616,
+      "projected_reserved_with_margin_bytes": 1521781128,
+      "estimated_seconds_per_run": 2611.9682171195745
+    }
+  },
+  "new_preflight_seconds": 6.0292120939993765,
+  "prior_updates": 20520,
+  "total_projected_seconds": 15676.743661784945,
+  "reused_arms": [
+    "shared_2_mamba",
+    "unshared_2_mamba"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "config_sha256": "fd9ecd1d4c9808a8b8eea93e9bd854265ba259699b6407a13cfdda31fbf85bfb",
+  "code_commit": "1b0be7dad1e12e470b97281842c95be5a7560e45",
+  "environment": {
+    "free_bytes": 24436015104,
+    "total_bytes": 25769279488,
+    "device": "NVIDIA GeForce RTX 3090",
+    "torch": "2.2.2+cu121",
+    "cuda_runtime": "12.1"
+  },
+  "preflight_seconds": 6.0292120939993765,
+  "planned_runs": 6,
+  "planned_updates": 43200,
+  "prior_updates": 20520,
+  "completed": [
+    {
+      "seed": 42,
+      "arm": "single_mamba",
+      "seconds": 564.8430127250031,
+      "updates": 7200,
+      "checkpoint_sha256": "e48ab76f7269aaae3e9c19acc9e8e14225410fef331e9f360e5c16192e556708"
+    },
+    {
+      "seed": 42,
+      "arm": "shared_2_mamba",
+      "seconds": 809.634451691003,
+      "updates": 7200,
+      "checkpoint_sha256": "f18bf74e0259960a323dfa7419c8c849c602d60dacf152afe5051cf81605eff5"
+    },
+    {
+      "seed": 42,
+      "arm": "unshared_2_mamba",
+      "seconds": 832.806091046019,
+      "updates": 7200,
+      "checkpoint_sha256": "51a8c77c622530757f92a0968cf5797fc53ffd6885587da488f4009e69f42aaa"
+    },
+    {
+      "seed": 123,
+      "arm": "single_mamba",
+      "seconds": 562.9166511670046,
+      "updates": 7200,
+      "checkpoint_sha256": "249236845e6cefd3b6eed0ce912e4d058a11fc6431058ba3fdcdc9e48e3a8e60"
+    },
+    {
+      "seed": 123,
+      "arm": "shared_2_mamba",
+      "seconds": 836.0579871970112,
+      "updates": 7200,
+      "checkpoint_sha256": "e8ed8db2ccef983c8b8d643bb36daccbe6c527ba6730368ea76c31fe4efe7a8e"
+    },
+    {
+      "seed": 123,
+      "arm": "unshared_2_mamba",
+      "seconds": 838.6898824250093,
+      "updates": 7200,
+      "checkpoint_sha256": "97d31976b34f731161956d0ac5329ae3ea4803095b8777f35825c2c23ebd47e2"
+    }
+  ],
+  "current": null,
+  "official_test": "NOT_RUN",
+  "external_download_bytes": 0,
+  "seconds": 6095.963707563002,
+  "updates": 63720,
+  "peak_reserved_bytes": 975175680,
+  "prior_elapsed_plus_new_preflight_seconds": 1650.1970773589856,
+  "verified_epochs": 240,
+  "image_rows": 32000,
+  "metric_rows": 3200
+}

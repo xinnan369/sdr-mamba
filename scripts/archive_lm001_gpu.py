@@ -102,9 +102,13 @@ def summarize(output, metrics, config):
                 primary.append({"seed": seed, "arm": arm, "policy": policy, **report,
                                 "mae_sample_cv": stdev(r["mae"] for r in records)/report["mae"] if report["mae"] else 0})
     contrasts = []
-    comparisons = [(arm, "cnn_only") for arm in config["arms"] if arm != "cnn_only"]
-    comparisons += [("shared_2_mamba","shared_2_transformer"),("unshared_2_mamba","unshared_2_transformer"),
-                    ("shared_2_transformer","unshared_2_transformer"),("shared_2_mamba","unshared_2_mamba")]
+    if "single_mamba" in config["arms"]:
+        comparisons = [("shared_2_mamba","single_mamba"),("unshared_2_mamba","single_mamba"),
+                       ("shared_2_mamba","unshared_2_mamba")]
+    else:
+        comparisons = [(arm, "cnn_only") for arm in config["arms"] if arm != "cnn_only"]
+        comparisons += [("shared_2_mamba","shared_2_transformer"),("unshared_2_mamba","unshared_2_transformer"),
+                        ("shared_2_transformer","unshared_2_transformer"),("shared_2_mamba","unshared_2_mamba")]
     ledger = {(r["seed"],r["arm"]): r for r in primary if r["policy"] == config["analysis"]["primary_policy"]}
     for left, right in comparisons:
         per_seed = [{k: ledger[seed,left][k]-ledger[seed,right][k] for k in ("mae","rmse","bias","nap","fp","fn")}
@@ -159,6 +163,9 @@ def main():
                                     or queue["updates"]-queue.get("prior_updates",0) != planned*7200):
         raise ValueError("A complete queue must match the frozen size, epochs and updates")
     public = {k: v for k,v in queue.items() if k != "reason"}
+    if "new_preflight_seconds" in preflight:
+        public.update(prior_elapsed_plus_new_preflight_seconds=public["preflight_seconds"],
+                      preflight_seconds=preflight["new_preflight_seconds"])
     write_json(output / "gpu_decision.json", public | {"verified_epochs": len(training), "image_rows": len(images),
                                                        "metric_rows": len(metrics)})
     phases = args.local / "gpu_phases.jsonl"

@@ -1,0 +1,2 @@
+preflight/single_mamba elapsed 6.0s, projected 1907.9s/run, GPU reserved with margin 1.235 GiB
+A4–A6 gate PASS {'duration': True, 'training_run_projection': True, 'all_runs_projection': True, 'reserved_with_margin': True, 'zero_optimizer_updates': True, 'total_preflight_budget': True, 'all_updates_projection': True} total forecast 15676.7s

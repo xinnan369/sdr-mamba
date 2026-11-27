@@ -1,0 +1,46 @@
+{
+  "status": "STOPPED_BY_SCOPE",
+  "config_sha256": "66877bce44a41d424ede637e6f9f2b4febe289076e7d5397cae5400f71d1b422",
+  "code_commit": "00d0bee664afbe094c1c887ec98aed98d8b632a4",
+  "environment": {
+    "free_bytes": 24436015104,
+    "total_bytes": 25769279488,
+    "device": "NVIDIA GeForce RTX 3090",
+    "torch": "2.2.2+cu121",
+    "cuda_runtime": "12.1"
+  },
+  "preflight_seconds": 19.514803300990025,
+  "planned_runs": 10,
+  "completed": [
+    {
+      "seed": 42,
+      "arm": "cnn_only",
+      "seconds": 422.7368108390074,
+      "updates": 7200,
+      "checkpoint_sha256": "b2d70ddcbe5e3b00880aff9d696d84141827950c2c109bade9dcb88182910658"
+    },
+    {
+      "seed": 42,
+      "arm": "shared_2_transformer",
+      "seconds": 633.766740239982,
+      "updates": 7200,
+      "checkpoint_sha256": "c80c68ad45dcceed6750aafeb65023cfcb83bd7f11158f0349aa241fedb8b16d"
+    }
+  ],
+  "current": {
+    "seed": 42,
+    "arm": "unshared_2_transformer",
+    "seconds": 1076.7501654339721,
+    "updates": 14400,
+    "peak_reserved_bytes": 826277888
+  },
+  "official_test": "NOT_RUN",
+  "external_download_bytes": 0,
+  "seconds": 1644.1678652649862,
+  "updates": 20520,
+  "peak_reserved_bytes": 826277888,
+  "stopped_after_epoch": 34,
+  "verified_epochs": 114,
+  "image_rows": 15040,
+  "metric_rows": 1504
+}
