@@ -1,0 +1,20 @@
+CPU audit 42/cnn_only
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<repo>/scripts/prepare_lm001.py", line 336, in <module>
+    main()
+  File "<repo>/scripts/prepare_lm001.py", line 332, in main
+    audit(args, config)
+  File "<repo>/scripts/prepare_lm001.py", line 253, in audit
+    model = build_model(config, arm, seed, weights)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/src/sdr_mamba/lm001.py", line 95, in build_model
+    initialize_backbone(model, weights)
+  File "<repo>/src/sdr_mamba/lm001.py", line 84, in initialize_backbone
+    model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repo>/src/sdr_mamba/lm001.py", line 84, in <dictcomp>
+    model.p2.load_state_dict({key: weights[f"{parts[key.split('.', 1)[0]]}.{key.split('.', 1)[1]}"]
+                                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'bn1.num_batches_tracked'

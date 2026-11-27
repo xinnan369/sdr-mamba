@@ -1,0 +1,11 @@
+CPU audit 42/cnn_only
+CPU audit 42/shared_2_transformer
+CPU audit 42/unshared_2_transformer
+CPU audit 42/shared_2_mamba
+CPU audit 42/unshared_2_mamba
+CPU audit 123/unshared_2_mamba
+CPU audit 123/shared_2_mamba
+CPU audit 123/unshared_2_transformer
+CPU audit 123/shared_2_transformer
+CPU audit 123/cnn_only
+Verified 10 CPU arm/seed combinations

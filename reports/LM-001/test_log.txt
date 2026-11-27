@@ -1,0 +1,28 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.11, pytest-8.3.5, pluggy-1.7.0
+rootdir: <repo>
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.9.0
+collected 83 items
+
+tests/test_data.py ..
+tests/test_lm001.py .........
+tests/test_mar001.py ......
+tests/test_mar001b.py F1 torch.float64 relative RMS maxima {'norm': 1.58462828931129e-16, 'step': 4.842057970337605e-16, 'jvp': 0.0, 'anchor_centered': 1.6953158132107346e-16, 'anchor_head': 4.576018448718995e-17}
+.F3 torch.float64 relative RMS maxima {'norm': 1.5886606695036575e-16, 'step': 6.414996873956947e-16, 'jvp': 0.0, 'anchor_centered': 1.6963180831066717e-16, 'anchor_head': 4.613684703073171e-17}
+.F1 torch.float32 relative RMS maxima {'norm': 1.0709571584322553e-07, 'step': 3.4017198121687383e-07, 'jvp': 1.5709600329836058e-11, 'anchor_centered': 9.905868083174471e-08, 'anchor_head': 2.783215328307451e-08}
+.F3 torch.float32 relative RMS maxima {'norm': 1.0964366234154386e-07, 'step': 2.770356217258295e-07, 'jvp': 7.163811592992699e-11, 'anchor_centered': 1.0180922888462942e-07, 'anchor_head': 2.726184210322415e-08}
+...
+tests/test_scan_transport.py ........
+tests/test_sdr002.py .....
+tests/test_sdr003.py ..........
+tests/test_sdr004.py ................
+tests/test_sdr005.py .........ss
+tests/test_sdr006.py ......
+tests/test_ssm.py ...s
+
+=========================== short test summary info ============================
+SKIPPED [2] tests/test_sdr005.py:128: NOT_RUN: official Mamba SSD dependencies unavailable in this CUDA environment
+SKIPPED [1] tests/test_ssm.py:48: NOT_RUN: CUDA unavailable to this interpreter
+=================== 80 passed, 3 skipped in 88.09s (0:01:28) ===================
