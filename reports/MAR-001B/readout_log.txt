@@ -1,0 +1,12 @@
+F1 evaluated 15/60 frozen development images
+F1 evaluated 30/60 frozen development images
+F1 evaluated 45/60 frozen development images
+F1 evaluated 60/60 frozen development images
+F3 evaluated 15/60 frozen development images
+F3 evaluated 30/60 frozen development images
+F3 evaluated 45/60 frozen development images
+F3 evaluated 60/60 frozen development images
+F4 evaluated 15/60 frozen development images
+F4 evaluated 30/60 frozen development images
+F4 evaluated 45/60 frozen development images
+F4 evaluated 60/60 frozen development images

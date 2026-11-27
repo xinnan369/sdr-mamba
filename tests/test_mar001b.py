@@ -23,23 +23,27 @@ def test_recurrence_equivariance_neutral_jvp_and_full_anchor(mode, dtype, tolera
     field = torch.randn(2, 5, 9, 1, dtype=dtype)
     expected = recurrent_step(model, x)
     y = x
+    errors = {"norm": [], "step": [], "jvp": [], "anchor_centered": [], "anchor_head": []}
     for amplitude in (.1, 1.):
         bias = amplitude*field
-        assert relative_rms(norm(x+bias)-norm(x), norm(x)) < tolerance
-        assert relative_rms(recurrent_step(model, x+bias)-expected-bias, bias) < tolerance
+        errors["norm"].append(relative_rms(norm(x+bias)-norm(x), norm(x)))
+        errors["step"].append(relative_rms(recurrent_step(model, x+bias)-expected-bias, bias))
         tangent, _ = directional_jvp(lambda value: recurrent_step(model, value), x, bias.expand_as(x).contiguous())
-        assert relative_rms(tangent-bias, bias) < tolerance
+        errors["jvp"].append(relative_rms(tangent-bias, bias))
     mean = channel_parts(x)[0]
     for _ in range(4):
         x = recurrent_step(model, x)
         y = anchor_channel_mean(recurrent_step(model, y), mean)
         z = channel_parts(x)[1]
-        assert relative_rms(channel_parts(y)[1]-z, z) < tolerance
+        errors["anchor_centered"].append(relative_rms(channel_parts(y)[1]-z, z))
         observed = model.head(y)
         predicted = model.head(z + mean)
-        assert relative_rms(observed-predicted, predicted) < tolerance
+        errors["anchor_head"].append(relative_rms(observed-predicted, predicted))
     solo = recurrent_step(model, x[:1])
     torch.testing.assert_close(solo, recurrent_step(model, x)[:1], atol=tolerance, rtol=tolerance)
+    maxima = {name: max(observed) for name, observed in errors.items()}
+    print(mode, dtype, "relative RMS maxima", maxima)
+    assert all(error < tolerance for error in maxima.values())
 
 
 def test_readout_shapley_and_zero_sum_weight():

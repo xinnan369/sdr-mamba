@@ -1,0 +1,27 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: <repo>
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collected 6 items
+
+tests\test_mar001b.py F1 torch.float64 relative RMS maxima {'norm': 1.4851981030389383e-16, 'step': 4.844262234451511e-16, 'jvp': 0.0, 'anchor_centered': 1.7405065167913453e-16, 'anchor_head': 4.035668943986514e-17}
+.F3 torch.float64 relative RMS maxima {'norm': 1.657077419419449e-16, 'step': 6.289535200677931e-16, 'jvp': 0.0, 'anchor_centered': 1.7096127334637549e-16, 'anchor_head': 4.6136847038572666e-17}
+.F1 torch.float32 relative RMS maxima {'norm': 1.1211161887662227e-07, 'step': 3.4089187149245706e-07, 'jvp': 1.2826834892841554e-11, 'anchor_centered': 9.668694926135538e-08, 'anchor_head': 2.7828815113897934e-08}
+.F3 torch.float32 relative RMS maxima {'norm': 1.0442408799098176e-07, 'step': 2.6703629805474655e-07, 'jvp': 7.163811592992699e-11, 'anchor_centered': 1.0164108761457704e-07, 'anchor_head': 2.5993598413310877e-08}
+...
+
+============================== warnings summary ===============================
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\anyio\pytest_plugin.py:14
+  <user>\AppData\Local\Programs\Python\Python313\Lib\site-packages\anyio\pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+tests/test_mar001b.py: 18 warnings
+  <user>\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\jit\_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 6 passed, 19 warnings in 3.41s ========================

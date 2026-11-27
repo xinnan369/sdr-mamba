@@ -1,0 +1,33 @@
+{
+  "source_commit": "1cbe2ed960f266331867760c17a87ddc91a62c3b",
+  "selection_config_sha256": "27a09758c694d2d8b9da800426f93af4311d198ebf91fa6f1a9ecceda82cadf5",
+  "checkpoints": [
+    {
+      "mode": "F1",
+      "seed": 0,
+      "file": "F1-s0-2000.pt",
+      "bytes": 139362,
+      "sha256": "cf3b50e058e9360c215dac06c0dc32385ead77e57ac3caf4ff0dc015f44b6577",
+      "train_depth": 4,
+      "step": 2000
+    },
+    {
+      "mode": "F3",
+      "seed": 0,
+      "file": "F3-s0-1400.pt",
+      "bytes": 140898,
+      "sha256": "dd08f55e22d2c6fff8132b6f83276be69be83ecd64cfb1331274b09aa6e4bf29",
+      "train_depth": 4,
+      "step": 1400
+    },
+    {
+      "mode": "F4",
+      "seed": 0,
+      "file": "F4-s0-1800.pt",
+      "bytes": 139362,
+      "sha256": "2cfd6289b7c77d18ae0ffd59cbafa9aea69aa0661327f6a596580fb89e88e3b6",
+      "train_depth": 1,
+      "step": 1800
+    }
+  ]
+}
